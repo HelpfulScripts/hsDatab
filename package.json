@@ -1,16 +1,17 @@
 {
   "name": "hsdatab",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "./index.js",
   "types": "./index.d.ts",
-  "keywords": [""],
+  "keywords": [
+    ""
+  ],
   "description": "Helpful Scripts simple cross-framework data table management and filtering utilities ",
   "author": {
     "name": "masterscripter",
     "email": "helpfulscripts@gmail.com"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -22,6 +23,5 @@
   "plugins": [
     "plugins/markdown"
   ],
-  "dependencies": {
-  }
+  "dependencies": {}
 }
