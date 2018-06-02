@@ -1,4 +1,3 @@
-**Helpful Scripts**
 *hsdatab* provides a JavaScript-based data management and query mechanism.
 
 Data is managed in a simple in-memory database that holds data in rows of columns. It autodetermines the types of data held in each column, along with the domain range for each column of data. A simple query language is
