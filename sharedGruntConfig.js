@@ -24,7 +24,7 @@ module.exports = (grunt, dir, dependencies, type) => {
     //------ Add Doc Tasks
     grunt.registerTask('doc', ['clean:docs', 'typedoc', 'copy:docs']);
 
-    //------ Add Staging Tasks
+    //------ Add Staging Tasks 
     grunt.registerTask('stage', [`${(type === 'app')? 'copy:stageApp': 'copy:deployLib'}`]);
     
     //------ Add Test Tasks
@@ -102,13 +102,15 @@ module.exports = (grunt, dir, dependencies, type) => {
             ]},
             stageApp: { files: [
                 { expand:true, cwd: '_dist/src', 
-                    src:['**/*.css*'], dest:'_dist' },
+                    src:['**/*.css*'], dest:'_dist' }, 
                 { expand:true, cwd: './', 
                     src:['./package.json'], dest:`node_modules/${libPath}/` }
             ]},
-            docs:   { files: [
+            docs:   { files: [ // ha
                 { expand:true, cwd: '_dist/docs', 
                     src:['**/*.json'], dest:`node_modules/${libPath}/docs`},
+                { expand:true, cwd: '_dist/docs', 
+                    src:['**/*.json'], dest:`docs/data`}, 
                 { expand:true, cwd: './', 
                     src:['*.md'], dest:`node_modules/${libPath}`}
             ]},
