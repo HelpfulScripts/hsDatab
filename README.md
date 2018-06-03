@@ -6,7 +6,7 @@ provided to filter matching data rows.
 ## Usage 
 ``` 
 
-import { data } from 'hsdata';
+import { data } from 'hsdatab';
 
 // creating the data
 const colNames = ['Name', 'Value', 'Start', 'End'];

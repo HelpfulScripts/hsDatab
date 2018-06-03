@@ -1,28 +1,24 @@
 
 /**
+* Use the {@link filter `filter`} function to executes a queries on a {@link Data `Data`} object. 
+* Each row in the data is checked and those for which `conditions` holds true are returned as a new `Data` object. 
 * 
-* The HsData object will feature its own column meta information, as well as 
-* a copy of the rows array which allows for `filter` and `sort` operations. 
-* However, the column arrays will be shared with the original HsData object in order to be memory efficient.
-* This means that `map` and `newColumn` operations on the new object will affect the original object or any 
-* object derived via `query`.  
-* @description executes a query on the data. Each row in the data is checked and those for which
-* `conditions` is true are returned as a new HsData object. 
+* # Condition construction
 *  
-* ## General Condition
+* ### General Condition
 * ```
 * Condition = 
 *    IndexCondition            -> conditions on the row index
 * || RecursiveCondition        -> (set of) conditions on column values
 * ```
 * 
-* ## IndexCondition
+* ### IndexCondition
 * ```
 * IndexCondition =
 *    rowIndex:number           -> true if row index matches
 * ```
 * 
-* ## RecursiveCondition
+* ### RecursiveCondition
 * ```
 * RecursiveCondition =
 *    OrCondition               -> OR: true if any compound condition is true
@@ -50,7 +46,7 @@
 * colDesc = either column name or index
 * ```
 * 
-* ## Practical Tips
+* ### Practical Tips
 * ```
 *    {'or': [recurCond, ...]}    -> OR, same as [recurCond, ...]
 * || {'or': {SetCond, ...}}      -> OR, same as [SetCond, ...]
@@ -70,7 +66,7 @@
 *   ['Peter', '400', '5/20/14', '4/30/15'],  
 *   ['Jane', '700', '11/13/14', '8/15/15']
 * ]
-* const data = new hsdata.Data({colNames:colNames, rows:rows});
+* const data = new hsdatab.Data({colNames:colNames, rows:rows});
 * 
 * queries = [
 *   ['0', undefined,                           'undefined query => pass all'],
@@ -228,22 +224,21 @@ function resolveCondition(condition:Condition, row:DataRow, r:number, colNumber:
     return and? andResult : orResult;
 }
 
-export type ReduceFn = (keep:boolean, row:DataRow, i:number) => void;
-
-export function filter(data:Data, cond:Condition, reduceFn?:string|ReduceFn):Data {
-    const noop = () => 0;
+/**
+ * filters a `Data` object for the given `Condition`s and returns a new `Data` object with those rows for which
+ * `cond` holds true.
+ * @param data the `Data` object to filter
+ * @param cond the complex condition to test against
+ * @return a new `Data` object with the filtered rows 
+ */
+export function filter(data:Data, cond:Condition):Data {
     const colNumber = (name:string):number => data.colNumber(name);
-    let fn:ReduceFn;
-    switch (reduceFn) {
-        default: fn = (typeof reduceFn === 'function')? <ReduceFn>reduceFn : noop;
-    } 
     try {
         return new Data({
             name:     data.getName(),
             colNames: data.colNames(), 
             rows:data.getData().filter((row:DataRow, i:number) => {
                 const keep = resolveCondition(cond, row, i, colNumber);
-                if (fn) { fn(keep, row, i); }
                 return keep;
             })
         });
