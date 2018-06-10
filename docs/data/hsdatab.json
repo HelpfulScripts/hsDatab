@@ -1,11 +1,11 @@
 {
 	"id": 0,
-	"name": "hsdatab",
+	"name": "hsDatab",
 	"kind": 0,
 	"flags": {},
 	"children": [
 		{
-			"id": 49,
+			"id": 42,
 			"name": "\"Data\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -16,7 +16,7 @@
 			"comment": {},
 			"children": [
 				{
-					"id": 63,
+					"id": 56,
 					"name": "Data",
 					"kind": 128,
 					"kindString": "Class",
@@ -28,7 +28,7 @@
 					},
 					"children": [
 						{
-							"id": 75,
+							"id": 68,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -37,14 +37,14 @@
 							},
 							"signatures": [
 								{
-									"id": 76,
+									"id": 69,
 									"name": "new Data",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 77,
+											"id": 70,
 											"name": "data",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -54,14 +54,14 @@
 											"type": {
 												"type": "reference",
 												"name": "DataSet",
-												"id": 50
+												"id": 43
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
 										"name": "Data",
-										"id": 63
+										"id": 56
 									}
 								}
 							],
@@ -74,7 +74,7 @@
 							]
 						},
 						{
-							"id": 125,
+							"id": 118,
 							"name": "data",
 							"kind": 1024,
 							"kindString": "Property",
@@ -94,13 +94,13 @@
 								"elementType": {
 									"type": "reference",
 									"name": "DataRow",
-									"id": 160
+									"id": 153
 								}
 							},
 							"defaultValue": " []"
 						},
 						{
-							"id": 126,
+							"id": 119,
 							"name": "meta",
 							"kind": 1024,
 							"kindString": "Property",
@@ -120,13 +120,13 @@
 								"elementType": {
 									"type": "reference",
 									"name": "MetaStruct",
-									"id": 57
+									"id": 50
 								}
 							},
 							"defaultValue": " []"
 						},
 						{
-							"id": 127,
+							"id": 120,
 							"name": "name",
 							"kind": 1024,
 							"kindString": "Property",
@@ -147,7 +147,7 @@
 							}
 						},
 						{
-							"id": 142,
+							"id": 135,
 							"name": "allRows",
 							"kind": 2048,
 							"kindString": "Method",
@@ -157,7 +157,7 @@
 							},
 							"signatures": [
 								{
-									"id": 143,
+									"id": 136,
 									"name": "allRows",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -167,7 +167,7 @@
 									},
 									"parameters": [
 										{
-											"id": 144,
+											"id": 137,
 											"name": "column",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -178,7 +178,7 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 158
+												"id": 151
 											}
 										}
 									],
@@ -189,7 +189,7 @@
 											{
 												"type": "reference",
 												"name": "DataVal",
-												"id": 159
+												"id": 152
 											}
 										]
 									}
@@ -204,7 +204,7 @@
 							]
 						},
 						{
-							"id": 112,
+							"id": 105,
 							"name": "castData",
 							"kind": 2048,
 							"kindString": "Method",
@@ -214,7 +214,7 @@
 							},
 							"signatures": [
 								{
-									"id": 113,
+									"id": 106,
 									"name": "castData",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -234,7 +234,7 @@
 							]
 						},
 						{
-							"id": 149,
+							"id": 142,
 							"name": "castVal",
 							"kind": 2048,
 							"kindString": "Method",
@@ -244,7 +244,7 @@
 							},
 							"signatures": [
 								{
-									"id": 150,
+									"id": 143,
 									"name": "castVal",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -260,7 +260,7 @@
 									},
 									"parameters": [
 										{
-											"id": 151,
+											"id": 144,
 											"name": "type",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -274,7 +274,7 @@
 											}
 										},
 										{
-											"id": 152,
+											"id": 145,
 											"name": "val",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -282,14 +282,14 @@
 											"type": {
 												"type": "reference",
 												"name": "DataVal",
-												"id": 159
+												"id": 152
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
 										"name": "DataVal",
-										"id": 159
+										"id": 152
 									}
 								}
 							],
@@ -302,7 +302,7 @@
 							]
 						},
 						{
-							"id": 90,
+							"id": 83,
 							"name": "colAdd",
 							"kind": 2048,
 							"kindString": "Method",
@@ -312,7 +312,7 @@
 							},
 							"signatures": [
 								{
-									"id": 91,
+									"id": 84,
 									"name": "colAdd",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -323,7 +323,7 @@
 									},
 									"parameters": [
 										{
-											"id": 92,
+											"id": 85,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -352,7 +352,7 @@
 							]
 						},
 						{
-							"id": 93,
+							"id": 86,
 							"name": "colInitialize",
 							"kind": 2048,
 							"kindString": "Method",
@@ -362,7 +362,7 @@
 							},
 							"signatures": [
 								{
-									"id": 94,
+									"id": 87,
 									"name": "colInitialize",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -372,7 +372,7 @@
 									},
 									"parameters": [
 										{
-											"id": 95,
+											"id": 88,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -383,11 +383,11 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 158
+												"id": 151
 											}
 										},
 										{
-											"id": 96,
+											"id": 89,
 											"name": "initializer",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -416,7 +416,7 @@
 							]
 						},
 						{
-							"id": 100,
+							"id": 93,
 							"name": "colName",
 							"kind": 2048,
 							"kindString": "Method",
@@ -426,7 +426,7 @@
 							},
 							"signatures": [
 								{
-									"id": 101,
+									"id": 94,
 									"name": "colName",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -437,7 +437,7 @@
 									},
 									"parameters": [
 										{
-											"id": 102,
+											"id": 95,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -445,7 +445,7 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 158
+												"id": 151
 											}
 										}
 									],
@@ -464,7 +464,7 @@
 							]
 						},
 						{
-							"id": 103,
+							"id": 96,
 							"name": "colNames",
 							"kind": 2048,
 							"kindString": "Method",
@@ -474,7 +474,7 @@
 							},
 							"signatures": [
 								{
-									"id": 104,
+									"id": 97,
 									"name": "colNames",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -501,7 +501,7 @@
 							]
 						},
 						{
-							"id": 97,
+							"id": 90,
 							"name": "colNumber",
 							"kind": 2048,
 							"kindString": "Method",
@@ -511,7 +511,7 @@
 							},
 							"signatures": [
 								{
-									"id": 98,
+									"id": 91,
 									"name": "colNumber",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -522,7 +522,7 @@
 									},
 									"parameters": [
 										{
-											"id": 99,
+											"id": 92,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -530,7 +530,7 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 158
+												"id": 151
 											}
 										}
 									],
@@ -549,7 +549,7 @@
 							]
 						},
 						{
-							"id": 105,
+							"id": 98,
 							"name": "colType",
 							"kind": 2048,
 							"kindString": "Method",
@@ -559,7 +559,7 @@
 							},
 							"signatures": [
 								{
-									"id": 106,
+									"id": 99,
 									"name": "colType",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -570,7 +570,7 @@
 									},
 									"parameters": [
 										{
-											"id": 107,
+											"id": 100,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -578,7 +578,7 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 158
+												"id": 151
 											}
 										}
 									],
@@ -597,7 +597,7 @@
 							]
 						},
 						{
-							"id": 83,
+							"id": 76,
 							"name": "export",
 							"kind": 2048,
 							"kindString": "Method",
@@ -607,7 +607,7 @@
 							},
 							"signatures": [
 								{
-									"id": 84,
+									"id": 77,
 									"name": "export",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -618,7 +618,7 @@
 									"type": {
 										"type": "reference",
 										"name": "DataSet",
-										"id": 50
+										"id": 43
 									}
 								}
 							],
@@ -631,7 +631,7 @@
 							]
 						},
 						{
-							"id": 114,
+							"id": 107,
 							"name": "filter",
 							"kind": 2048,
 							"kindString": "Method",
@@ -641,7 +641,7 @@
 							},
 							"signatures": [
 								{
-									"id": 115,
+									"id": 108,
 									"name": "filter",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -652,7 +652,7 @@
 									},
 									"parameters": [
 										{
-											"id": 116,
+											"id": 109,
 											"name": "condition",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -670,7 +670,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Data",
-										"id": 63
+										"id": 56
 									}
 								}
 							],
@@ -683,7 +683,7 @@
 							]
 						},
 						{
-							"id": 108,
+							"id": 101,
 							"name": "findDomain",
 							"kind": 2048,
 							"kindString": "Method",
@@ -693,7 +693,7 @@
 							},
 							"signatures": [
 								{
-									"id": 109,
+									"id": 102,
 									"name": "findDomain",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -703,7 +703,7 @@
 									},
 									"parameters": [
 										{
-											"id": 110,
+											"id": 103,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -714,11 +714,11 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 158
+												"id": 151
 											}
 										},
 										{
-											"id": 111,
+											"id": 104,
 											"name": "domain",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -729,7 +729,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Domain",
-												"id": 157
+												"id": 150
 											}
 										}
 									],
@@ -748,7 +748,7 @@
 							]
 						},
 						{
-							"id": 139,
+							"id": 132,
 							"name": "findType",
 							"kind": 2048,
 							"kindString": "Method",
@@ -758,7 +758,7 @@
 							},
 							"signatures": [
 								{
-									"id": 140,
+									"id": 133,
 									"name": "findType",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -774,7 +774,7 @@
 									},
 									"parameters": [
 										{
-											"id": 141,
+											"id": 134,
 											"name": "val",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -785,7 +785,7 @@
 											"type": {
 												"type": "reference",
 												"name": "DataVal",
-												"id": 159
+												"id": 152
 											}
 										}
 									],
@@ -804,7 +804,7 @@
 							]
 						},
 						{
-							"id": 136,
+							"id": 129,
 							"name": "findTypes",
 							"kind": 2048,
 							"kindString": "Method",
@@ -814,7 +814,7 @@
 							},
 							"signatures": [
 								{
-									"id": 137,
+									"id": 130,
 									"name": "findTypes",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -825,7 +825,7 @@
 									},
 									"parameters": [
 										{
-											"id": 138,
+											"id": 131,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -836,7 +836,7 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 158
+												"id": 151
 											}
 										}
 									],
@@ -855,7 +855,7 @@
 							]
 						},
 						{
-							"id": 87,
+							"id": 80,
 							"name": "getColumn",
 							"kind": 2048,
 							"kindString": "Method",
@@ -865,7 +865,7 @@
 							},
 							"signatures": [
 								{
-									"id": 88,
+									"id": 81,
 									"name": "getColumn",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -875,7 +875,7 @@
 									},
 									"parameters": [
 										{
-											"id": 89,
+											"id": 82,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -886,7 +886,7 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 158
+												"id": 151
 											}
 										}
 									],
@@ -895,7 +895,7 @@
 										"elementType": {
 											"type": "reference",
 											"name": "DataVal",
-											"id": 159
+											"id": 152
 										}
 									}
 								}
@@ -909,7 +909,7 @@
 							]
 						},
 						{
-							"id": 85,
+							"id": 78,
 							"name": "getData",
 							"kind": 2048,
 							"kindString": "Method",
@@ -919,7 +919,7 @@
 							},
 							"signatures": [
 								{
-									"id": 86,
+									"id": 79,
 									"name": "getData",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -932,7 +932,7 @@
 										"elementType": {
 											"type": "reference",
 											"name": "DataRow",
-											"id": 160
+											"id": 153
 										}
 									}
 								}
@@ -946,7 +946,7 @@
 							]
 						},
 						{
-							"id": 128,
+							"id": 121,
 							"name": "getMeta",
 							"kind": 2048,
 							"kindString": "Method",
@@ -956,14 +956,14 @@
 							},
 							"signatures": [
 								{
-									"id": 129,
+									"id": 122,
 									"name": "getMeta",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 130,
+											"id": 123,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -971,14 +971,14 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 158
+												"id": 151
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
 										"name": "MetaStruct",
-										"id": 57
+										"id": 50
 									}
 								}
 							],
@@ -991,7 +991,7 @@
 							]
 						},
 						{
-							"id": 78,
+							"id": 71,
 							"name": "getName",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1001,7 +1001,7 @@
 							},
 							"signatures": [
 								{
-									"id": 79,
+									"id": 72,
 									"name": "getName",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1024,7 +1024,7 @@
 							]
 						},
 						{
-							"id": 80,
+							"id": 73,
 							"name": "import",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1034,7 +1034,7 @@
 							},
 							"signatures": [
 								{
-									"id": 81,
+									"id": 74,
 									"name": "import",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1044,7 +1044,7 @@
 									},
 									"parameters": [
 										{
-											"id": 82,
+											"id": 75,
 											"name": "data",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1055,7 +1055,7 @@
 											"type": {
 												"type": "reference",
 												"name": "DataSet",
-												"id": 50
+												"id": 43
 											}
 										}
 									],
@@ -1074,7 +1074,7 @@
 							]
 						},
 						{
-							"id": 121,
+							"id": 114,
 							"name": "map",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1084,7 +1084,7 @@
 							},
 							"signatures": [
 								{
-									"id": 122,
+									"id": 115,
 									"name": "map",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1095,7 +1095,7 @@
 									},
 									"parameters": [
 										{
-											"id": 123,
+											"id": 116,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1109,21 +1109,21 @@
 													{
 														"type": "reference",
 														"name": "ColumnReference",
-														"id": 158
+														"id": 151
 													},
 													{
 														"type": "array",
 														"elementType": {
 															"type": "reference",
 															"name": "ColumnReference",
-															"id": 158
+															"id": 151
 														}
 													}
 												]
 											}
 										},
 										{
-											"id": 124,
+											"id": 117,
 											"name": "mapFn",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1141,7 +1141,7 @@
 													{
 														"type": "reference",
 														"name": "mapFn",
-														"id": 124
+														"id": 117
 													}
 												]
 											}
@@ -1150,7 +1150,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Data",
-										"id": 63
+										"id": 56
 									}
 								}
 							],
@@ -1163,7 +1163,7 @@
 							]
 						},
 						{
-							"id": 131,
+							"id": 124,
 							"name": "setData",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1173,7 +1173,7 @@
 							},
 							"signatures": [
 								{
-									"id": 132,
+									"id": 125,
 									"name": "setData",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1183,7 +1183,7 @@
 									},
 									"parameters": [
 										{
-											"id": 133,
+											"id": 126,
 											"name": "data",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1196,12 +1196,12 @@
 												"elementType": {
 													"type": "reference",
 													"name": "DataRow",
-													"id": 160
+													"id": 153
 												}
 											}
 										},
 										{
-											"id": 134,
+											"id": 127,
 											"name": "names",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1218,7 +1218,7 @@
 											}
 										},
 										{
-											"id": 135,
+											"id": 128,
 											"name": "autoType",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1248,7 +1248,7 @@
 							]
 						},
 						{
-							"id": 117,
+							"id": 110,
 							"name": "sort",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1258,7 +1258,7 @@
 							},
 							"signatures": [
 								{
-									"id": 118,
+									"id": 111,
 									"name": "sort",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1274,7 +1274,7 @@
 									},
 									"parameters": [
 										{
-											"id": 119,
+											"id": 112,
 											"name": "sortFn",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1292,13 +1292,13 @@
 													{
 														"type": "reference",
 														"name": "sortFn",
-														"id": 119
+														"id": 112
 													}
 												]
 											}
 										},
 										{
-											"id": 120,
+											"id": 113,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1311,14 +1311,14 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 158
+												"id": 151
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
 										"name": "Data",
-										"id": 63
+										"id": 56
 									}
 								}
 							],
@@ -1331,7 +1331,7 @@
 							]
 						},
 						{
-							"id": 145,
+							"id": 138,
 							"name": "toDate",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1341,7 +1341,7 @@
 							},
 							"signatures": [
 								{
-									"id": 146,
+									"id": 139,
 									"name": "toDate",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1357,7 +1357,7 @@
 									},
 									"parameters": [
 										{
-											"id": 147,
+											"id": 140,
 											"name": "val",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1368,11 +1368,11 @@
 											"type": {
 												"type": "reference",
 												"name": "DataVal",
-												"id": 159
+												"id": 152
 											}
 										},
 										{
-											"id": 148,
+											"id": 141,
 											"name": "limitYear",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1402,7 +1402,7 @@
 							]
 						},
 						{
-							"id": 71,
+							"id": 64,
 							"name": "toDataSet",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1413,14 +1413,14 @@
 							},
 							"signatures": [
 								{
-									"id": 72,
+									"id": 65,
 									"name": "toDataSet",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 73,
+											"id": 66,
 											"name": "data",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1428,11 +1428,11 @@
 											"type": {
 												"type": "reference",
 												"name": "DataLiteralSet",
-												"id": 161
+												"id": 154
 											}
 										},
 										{
-											"id": 74,
+											"id": 67,
 											"name": "name",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1448,7 +1448,7 @@
 									"type": {
 										"type": "reference",
 										"name": "DataSet",
-										"id": 50
+										"id": 43
 									}
 								}
 							],
@@ -1461,7 +1461,7 @@
 							]
 						},
 						{
-							"id": 64,
+							"id": 57,
 							"name": "type",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -1472,7 +1472,7 @@
 							},
 							"children": [
 								{
-									"id": 68,
+									"id": 61,
 									"name": "currency",
 									"kind": 32,
 									"kindString": "Variable",
@@ -1493,7 +1493,7 @@
 									"defaultValue": "\"currency data\""
 								},
 								{
-									"id": 67,
+									"id": 60,
 									"name": "date",
 									"kind": 32,
 									"kindString": "Variable",
@@ -1514,7 +1514,7 @@
 									"defaultValue": "\"date data\""
 								},
 								{
-									"id": 66,
+									"id": 59,
 									"name": "name",
 									"kind": 32,
 									"kindString": "Variable",
@@ -1535,7 +1535,7 @@
 									"defaultValue": "\"name data\""
 								},
 								{
-									"id": 70,
+									"id": 63,
 									"name": "nominal",
 									"kind": 32,
 									"kindString": "Variable",
@@ -1556,7 +1556,7 @@
 									"defaultValue": "\"nominal data\""
 								},
 								{
-									"id": 65,
+									"id": 58,
 									"name": "number",
 									"kind": 32,
 									"kindString": "Variable",
@@ -1577,7 +1577,7 @@
 									"defaultValue": "\"number data\""
 								},
 								{
-									"id": 69,
+									"id": 62,
 									"name": "percent",
 									"kind": 32,
 									"kindString": "Variable",
@@ -1603,12 +1603,12 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										68,
-										67,
-										66,
-										70,
-										65,
-										69
+										61,
+										60,
+										59,
+										63,
+										58,
+										62
 									]
 								}
 							],
@@ -1630,53 +1630,53 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								75
+								68
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								125,
-								126,
-								127
+								118,
+								119,
+								120
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								142,
-								112,
-								149,
-								90,
-								93,
-								100,
-								103,
-								97,
+								135,
 								105,
+								142,
 								83,
-								114,
-								108,
-								139,
-								136,
-								87,
-								85,
-								128,
-								78,
+								86,
+								93,
+								96,
+								90,
+								98,
+								76,
+								107,
+								101,
+								132,
+								129,
 								80,
+								78,
 								121,
-								131,
-								117,
-								145,
-								71
+								71,
+								73,
+								114,
+								124,
+								110,
+								138,
+								64
 							]
 						},
 						{
 							"title": "Object literals",
 							"kind": 2097152,
 							"children": [
-								64
+								57
 							]
 						}
 					],
@@ -1689,7 +1689,7 @@
 					]
 				},
 				{
-					"id": 50,
+					"id": 43,
 					"name": "DataSet",
 					"kind": 256,
 					"kindString": "Interface",
@@ -1701,7 +1701,7 @@
 					},
 					"children": [
 						{
-							"id": 52,
+							"id": 45,
 							"name": "colNames",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1727,7 +1727,7 @@
 							}
 						},
 						{
-							"id": 51,
+							"id": 44,
 							"name": "name",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1751,7 +1751,7 @@
 							}
 						},
 						{
-							"id": 53,
+							"id": 46,
 							"name": "rows",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1773,7 +1773,7 @@
 								"elementType": {
 									"type": "reference",
 									"name": "DataRow",
-									"id": 160
+									"id": 153
 								}
 							}
 						}
@@ -1783,9 +1783,9 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								52,
-								51,
-								53
+								45,
+								44,
+								46
 							]
 						}
 					],
@@ -1798,14 +1798,14 @@
 					]
 				},
 				{
-					"id": 57,
+					"id": 50,
 					"name": "MetaStruct",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 60,
+							"id": 53,
 							"name": "accessed",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1823,7 +1823,7 @@
 							}
 						},
 						{
-							"id": 61,
+							"id": 54,
 							"name": "cast",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1841,7 +1841,7 @@
 							}
 						},
 						{
-							"id": 59,
+							"id": 52,
 							"name": "column",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1859,7 +1859,7 @@
 							}
 						},
 						{
-							"id": 58,
+							"id": 51,
 							"name": "name",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1877,7 +1877,7 @@
 							}
 						},
 						{
-							"id": 62,
+							"id": 55,
 							"name": "types",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1894,7 +1894,7 @@
 								"elementType": {
 									"type": "reference",
 									"name": "TypeStruct",
-									"id": 54
+									"id": 47
 								}
 							}
 						}
@@ -1904,11 +1904,11 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								60,
-								61,
-								59,
-								58,
-								62
+								53,
+								54,
+								52,
+								51,
+								55
 							]
 						}
 					],
@@ -1921,14 +1921,14 @@
 					]
 				},
 				{
-					"id": 54,
+					"id": 47,
 					"name": "TypeStruct",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 56,
+							"id": 49,
 							"name": "count",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1946,7 +1946,7 @@
 							}
 						},
 						{
-							"id": 55,
+							"id": 48,
 							"name": "type",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1969,8 +1969,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								56,
-								55
+								49,
+								48
 							]
 						}
 					],
@@ -1983,7 +1983,7 @@
 					]
 				},
 				{
-					"id": 158,
+					"id": 151,
 					"name": "ColumnReference",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2015,7 +2015,7 @@
 					}
 				},
 				{
-					"id": 161,
+					"id": 154,
 					"name": "DataLiteralSet",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2044,7 +2044,7 @@
 					}
 				},
 				{
-					"id": 160,
+					"id": 153,
 					"name": "DataRow",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2066,12 +2066,12 @@
 						"elementType": {
 							"type": "reference",
 							"name": "DataVal",
-							"id": 159
+							"id": 152
 						}
 					}
 				},
 				{
-					"id": 159,
+					"id": 152,
 					"name": "DataVal",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2107,7 +2107,7 @@
 					}
 				},
 				{
-					"id": 155,
+					"id": 148,
 					"name": "DateDomain",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2139,7 +2139,7 @@
 					}
 				},
 				{
-					"id": 157,
+					"id": 150,
 					"name": "Domain",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2162,23 +2162,23 @@
 							{
 								"type": "reference",
 								"name": "NumDomain",
-								"id": 154
+								"id": 147
 							},
 							{
 								"type": "reference",
 								"name": "DateDomain",
-								"id": 155
+								"id": 148
 							},
 							{
 								"type": "reference",
 								"name": "NameDomain",
-								"id": 156
+								"id": 149
 							}
 						]
 					}
 				},
 				{
-					"id": 156,
+					"id": 149,
 					"name": "NameDomain",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2204,7 +2204,7 @@
 					}
 				},
 				{
-					"id": 154,
+					"id": 147,
 					"name": "NumDomain",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2236,7 +2236,7 @@
 					}
 				},
 				{
-					"id": 153,
+					"id": 146,
 					"name": "NumRange",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2268,7 +2268,7 @@
 					}
 				},
 				{
-					"id": 167,
+					"id": 160,
 					"name": "mapFn",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2285,21 +2285,21 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 168,
+							"id": 161,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 169,
+									"id": 162,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 170,
+											"id": 163,
 											"name": "colVal",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2310,7 +2310,7 @@
 											}
 										},
 										{
-											"id": 171,
+											"id": 164,
 											"name": "colIndex",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2323,7 +2323,7 @@
 											}
 										},
 										{
-											"id": 172,
+											"id": 165,
 											"name": "rowIndex",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2336,7 +2336,7 @@
 											}
 										},
 										{
-											"id": 173,
+											"id": 166,
 											"name": "rows",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2372,7 +2372,7 @@
 					}
 				},
 				{
-					"id": 162,
+					"id": 155,
 					"name": "sortFn",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2389,21 +2389,21 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 163,
+							"id": 156,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 164,
+									"id": 157,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 165,
+											"id": 158,
 											"name": "x",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2414,7 +2414,7 @@
 											}
 										},
 										{
-											"id": 166,
+											"id": 159,
 											"name": "y",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2447,33 +2447,33 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						63
+						56
 					]
 				},
 				{
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
+						43,
 						50,
-						57,
-						54
+						47
 					]
 				},
 				{
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						158,
-						161,
-						160,
-						159,
-						155,
-						157,
-						156,
+						151,
 						154,
 						153,
-						167,
-						162
+						152,
+						148,
+						150,
+						149,
+						147,
+						146,
+						160,
+						155
 					]
 				}
 			],
@@ -2495,13 +2495,8 @@
 			},
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/node.js/ts6/dev/hsLibs/standalone/hsDatab/src/DataFilters.ts",
 			"comment": {
-				"shortText": "The HsData object will feature its own column meta information, as well as\na copy of the rows array which allows for `filter` and `sort` operations.\nHowever, the column arrays will be shared with the original HsData object in order to be memory efficient.\nThis means that `map` and `newColumn` operations on the new object will affect the original object or any\nobject derived via `query`.",
-				"tags": [
-					{
-						"tag": "description",
-						"text": "executes a query on the data. Each row in the data is checked and those for which\n`conditions` is true are returned as a new HsData object.\n\n## General Condition\n```\nCondition =\n   IndexCondition            -> conditions on the row index\n|| RecursiveCondition        -> (set of) conditions on column values\n```\n\n## IndexCondition\n```\nIndexCondition =\n   rowIndex:number           -> true if row index matches\n```\n\n## RecursiveCondition\n```\nRecursiveCondition =\n   OrCondition               -> OR: true if any compound condition is true\n|| AndCondition              -> AND: true if all compound conditions are true\n\nOrCondition =                -> OR: true if\n   AndCondition[]               -> any of the AndConditions are true\n|| IndexCondition[]             -> any of thr IndexConditions are true\n\nAndCondition =               -> AND: true if\n   SetAndCondition              -> all SetAndConditions are true\n|| TermAndCondition             -> or if all TermAndConditions are true\n\nSetAndCondition = {          -> AND: true if all sub-conditions are true\n   'or':  RecursiveCondition    -> true if any RecursiveCondition is true\n|| 'and': RecursiveCondition    -> true if all RecursiveCondition are true\n|| 'not': RecursiveCondition    -> true if the condition is false\n\nTermAndCondition = {         -> Terminal AND: true if all terminal sub-conditions are true\n   colDesc:colValue             -> true if colValue matches\n|| colDesc:[colValue, ...]      -> true if any of the colValues match\n|| colDesc:function(value,row)  -> true if function returns true\n}\n\ncolDesc = either column name or index\n```\n\n## Practical Tips\n```\n   {'or': [recurCond, ...]}    -> OR, same as [recurCond, ...]\n|| {'or': {SetCond, ...}}      -> OR, same as [SetCond, ...]\n|| {'and': [recurCond, ...]}   -> AND, true if all recurCond are true\n|| {'and': {SetCond, ...}}     -> AND, same as {SetCond, ...}\n|| {'not': {SetCond, ...}}     -> NAND: true if the SetCond are true\n|| {'not': [recurCond, ...]}   -> NOR: true if any of the recurCond are true\n```\n\n# Example\n<example height=1000px>\n<file name=\"script.js\">\nconst colNames = ['Name', 'Value', 'Start', 'End'];\nconst rows = [\n  ['Harry', '100', '3/1/14', '11/20/14'],\n  ['Mary', '1500', '7/1/14',  '9/30/14'],\n  ['Peter', '400', '5/20/14', '4/30/15'],\n  ['Jane', '700', '11/13/14', '8/15/15']\n]\nconst data = new hsdata.Data({colNames:colNames, rows:rows});\n\nqueries = [\n  ['0', undefined,                           'undefined query => pass all'],\n  ['1', [],                                  'empty OR:  []   => fail all'],\n  ['2', {},                                  'empty AND: {}   => pass all'],\n  ['3', 1,                                   '2nd row: pass row 1'],\n  ['4', [1,3],                               '2nd+4th: pass rows: 1 and 3'],\n  ['5', {Name:\"Jane\"},                       'Name is Jane'],\n  ['6', {1:1500},                            'Column 2 is 1500'],\n  ['7', {Name:[\"Peter\", \"Jane\"]},            'Name is Peter or Jane'],\n  ['8', [{Name:\"Peter\"}, {Value:1500}],      'Name is Peter or Value is 1500'],\n  ['9', {or:{Name:\"Peter\", Value:1500}},     'OR:  same as 8:'],\n  ['A', {or:[{Name:\"Peter\"}, {Value:1500}]}, 'OR: [{Name is Peter}, {Value is 1500}]'],\n  ['B', {Name:\"Peter\", Value:400},           'Name is Peter and Value is 400'],\n  ['C', {and:{Name:\"Peter\", Value:400}},     'AND: {Name is Peter, Value is 400}'],\n  ['D', {and:{Name:\"Peter\", Value:1500}},    'AND: {Name is Peter, Value is 1500}'],\n  ['E', {and:[{Name:\"Peter\"}, {Value:400}]}, 'AND:[{Name is Peter}, {Value is 400}]'],\n  ['F', {and:[{Name:\"Peter\"}, {Value:1500}]},'AND:[{Name is Peter}, {Value is 1500}]'],\n  ['G', {not:{Name:\"Peter\", Value:400}},     'NAND: not {Name is Peter and Value is 400}'],\n  ['H', {not:{Name:\"Peter\", Value:1500}},    'NAND: not {Name is Peter and Value is 1500}'],\n  ['I', {not:[{Name:\"Peter\"}, {Value:1500}]},'NOR: not [{Name is Peter} or {Value is 1500}]'],\n  ['J', {Name:(v) => v.length===4},          'Name has 4 letters']\n];\n\nm.mount(root, {\n  view:() => m('', [\n      m('h3', 'Given the data set:'),\n      m('table#data', [\n          m('tr', colNames.map(n => m('th', n))),\n          ...rows.map(row => m('tr', [m('td', row[0]),m('td', row[1]),m('td', row[2].toDateString()),m('td', row[3].toDateString())]))\n      ]),\n      m('h3', 'The following queries yield:'),\n      m('table', [\n          m('tr', [m('th','#'), m('th','Query'), m('th',\"Live Result, by 'Name' field\")]),\n          ...queries.map(q => {\n              const result = data.filter(q[1]).getColumn('Name').join(', ');\n              return m('tr', [m('td',`${q[0]}:`), m('td',`${q[2]}`), m('td',`[ ${result} ]`)]);\n          })\n      ])\n  ])\n});\n</file>\n<file name='style.css'>\n  $exampleID { height: 600px; }\n  #data th { width:15%; }\n  table {\n      font-size: 10pt;\n      margin-left: 10px;\n  }\n</file>\n</example>\n"
-					}
-				]
+				"shortText": "Use the {@link filter `filter`} function to executes a queries on a {@link Data `Data`} object.\nEach row in the data is checked and those for which `conditions` holds true are returned as a new `Data` object.",
+				"text": "# Condition construction\n\n### General Condition\n```\nCondition =\n   IndexCondition            -> conditions on the row index\n|| RecursiveCondition        -> (set of) conditions on column values\n```\n\n### IndexCondition\n```\nIndexCondition =\n   rowIndex:number           -> true if row index matches\n```\n\n### RecursiveCondition\n```\nRecursiveCondition =\n   OrCondition               -> OR: true if any compound condition is true\n|| AndCondition              -> AND: true if all compound conditions are true\n\nOrCondition =                -> OR: true if\n   AndCondition[]               -> any of the AndConditions are true\n|| IndexCondition[]             -> any of thr IndexConditions are true\n\nAndCondition =               -> AND: true if\n   SetAndCondition              -> all SetAndConditions are true\n|| TermAndCondition             -> or if all TermAndConditions are true\n\nSetAndCondition = {          -> AND: true if all sub-conditions are true\n   'or':  RecursiveCondition    -> true if any RecursiveCondition is true\n|| 'and': RecursiveCondition    -> true if all RecursiveCondition are true\n|| 'not': RecursiveCondition    -> true if the condition is false\n\nTermAndCondition = {         -> Terminal AND: true if all terminal sub-conditions are true\n   colDesc:colValue             -> true if colValue matches\n|| colDesc:[colValue, ...]      -> true if any of the colValues match\n|| colDesc:function(value,row)  -> true if function returns true\n}\n\ncolDesc = either column name or index\n```\n\n### Practical Tips\n```\n   {'or': [recurCond, ...]}    -> OR, same as [recurCond, ...]\n|| {'or': {SetCond, ...}}      -> OR, same as [SetCond, ...]\n|| {'and': [recurCond, ...]}   -> AND, true if all recurCond are true\n|| {'and': {SetCond, ...}}     -> AND, same as {SetCond, ...}\n|| {'not': {SetCond, ...}}     -> NAND: true if the SetCond are true\n|| {'not': [recurCond, ...]}   -> NOR: true if any of the recurCond are true\n```\n\n# Example\n<example height=1000px>\n<file name=\"script.js\">\nconst colNames = ['Name', 'Value', 'Start', 'End'];\nconst rows = [\n  ['Harry', '100', '3/1/14', '11/20/14'],\n  ['Mary', '1500', '7/1/14',  '9/30/14'],\n  ['Peter', '400', '5/20/14', '4/30/15'],\n  ['Jane', '700', '11/13/14', '8/15/15']\n]\nconst data = new hsdatab.Data({colNames:colNames, rows:rows});\n\nqueries = [\n  ['0', undefined,                           'undefined query => pass all'],\n  ['1', [],                                  'empty OR:  []   => fail all'],\n  ['2', {},                                  'empty AND: {}   => pass all'],\n  ['3', 1,                                   '2nd row: pass row 1'],\n  ['4', [1,3],                               '2nd+4th: pass rows: 1 and 3'],\n  ['5', {Name:\"Jane\"},                       'Name is Jane'],\n  ['6', {1:1500},                            'Column 2 is 1500'],\n  ['7', {Name:[\"Peter\", \"Jane\"]},            'Name is Peter or Jane'],\n  ['8', [{Name:\"Peter\"}, {Value:1500}],      'Name is Peter or Value is 1500'],\n  ['9', {or:{Name:\"Peter\", Value:1500}},     'OR:  same as 8:'],\n  ['A', {or:[{Name:\"Peter\"}, {Value:1500}]}, 'OR: [{Name is Peter}, {Value is 1500}]'],\n  ['B', {Name:\"Peter\", Value:400},           'Name is Peter and Value is 400'],\n  ['C', {and:{Name:\"Peter\", Value:400}},     'AND: {Name is Peter, Value is 400}'],\n  ['D', {and:{Name:\"Peter\", Value:1500}},    'AND: {Name is Peter, Value is 1500}'],\n  ['E', {and:[{Name:\"Peter\"}, {Value:400}]}, 'AND:[{Name is Peter}, {Value is 400}]'],\n  ['F', {and:[{Name:\"Peter\"}, {Value:1500}]},'AND:[{Name is Peter}, {Value is 1500}]'],\n  ['G', {not:{Name:\"Peter\", Value:400}},     'NAND: not {Name is Peter and Value is 400}'],\n  ['H', {not:{Name:\"Peter\", Value:1500}},    'NAND: not {Name is Peter and Value is 1500}'],\n  ['I', {not:[{Name:\"Peter\"}, {Value:1500}]},'NOR: not [{Name is Peter} or {Value is 1500}]'],\n  ['J', {Name:(v) => v.length===4},          'Name has 4 letters']\n];\n\nm.mount(root, {\n  view:() => m('', [\n      m('h3', 'Given the data set:'),\n      m('table#data', [\n          m('tr', colNames.map(n => m('th', n))),\n          ...rows.map(row => m('tr', [m('td', row[0]),m('td', row[1]),m('td', row[2].toDateString()),m('td', row[3].toDateString())]))\n      ]),\n      m('h3', 'The following queries yield:'),\n      m('table', [\n          m('tr', [m('th','#'), m('th','Query'), m('th',\"Live Result, by 'Name' field\")]),\n          ...queries.map(q => {\n              const result = data.filter(q[1]).getColumn('Name').join(', ');\n              return m('tr', [m('td',`${q[0]}:`), m('td',`${q[2]}`), m('td',`[ ${result} ]`)]);\n          })\n      ])\n  ])\n});\n</file>\n<file name='style.css'>\n  $exampleID { height: 600px; }\n  #data th { width:15%; }\n  table {\n      font-size: 10pt;\n      margin-left: 10px;\n  }\n</file>\n</example>\n"
 			},
 			"children": [
 				{
@@ -2525,7 +2520,7 @@
 							"sources": [
 								{
 									"fileName": "DataFilters.ts",
-									"line": 144,
+									"line": 140,
 									"character": 7
 								}
 							],
@@ -2547,7 +2542,7 @@
 							"sources": [
 								{
 									"fileName": "DataFilters.ts",
-									"line": 145,
+									"line": 141,
 									"character": 7
 								}
 							],
@@ -2569,7 +2564,7 @@
 							"sources": [
 								{
 									"fileName": "DataFilters.ts",
-									"line": 143,
+									"line": 139,
 									"character": 6
 								}
 							],
@@ -2594,7 +2589,7 @@
 					"sources": [
 						{
 							"fileName": "DataFilters.ts",
-							"line": 142,
+							"line": 138,
 							"character": 32
 						}
 					]
@@ -2633,14 +2628,14 @@
 									{
 										"type": "reference",
 										"name": "DataVal",
-										"id": 159
+										"id": 152
 									},
 									{
 										"type": "array",
 										"elementType": {
 											"type": "reference",
 											"name": "DataVal",
-											"id": 159
+											"id": 152
 										}
 									},
 									{
@@ -2655,7 +2650,7 @@
 					"sources": [
 						{
 							"fileName": "DataFilters.ts",
-							"line": 148,
+							"line": 144,
 							"character": 33
 						}
 					]
@@ -2671,7 +2666,7 @@
 					"sources": [
 						{
 							"fileName": "DataFilters.ts",
-							"line": 140,
+							"line": 136,
 							"character": 24
 						}
 					],
@@ -2702,7 +2697,7 @@
 					"sources": [
 						{
 							"fileName": "DataFilters.ts",
-							"line": 133,
+							"line": 129,
 							"character": 21
 						}
 					],
@@ -2736,7 +2731,7 @@
 					"sources": [
 						{
 							"fileName": "DataFilters.ts",
-							"line": 136,
+							"line": 132,
 							"character": 26
 						}
 					],
@@ -2756,7 +2751,7 @@
 					"sources": [
 						{
 							"fileName": "DataFilters.ts",
-							"line": 139,
+							"line": 135,
 							"character": 23
 						}
 					],
@@ -2793,7 +2788,7 @@
 					"sources": [
 						{
 							"fileName": "DataFilters.ts",
-							"line": 138,
+							"line": 134,
 							"character": 30
 						}
 					],
@@ -2814,88 +2809,6 @@
 					}
 				},
 				{
-					"id": 38,
-					"name": "ReduceFn",
-					"kind": 4194304,
-					"kindString": "Type alias",
-					"flags": {
-						"isExported": true
-					},
-					"sources": [
-						{
-							"fileName": "DataFilters.ts",
-							"line": 231,
-							"character": 20
-						}
-					],
-					"type": {
-						"type": "reflection",
-						"declaration": {
-							"id": 39,
-							"name": "__type",
-							"kind": 65536,
-							"kindString": "Type literal",
-							"flags": {},
-							"signatures": [
-								{
-									"id": 40,
-									"name": "__call",
-									"kind": 4096,
-									"kindString": "Call signature",
-									"flags": {},
-									"parameters": [
-										{
-											"id": 41,
-											"name": "keep",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "intrinsic",
-												"name": "boolean"
-											}
-										},
-										{
-											"id": 42,
-											"name": "row",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "reference",
-												"name": "DataRow",
-												"id": 160
-											}
-										},
-										{
-											"id": 43,
-											"name": "i",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "intrinsic",
-												"name": "number"
-											}
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "void"
-									}
-								}
-							],
-							"sources": [
-								{
-									"fileName": "DataFilters.ts",
-									"line": 231,
-									"character": 22
-								}
-							]
-						}
-					}
-				},
-				{
 					"id": 14,
 					"name": "TermConditionFunction",
 					"kind": 4194304,
@@ -2906,7 +2819,7 @@
 					"sources": [
 						{
 							"fileName": "DataFilters.ts",
-							"line": 156,
+							"line": 152,
 							"character": 33
 						}
 					],
@@ -2935,7 +2848,7 @@
 											"type": {
 												"type": "reference",
 												"name": "DataVal",
-												"id": 159
+												"id": 152
 											}
 										},
 										{
@@ -2947,7 +2860,7 @@
 											"type": {
 												"type": "reference",
 												"name": "DataRow",
-												"id": 160
+												"id": 153
 											}
 										}
 									],
@@ -2960,7 +2873,7 @@
 							"sources": [
 								{
 									"fileName": "DataFilters.ts",
-									"line": 156,
+									"line": 152,
 									"character": 35
 								}
 							]
@@ -2968,7 +2881,7 @@
 					}
 				},
 				{
-					"id": 44,
+					"id": 38,
 					"name": "filter",
 					"kind": 64,
 					"kindString": "Function",
@@ -2977,71 +2890,58 @@
 					},
 					"signatures": [
 						{
-							"id": 45,
+							"id": 39,
 							"name": "filter",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
+							"comment": {
+								"shortText": "filters a `Data` object for the given `Condition`s and returns a new `Data` object with those rows for which\n`cond` holds true.",
+								"returns": "a new `Data` object with the filtered rows\n"
+							},
 							"parameters": [
 								{
-									"id": 46,
+									"id": 40,
 									"name": "data",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
+									"comment": {
+										"text": "the `Data` object to filter"
+									},
 									"type": {
 										"type": "reference",
 										"name": "Data",
-										"id": 63
+										"id": 56
 									}
 								},
 								{
-									"id": 47,
+									"id": 41,
 									"name": "cond",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
+									"comment": {
+										"text": "the complex condition to test against"
+									},
 									"type": {
 										"type": "reference",
 										"name": "Condition",
 										"id": 9
-									}
-								},
-								{
-									"id": 48,
-									"name": "reduceFn",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {
-										"isOptional": true
-									},
-									"type": {
-										"type": "union",
-										"types": [
-											{
-												"type": "intrinsic",
-												"name": "string"
-											},
-											{
-												"type": "reference",
-												"name": "ReduceFn",
-												"id": 38
-											}
-										]
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
 								"name": "Data",
-								"id": 63
+								"id": 56
 							}
 						}
 					],
 					"sources": [
 						{
 							"fileName": "DataFilters.ts",
-							"line": 233,
+							"line": 234,
 							"character": 22
 						}
 					]
@@ -3090,7 +2990,7 @@
 									"type": {
 										"type": "reference",
 										"name": "DataRow",
-										"id": 160
+										"id": 153
 									}
 								},
 								{
@@ -3150,7 +3050,7 @@
 											"sources": [
 												{
 													"fileName": "DataFilters.ts",
-													"line": 185,
+													"line": 181,
 													"character": 80
 												}
 											]
@@ -3182,7 +3082,7 @@
 					"sources": [
 						{
 							"fileName": "DataFilters.ts",
-							"line": 185,
+							"line": 181,
 							"character": 25
 						}
 					]
@@ -3232,7 +3132,7 @@
 									"type": {
 										"type": "reference",
 										"name": "DataRow",
-										"id": 160
+										"id": 153
 									}
 								},
 								{
@@ -3278,7 +3178,7 @@
 											"sources": [
 												{
 													"fileName": "DataFilters.ts",
-													"line": 159,
+													"line": 155,
 													"character": 79
 												}
 											]
@@ -3295,7 +3195,7 @@
 					"sources": [
 						{
 							"fileName": "DataFilters.ts",
-							"line": 159,
+							"line": 155,
 							"character": 33
 						}
 					]
@@ -3319,7 +3219,6 @@
 						10,
 						12,
 						11,
-						38,
 						14
 					]
 				},
@@ -3327,7 +3226,7 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						44,
+						38,
 						28,
 						19
 					]
@@ -3342,7 +3241,7 @@
 			]
 		},
 		{
-			"id": 174,
+			"id": 167,
 			"name": "\"index\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3359,7 +3258,7 @@
 			]
 		},
 		{
-			"id": 175,
+			"id": 168,
 			"name": "\"overview\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3368,8 +3267,8 @@
 			},
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/node.js/ts6/dev/hsLibs/standalone/hsDatab/src/overview.ts",
 			"comment": {
-				"shortText": "# hsData",
-				"text": "Helpful Scripts data management functions that are framework independent.\n\n## Data Types\n- &nbsp; {@link Data.NumRange NumRange} defines a single [min, max] numeric range.\n- &nbsp; {@link Data.NumDomain NumDomain} defines a numeric domain that includes all values of a column\n- &nbsp; {@link Data.DateDomain DateDomain} defines a Date domain that includes all values of a column\n- &nbsp; {@link Data.NameDomain NameDomain} defines a categorical domain that includes all values of a column\n- &nbsp; {@link Data.Domain Domain} defines a generic domain that can be any of the typed domains.\n- &nbsp; {@link Data.ColSpecifier ColSpecifier} defines a Column Specifier, either as column name or index in the {@link Data.DataRow `DataRow`} array\n- &nbsp; {@link Data.DataVal DataVal} a generic data value type, used in the {@link Data.DataRow `DataRow`} array\n- &nbsp; {@link Data.DataRow DataRow} a single row of column values\n\n## Data Class\n- &nbsp; {@link Data.Data Data} A simple row-column based database object, featuring named columns, sorting, mapping and filtering functions\n"
+				"shortText": "# hsdatab",
+				"text": "Helpful Scripts data management functions that are framework independent.\n\n## Data Types\n- &nbsp; {@link Data.NumRange NumRange} defines a single [min, max] numeric range.\n- &nbsp; {@link Data.NumDomain NumDomain} defines a numeric domain that includes all values of a column\n- &nbsp; {@link Data.DateDomain DateDomain} defines a Date domain that includes all values of a column\n- &nbsp; {@link Data.NameDomain NameDomain} defines a categorical domain that includes all values of a column\n- &nbsp; {@link Data.Domain Domain} defines a generic domain that can be any of the typed domains.\n- &nbsp; {@link Data.ColumnReference ColumnReference} defines a Column Specifier, either as column name or index in the {@link Data.DataRow `DataRow`} array\n- &nbsp; {@link Data.DataVal DataVal} a generic data value type, used in the {@link Data.DataRow `DataRow`} array\n- &nbsp; {@link Data.DataRow DataRow} a single row of column values\n\n## Data Class\n- &nbsp; {@link Data.Data Data} A simple row-column based database object, featuring named columns, sorting, mapping and filtering functions\n\n## Example\n<example height=1000px>\n<file name=\"script.js\">\nconst colNames = ['Name', 'Value', 'Start', 'End'];\nconst rows = [\n  ['Harry', '100', '3/1/14', '11/20/14'],\n  ['Mary', '1500', '7/1/14',  '9/30/14'],\n  ['Peter', '400', '5/20/14', '4/30/15'],\n  ['Jane', '700', '11/13/14', '8/15/15']\n]\nconst data = new hsdatab.Data({colNames:colNames, rows:rows});\n\nquery = {Name:[\"Peter\", \"Jane\"]};\nconst result = data.filter(query).getColumn('Name').join(', ');\n\nm.mount(root, {\n  view:() => m('', [\n      m('h3', 'Given the data set:'),\n      m('table#data', [\n          m('tr', colNames.map(n => m('th', n))),\n          ...rows.map(row => m('tr', [m('td', row[0]),m('td', row[1]),m('td', row[2].toDateString()),m('td', row[3].toDateString())]))\n      ]),\n      m('h3', 'The query \"{Name:[\"Peter\", \"Jane\"]}\" yields:'),\n      m('', result)\n  ])\n});\n</file>\n<file name='style.css'>\n  $exampleID { height: 600px; }\n  #data th { width:15%; }\n</file>\n</example>\n"
 			},
 			"sources": [
 				{
@@ -3385,10 +3284,10 @@
 			"title": "External modules",
 			"kind": 1,
 			"children": [
-				49,
+				42,
 				1,
-				174,
-				175
+				167,
+				168
 			]
 		}
 	]
