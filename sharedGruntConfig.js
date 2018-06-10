@@ -4,12 +4,19 @@ const webpack = require("webpack");
 
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
+function hsCamelCase(name) {
+    if (name.indexOf('hs') === 0) {
+        name = 'hs' + name.slice(2).charAt(0).toUpperCase() + name.slice(3);
+    }
+    return name;
+}
+
 module.exports = (grunt, dir, dependencies, type) => {
     const pkg = grunt.file.readJSON(dir+'/package.json');
     const slash = pkg.name.lastIndexOf('/');
-    const lib = slash<0? pkg.name : pkg.name.slice(slash+1);
+    const lib = hsCamelCase(slash<0? pkg.name : pkg.name.slice(slash+1));
     const libPath = lib.toLowerCase();
-    console.log(dir);    
+    console.log(`${lib}: ${type}`);    
 
 	// These plugins provide necessary tasks.
 	grunt.loadNpmTasks('grunt-contrib-watch');
@@ -24,7 +31,7 @@ module.exports = (grunt, dir, dependencies, type) => {
     //------ Add Doc Tasks
     grunt.registerTask('doc', ['clean:docs', 'typedoc', 'copy:docs']);
 
-    //------ Add Staging Tasks 
+    //------ Add Staging Tasks
     grunt.registerTask('stage', [`${(type === 'app')? 'copy:stageApp': 'copy:deployLib'}`]);
     
     //------ Add Test Tasks
@@ -40,29 +47,38 @@ module.exports = (grunt, dir, dependencies, type) => {
     grunt.registerTask('build-html',    ['copy:build']);
     grunt.registerTask('build-css',     ['less']);
     grunt.registerTask('build-example', ['clean:example', 'copy:example', 'ts:example', 'less:example', 'webpack:exampleDev']);
-    grunt.registerTask('build-app',     ['copy:example', 'webpack:appDev']);
+    grunt.registerTask('build-appDev',  ['copy:example', 'webpack:appDev']);
+    grunt.registerTask('build-appPrd',  ['copy:example', 'webpack:appProd']);
     grunt.registerTask('build-js',      ['tslint:src', 'ts:src']);
-    grunt.registerTask('build-es5',     ['tslint:src', 'ts:srcES5']);
     grunt.registerTask('build-jsMin',   ['ts:srcMin']);
+    grunt.registerTask('build-es5',     ['tslint:src', 'ts:srcES5']);
     grunt.registerTask('build-spec',    ['tslint:spec', 'ts:test']);    
     grunt.registerTask('build-specES5', ['tslint:spec', 'ts:testES5']);    
 
     let buildTasks = ['clean:src', 'build-html', 'build-css'];
+    let buildProduct;
     switch (type) {
-        case 'node': buildTasks = buildTasks.concat(['build-es5', 'copy:example']); break;
-        case 'util': buildTasks = buildTasks.concat(['build-js']); break;
-        case 'app':  buildTasks = buildTasks.concat(['build-js', 'build-app']); break;
+        case 'node': buildProduct = buildTasks = buildTasks.concat(['build-es5', 'copy:example']); 
+                     break;
+        case 'util': buildTasks = buildTasks.concat(['build-js']); 
+                     buildProduct = buildTasks.concat(['build-jsMin']);
+                     break;
+        case 'app':  buildProduct = buildTasks.concat(['build-jsMin', 'build-appPrd']);
+                     buildTasks   = buildTasks.concat(['build-js', 'build-appDev']); 
+                     break;
         case 'lib': 
-        default:     buildTasks = buildTasks.concat(['build-js', 'build-example']); break;
+        default:     buildProduct = buildTasks.concat(['build-jsMin', 'build-example']);
+                     buildTasks   = buildTasks.concat(['build-js', 'build-example']); 
+                     break;
     }
     grunt.registerTask('build', buildTasks);
-    grunt.registerTask('buildMin', ['build-jsMin']);
+    grunt.registerTask('buildMin', buildProduct);
    
     //------ Add other MultiTasks
     grunt.registerTask('make',    ['build', 'test', 'doc', 'stage']);
     grunt.registerTask('once',    ['make']);	
     grunt.registerTask('default', ['make', 'watch']);	
-    grunt.registerTask('product', ['buildMin', 'webpack:appProd', 'stage']);	
+    grunt.registerTask('product', ['buildMin', 'doc', 'stage']);	
        
     //------ Add general help 
     grunt.registerTask('h', 'help on grunt options', function() {
@@ -103,10 +119,12 @@ module.exports = (grunt, dir, dependencies, type) => {
             stageApp: { files: [
                 { expand:true, cwd: '_dist/src', 
                     src:['**/*.css*'], dest:'_dist' }, 
+                { expand:true, cwd: '_dist/', 
+                    src:['*', 'example/**/*'], dest:`node_modules/${libPath}/docs` }, 
                 { expand:true, cwd: './', 
                     src:['./package.json'], dest:`node_modules/${libPath}/` }
             ]},
-            docs:   { files: [ // ha
+            docs:   { files: [
                 { expand:true, cwd: '_dist/docs', 
                     src:['**/*.json'], dest:`node_modules/${libPath}/docs`},
                 { expand:true, cwd: '_dist/docs', 
