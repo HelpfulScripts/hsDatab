@@ -1,23 +1,29 @@
 /**
- * # hsdatab
+ * # hsDatab
  * 
- * Helpful Scripts data management functions that are framework independent. 
+ * Helpful Scripts framework-independent data management functions. 
+ * 
+ * *hsdatab* provides a JavaScript-based data management and query mechanism.
+ * Data is managed in a simple in-memory database that holds data in rows of columns. 
+ * It autodetermines the types of data held in each column, along with the 
+ * domain range for each column of data. 
+ * Complex filters can be applied by defining {@link DataFilters `Condition`}s using a simple query object structure. 
  * 
  * ## Data Types
- * - &nbsp; {@link Data.NumRange NumRange} defines a single [min, max] numeric range.
- * - &nbsp; {@link Data.NumDomain NumDomain} defines a numeric domain that includes all values of a column
- * - &nbsp; {@link Data.DateDomain DateDomain} defines a Date domain that includes all values of a column
- * - &nbsp; {@link Data.NameDomain NameDomain} defines a categorical domain that includes all values of a column
- * - &nbsp; {@link Data.Domain Domain} defines a generic domain that can be any of the typed domains.
- * - &nbsp; {@link Data.ColumnReference ColumnReference} defines a Column Specifier, either as column name or index in the {@link Data.DataRow `DataRow`} array 
- * - &nbsp; {@link Data.DataVal DataVal} a generic data value type, used in the {@link Data.DataRow `DataRow`} array
- * - &nbsp; {@link Data.DataRow DataRow} a single row of column values
+ * supported {@link Data.Data.type data types} include
+ * - **number**: numeric values
+ * - **name**: nominal values, represented by arbitrary words
+ * - **date**: date values
+ * - **currency**: Currently supported: '$dd[,ddd]'
+ * - **percent**: 'd%'
  * 
  * ## Data Class
- * - &nbsp; {@link Data.Data Data} A simple row-column based database object, featuring named columns, sorting, mapping and filtering functions
+ * The fundamental object in this library is {@link Data.Data `Data`}, 
+ * a simple row-column based database object, 
+ * featuring named columns, sorting, mapping and filtering functions.
  *
  * ## Example
- * <example height=1000px>
+ * <example height=500>
  * <file name="script.js">
  * const colNames = ['Name', 'Value', 'Start', 'End'];
  * const rows = [
@@ -29,23 +35,40 @@
  * const data = new hsdatab.Data({colNames:colNames, rows:rows});
  * 
  * query = {Name:["Peter", "Jane"]};
- * const result = data.filter(query).getColumn('Name').join(', ');
+ * const result = data.filter(query);
  *
- * m.mount(root, { 
+ * m.mount(root, {
  *   view:() => m('', [
  *       m('h3', 'Given the data set:'),
+ *       m('pre',
  *       m('table#data', [
  *           m('tr', colNames.map(n => m('th', n))),
- *           ...rows.map(row => m('tr', [m('td', row[0]),m('td', row[1]),m('td', row[2].toDateString()),m('td', row[3].toDateString())]))
- *       ]),
- *       m('h3', 'The query "{Name:["Peter", "Jane"]}" yields:'),
- *       m('', result)
+ *           ...rows.map(row => m('tr', [
+ *              m('td', row[0]),
+ *              m('td', row[1]),
+ *              m('td', `${row[2].getMonth()+1}/${row[2].getDate()}/${row[2].getFullYear()}`),
+ *              m('td', `${row[3].getMonth()+1}/${row[3].getDate()}/${row[3].getFullYear()}`)
+ *          ]))
+ *       ])),
+ *       m('h3', 'The column types and domains are'),
+ *       m('pre', m('table', 
+ *                  m('tr', m('th', 'Column'),   m('th', 'Type'),   m('th', 'Domain')),
+ *                  m('tr', m('td', '"Name":'),  m('td', data.colType("Name")),   m('td', data.findDomain("Name").join(', '))),
+ *                  m('tr', m('td', '"Value":'), m('td', data.colType("Value")),  m('td', data.findDomain("Value").join(' - '))),
+ *                  m('tr', m('td', '"Start":'), m('td', data.colType("Start")),  m('td', data.findDomain("Start").map(d => d.toDateString()).join(' - '))),
+ *                  m('tr', m('td', '"Stop":'),  m('td', data.colType("End")),    m('td', data.findDomain("End").map(d => d.toDateString()).join(' - ')))
+ *       )),
+ *       m('h3', 'The query:'),
+ *       m('code', '{Name:["Peter", "Jane"]}'),
+ *       m('h3', 'yields results with "Name"'),
+ *       m('code', result.getColumn('Name').join(', '))
  *   ])
  * });
  * </file>
  * <file name='style.css'>
  *   $exampleID { height: 600px; }
  *   #data th { width:15%; }
+ *   #data  { font-size: 11pt; }
  * </file>
  * </example>     
  */
