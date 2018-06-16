@@ -1,4 +1,6 @@
-[![npm version](https://badge.fury.io/js/hsdatab@2x.png)](https://badge.fury.io/js/hsdatab) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/)
+[![npm version](https://badge.fury.io/js/hsdatab.svg)](https://badge.fury.io/js/hsdatab)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/)
+[![NPM License](https://badge.fury.io/js/hsdatab.svg)](https://badge.fury.io/js/hsdatab)
 
 
 Helpful Scripts framework-independent data management functions. 

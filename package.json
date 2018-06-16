@@ -11,7 +11,9 @@
     "name": "masterscripter",
     "email": "helpfulscripts@gmail.com"
   },
-  "scripts": {},
+  "scripts": {
+      "test": "ospec"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",

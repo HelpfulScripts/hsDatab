@@ -40,7 +40,7 @@ module.exports = (grunt, dir, dependencies, type) => {
         grunt.loadNpmTasks('grunt-jasmine-node-coverage');
         grunt.registerTask('test', ['clean:test', 'copy:test', 'build-specES5', 'jasmine_node' ]); }
     else { 
-        grunt.registerTask('test', ['clean:test', 'copy:test', 'build-spec', /*'ospec'*/ ]); 
+        grunt.registerTask('test', ['clean:test', 'copy:test', 'build-spec' /*, 'ospec' */ ]); 
     }
     
     //------ Add Build Tasks
@@ -85,7 +85,7 @@ module.exports = (grunt, dir, dependencies, type) => {
         clean: {
 			src:    ['_dist'],
             docs:   ['_dist/docs'],
-            test:   ['_dist/**/tests'],
+            test:   ['_dist/tests'],
             example:['_example', '_dist/example']
         },
         copy: {
@@ -176,11 +176,6 @@ module.exports = (grunt, dir, dependencies, type) => {
             test : {
                 outDir:     "_dist/tests",
                 src: ["src/**/*.spec.ts"],
-                tsconfig:   __dirname+'/tsconfigGrunt.json'
-            },
-            testES5 : {
-                outDir:     "_dist/tests",
-                src: ["src/**/*.spec.ts"],
                 tsconfig:   __dirname+'/tsconfigGruntES5.json'
             }
         },
@@ -247,6 +242,13 @@ module.exports = (grunt, dir, dependencies, type) => {
                     path: path.resolve(dir, './_dist')
                 }
             },
+            test: {
+                entry: './_dist/src/index.js',
+                output: {
+                    filename: `${lib}.js`,
+                    path: path.resolve(dir, './_dist')
+                }
+            },
 
             exampleProd: { 
                 entry: './_example/example/start.js',
@@ -269,7 +271,8 @@ module.exports = (grunt, dir, dependencies, type) => {
                 expand: true, 
                 cwd: 'src/', 
                 src: ['**/*.ts'], 
-                dest: 'docs/src/'
+                dest: 'docs/src/',
+                rename: (dest, src) => dest + src.slice(src.lastIndexOf('/')+1).replace('.ts','.html')
             }
         },
 
@@ -331,14 +334,16 @@ module.exports = (grunt, dir, dependencies, type) => {
     function translateSources() {  
         // returns a 4-character, right aligned. line number
         function lineNum(num) { return ('    '+(num)).substr(-4).replace(/( )/g, '&nbsp;'); }
-        function destFile(file, destDir) { return destDir+file.replace('.ts', '.html'); }
+//        function destFile(file, destDir) { return destDir+file.replace('.ts', '.html'); }
         function wrapLine(line, i) {  
             return `<span id=${i+1} class="line">${lineNum(i+1)}</span>${line}<br>`;
         }
         function comment(content) { return `<comment>${content}</comment>`; }
         function module(content) { return `<module>${content}</module>`; }
-        function processFile(srcDir, file, destDir) {
-            let content = grunt.file.read(srcDir+file)
+        function processFile(srcFile, destDir) {
+            let i = srcFile.lastIndexOf('/');
+            let file = (i>=0)? srcFile.slice(i+1) : srcFile;
+            let content = grunt.file.read(srcFile)
                 .replace(/( )/g, '&nbsp;')              // preserve whitespaces
                 .split('\n')                            // array of lines
                 .map(wrapLine)                          // wrap each line into some formatting
@@ -346,7 +351,7 @@ module.exports = (grunt, dir, dependencies, type) => {
                 .replace(/(\/\/.*?)<\/code>/g, comment) // color code some syntax
                 .replace(/\/\*[\s\S]*?\*\//g, comment) // color code some syntax
                 ;
-            grunt.file.write(destFile(file, destDir), `
+            grunt.file.write(destDir, `
                 ${intro}
                 <h1>${file}</h1>
                 <div class='listing'><code>${content}</code></div>
@@ -371,10 +376,13 @@ module.exports = (grunt, dir, dependencies, type) => {
         `;
         const intro = `<html><style>${style.trim()}</style></html><body>`;
         const extro = `</body>`;
-        let files = grunt.file.expand({cwd:this.data.cwd}, this.data.src);
-    grunt.log.writeln(`${files.length} files in ${__dirname}`);    
-    grunt.log.writeln(files.map(file => this.data.cwd + file + " => " + this.data.dest).join('\n'));    
-        files.map(file => processFile(this.data.cwd, file, this.data.dest));
+        let files = this.files;
+        files.map(file => processFile(file.src, file.dest));
+        writeIndexJson();
+        grunt.log.writeln(`converted ${files.length} files`);    
+    }
+
+    function writeIndexJson() {
         grunt.file.write('docs/data/index.json', `{"docs": ["${lib}.json"], "title": "HS Libraries"}`);
     }
 
