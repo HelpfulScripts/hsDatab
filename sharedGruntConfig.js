@@ -381,6 +381,10 @@ module.exports = (grunt, dir, dependencies, type) => {
     function publish_gh() {
         grunt.util.spawn({cmd: 'cp', args:['-r', 'docs', '../']}, console.log);
         grunt.util.spawn({cmd: 'git', args:['checkout', 'gh-pages']}, console.log);
+        grunt.util.spawn({cmd: 'cp', args:['../docs/src/*', './src']}, console.log);
+        grunt.util.spawn({cmd: 'cp', args:['../docs/data/*', './data']}, console.log);
+        grunt.util.spawn({cmd: 'git', args:["commit -a -m 'docs update'"]}, console.log);
+        grunt.util.spawn({cmd: 'git', args:["push"]}, console.log);
 grunt.file.recurse('./', (abspath) => grunt.log.writeln(abspath));
         grunt.util.spawn({cmd: 'git', args:['checkout', 'master']}, console.log);
     }
