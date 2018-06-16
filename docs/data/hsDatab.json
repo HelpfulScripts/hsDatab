@@ -5,7 +5,7 @@
 	"flags": {},
 	"children": [
 		{
-			"id": 42,
+			"id": 49,
 			"name": "\"Data\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -16,7 +16,7 @@
 			"comment": {},
 			"children": [
 				{
-					"id": 56,
+					"id": 63,
 					"name": "Data",
 					"kind": 128,
 					"kindString": "Class",
@@ -28,7 +28,7 @@
 					},
 					"children": [
 						{
-							"id": 67,
+							"id": 74,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -37,14 +37,14 @@
 							},
 							"signatures": [
 								{
-									"id": 68,
+									"id": 75,
 									"name": "new Data",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 69,
+											"id": 76,
 											"name": "data",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -54,14 +54,14 @@
 											"type": {
 												"type": "reference",
 												"name": "DataSet",
-												"id": 43
+												"id": 50
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
 										"name": "Data",
-										"id": 56
+										"id": 63
 									}
 								}
 							],
@@ -74,7 +74,7 @@
 							]
 						},
 						{
-							"id": 117,
+							"id": 124,
 							"name": "data",
 							"kind": 1024,
 							"kindString": "Property",
@@ -94,13 +94,13 @@
 								"elementType": {
 									"type": "reference",
 									"name": "DataRow",
-									"id": 152
+									"id": 159
 								}
 							},
 							"defaultValue": " []"
 						},
 						{
-							"id": 118,
+							"id": 125,
 							"name": "meta",
 							"kind": 1024,
 							"kindString": "Property",
@@ -120,13 +120,13 @@
 								"elementType": {
 									"type": "reference",
 									"name": "MetaStruct",
-									"id": 50
+									"id": 57
 								}
 							},
 							"defaultValue": " []"
 						},
 						{
-							"id": 119,
+							"id": 126,
 							"name": "name",
 							"kind": 1024,
 							"kindString": "Property",
@@ -147,7 +147,7 @@
 							}
 						},
 						{
-							"id": 134,
+							"id": 141,
 							"name": "allRows",
 							"kind": 2048,
 							"kindString": "Method",
@@ -157,7 +157,7 @@
 							},
 							"signatures": [
 								{
-									"id": 135,
+									"id": 142,
 									"name": "allRows",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -167,7 +167,7 @@
 									},
 									"parameters": [
 										{
-											"id": 136,
+											"id": 143,
 											"name": "column",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -178,7 +178,7 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 150
+												"id": 157
 											}
 										}
 									],
@@ -189,7 +189,7 @@
 											{
 												"type": "reference",
 												"name": "DataVal",
-												"id": 151
+												"id": 158
 											}
 										]
 									}
@@ -204,7 +204,7 @@
 							]
 						},
 						{
-							"id": 104,
+							"id": 111,
 							"name": "castData",
 							"kind": 2048,
 							"kindString": "Method",
@@ -214,7 +214,7 @@
 							},
 							"signatures": [
 								{
-									"id": 105,
+									"id": 112,
 									"name": "castData",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -234,7 +234,7 @@
 							]
 						},
 						{
-							"id": 141,
+							"id": 148,
 							"name": "castVal",
 							"kind": 2048,
 							"kindString": "Method",
@@ -244,7 +244,7 @@
 							},
 							"signatures": [
 								{
-									"id": 142,
+									"id": 149,
 									"name": "castVal",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -260,7 +260,7 @@
 									},
 									"parameters": [
 										{
-											"id": 143,
+											"id": 150,
 											"name": "type",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -274,7 +274,7 @@
 											}
 										},
 										{
-											"id": 144,
+											"id": 151,
 											"name": "val",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -282,14 +282,14 @@
 											"type": {
 												"type": "reference",
 												"name": "DataVal",
-												"id": 151
+												"id": 158
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
 										"name": "DataVal",
-										"id": 151
+										"id": 158
 									}
 								}
 							],
@@ -302,7 +302,7 @@
 							]
 						},
 						{
-							"id": 82,
+							"id": 89,
 							"name": "colAdd",
 							"kind": 2048,
 							"kindString": "Method",
@@ -312,7 +312,7 @@
 							},
 							"signatures": [
 								{
-									"id": 83,
+									"id": 90,
 									"name": "colAdd",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -323,7 +323,7 @@
 									},
 									"parameters": [
 										{
-											"id": 84,
+											"id": 91,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -352,7 +352,7 @@
 							]
 						},
 						{
-							"id": 85,
+							"id": 92,
 							"name": "colInitialize",
 							"kind": 2048,
 							"kindString": "Method",
@@ -362,7 +362,7 @@
 							},
 							"signatures": [
 								{
-									"id": 86,
+									"id": 93,
 									"name": "colInitialize",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -372,7 +372,7 @@
 									},
 									"parameters": [
 										{
-											"id": 87,
+											"id": 94,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -383,11 +383,11 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 150
+												"id": 157
 											}
 										},
 										{
-											"id": 88,
+											"id": 95,
 											"name": "initializer",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -416,7 +416,7 @@
 							]
 						},
 						{
-							"id": 92,
+							"id": 99,
 							"name": "colName",
 							"kind": 2048,
 							"kindString": "Method",
@@ -426,7 +426,7 @@
 							},
 							"signatures": [
 								{
-									"id": 93,
+									"id": 100,
 									"name": "colName",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -437,7 +437,7 @@
 									},
 									"parameters": [
 										{
-											"id": 94,
+											"id": 101,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -445,7 +445,7 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 150
+												"id": 157
 											}
 										}
 									],
@@ -464,7 +464,7 @@
 							]
 						},
 						{
-							"id": 95,
+							"id": 102,
 							"name": "colNames",
 							"kind": 2048,
 							"kindString": "Method",
@@ -474,7 +474,7 @@
 							},
 							"signatures": [
 								{
-									"id": 96,
+									"id": 103,
 									"name": "colNames",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -501,7 +501,7 @@
 							]
 						},
 						{
-							"id": 89,
+							"id": 96,
 							"name": "colNumber",
 							"kind": 2048,
 							"kindString": "Method",
@@ -511,7 +511,7 @@
 							},
 							"signatures": [
 								{
-									"id": 90,
+									"id": 97,
 									"name": "colNumber",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -522,7 +522,7 @@
 									},
 									"parameters": [
 										{
-											"id": 91,
+											"id": 98,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -530,7 +530,7 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 150
+												"id": 157
 											}
 										}
 									],
@@ -549,7 +549,7 @@
 							]
 						},
 						{
-							"id": 97,
+							"id": 104,
 							"name": "colType",
 							"kind": 2048,
 							"kindString": "Method",
@@ -559,7 +559,7 @@
 							},
 							"signatures": [
 								{
-									"id": 98,
+									"id": 105,
 									"name": "colType",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -570,7 +570,7 @@
 									},
 									"parameters": [
 										{
-											"id": 99,
+											"id": 106,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -578,7 +578,7 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 150
+												"id": 157
 											}
 										}
 									],
@@ -597,7 +597,7 @@
 							]
 						},
 						{
-							"id": 75,
+							"id": 82,
 							"name": "export",
 							"kind": 2048,
 							"kindString": "Method",
@@ -607,7 +607,7 @@
 							},
 							"signatures": [
 								{
-									"id": 76,
+									"id": 83,
 									"name": "export",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -618,7 +618,7 @@
 									"type": {
 										"type": "reference",
 										"name": "DataSet",
-										"id": 43
+										"id": 50
 									}
 								}
 							],
@@ -631,7 +631,7 @@
 							]
 						},
 						{
-							"id": 106,
+							"id": 113,
 							"name": "filter",
 							"kind": 2048,
 							"kindString": "Method",
@@ -641,7 +641,7 @@
 							},
 							"signatures": [
 								{
-									"id": 107,
+									"id": 114,
 									"name": "filter",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -652,7 +652,7 @@
 									},
 									"parameters": [
 										{
-											"id": 108,
+											"id": 115,
 											"name": "condition",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -663,14 +663,14 @@
 											"type": {
 												"type": "reference",
 												"name": "Condition",
-												"id": 9
+												"id": 16
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
 										"name": "Data",
-										"id": 56
+										"id": 63
 									}
 								}
 							],
@@ -683,7 +683,7 @@
 							]
 						},
 						{
-							"id": 100,
+							"id": 107,
 							"name": "findDomain",
 							"kind": 2048,
 							"kindString": "Method",
@@ -693,7 +693,7 @@
 							},
 							"signatures": [
 								{
-									"id": 101,
+									"id": 108,
 									"name": "findDomain",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -704,7 +704,7 @@
 									},
 									"parameters": [
 										{
-											"id": 102,
+											"id": 109,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -717,11 +717,11 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 150
+												"id": 157
 											}
 										},
 										{
-											"id": 103,
+											"id": 110,
 											"name": "domain",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -734,14 +734,14 @@
 											"type": {
 												"type": "reference",
 												"name": "Domain",
-												"id": 149
+												"id": 156
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
 										"name": "Domain",
-										"id": 149
+										"id": 156
 									}
 								}
 							],
@@ -754,7 +754,7 @@
 							]
 						},
 						{
-							"id": 131,
+							"id": 138,
 							"name": "findType",
 							"kind": 2048,
 							"kindString": "Method",
@@ -764,7 +764,7 @@
 							},
 							"signatures": [
 								{
-									"id": 132,
+									"id": 139,
 									"name": "findType",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -780,7 +780,7 @@
 									},
 									"parameters": [
 										{
-											"id": 133,
+											"id": 140,
 											"name": "val",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -791,7 +791,7 @@
 											"type": {
 												"type": "reference",
 												"name": "DataVal",
-												"id": 151
+												"id": 158
 											}
 										}
 									],
@@ -810,7 +810,7 @@
 							]
 						},
 						{
-							"id": 128,
+							"id": 135,
 							"name": "findTypes",
 							"kind": 2048,
 							"kindString": "Method",
@@ -820,7 +820,7 @@
 							},
 							"signatures": [
 								{
-									"id": 129,
+									"id": 136,
 									"name": "findTypes",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -831,7 +831,7 @@
 									},
 									"parameters": [
 										{
-											"id": 130,
+											"id": 137,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -842,7 +842,7 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 150
+												"id": 157
 											}
 										}
 									],
@@ -861,7 +861,7 @@
 							]
 						},
 						{
-							"id": 79,
+							"id": 86,
 							"name": "getColumn",
 							"kind": 2048,
 							"kindString": "Method",
@@ -871,7 +871,7 @@
 							},
 							"signatures": [
 								{
-									"id": 80,
+									"id": 87,
 									"name": "getColumn",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -881,7 +881,7 @@
 									},
 									"parameters": [
 										{
-											"id": 81,
+											"id": 88,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -892,7 +892,7 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 150
+												"id": 157
 											}
 										}
 									],
@@ -901,7 +901,7 @@
 										"elementType": {
 											"type": "reference",
 											"name": "DataVal",
-											"id": 151
+											"id": 158
 										}
 									}
 								}
@@ -915,7 +915,7 @@
 							]
 						},
 						{
-							"id": 77,
+							"id": 84,
 							"name": "getData",
 							"kind": 2048,
 							"kindString": "Method",
@@ -925,7 +925,7 @@
 							},
 							"signatures": [
 								{
-									"id": 78,
+									"id": 85,
 									"name": "getData",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -938,7 +938,7 @@
 										"elementType": {
 											"type": "reference",
 											"name": "DataRow",
-											"id": 152
+											"id": 159
 										}
 									}
 								}
@@ -952,7 +952,7 @@
 							]
 						},
 						{
-							"id": 120,
+							"id": 127,
 							"name": "getMeta",
 							"kind": 2048,
 							"kindString": "Method",
@@ -962,14 +962,14 @@
 							},
 							"signatures": [
 								{
-									"id": 121,
+									"id": 128,
 									"name": "getMeta",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 122,
+											"id": 129,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -977,14 +977,14 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 150
+												"id": 157
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
 										"name": "MetaStruct",
-										"id": 50
+										"id": 57
 									}
 								}
 							],
@@ -997,7 +997,7 @@
 							]
 						},
 						{
-							"id": 70,
+							"id": 77,
 							"name": "getName",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1007,7 +1007,7 @@
 							},
 							"signatures": [
 								{
-									"id": 71,
+									"id": 78,
 									"name": "getName",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1030,7 +1030,7 @@
 							]
 						},
 						{
-							"id": 72,
+							"id": 79,
 							"name": "import",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1040,7 +1040,7 @@
 							},
 							"signatures": [
 								{
-									"id": 73,
+									"id": 80,
 									"name": "import",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1050,7 +1050,7 @@
 									},
 									"parameters": [
 										{
-											"id": 74,
+											"id": 81,
 											"name": "data",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1061,7 +1061,7 @@
 											"type": {
 												"type": "reference",
 												"name": "DataSet",
-												"id": 43
+												"id": 50
 											}
 										}
 									],
@@ -1080,7 +1080,7 @@
 							]
 						},
 						{
-							"id": 113,
+							"id": 120,
 							"name": "map",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1090,7 +1090,7 @@
 							},
 							"signatures": [
 								{
-									"id": 114,
+									"id": 121,
 									"name": "map",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1101,7 +1101,7 @@
 									},
 									"parameters": [
 										{
-											"id": 115,
+											"id": 122,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1115,21 +1115,21 @@
 													{
 														"type": "reference",
 														"name": "ColumnReference",
-														"id": 150
+														"id": 157
 													},
 													{
 														"type": "array",
 														"elementType": {
 															"type": "reference",
 															"name": "ColumnReference",
-															"id": 150
+															"id": 157
 														}
 													}
 												]
 											}
 										},
 										{
-											"id": 116,
+											"id": 123,
 											"name": "mapFn",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1147,7 +1147,7 @@
 													{
 														"type": "reference",
 														"name": "mapFn",
-														"id": 116
+														"id": 123
 													}
 												]
 											}
@@ -1156,7 +1156,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Data",
-										"id": 56
+										"id": 63
 									}
 								}
 							],
@@ -1169,7 +1169,7 @@
 							]
 						},
 						{
-							"id": 123,
+							"id": 130,
 							"name": "setData",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1179,7 +1179,7 @@
 							},
 							"signatures": [
 								{
-									"id": 124,
+									"id": 131,
 									"name": "setData",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1189,7 +1189,7 @@
 									},
 									"parameters": [
 										{
-											"id": 125,
+											"id": 132,
 											"name": "data",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1202,12 +1202,12 @@
 												"elementType": {
 													"type": "reference",
 													"name": "DataRow",
-													"id": 152
+													"id": 159
 												}
 											}
 										},
 										{
-											"id": 126,
+											"id": 133,
 											"name": "names",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1224,7 +1224,7 @@
 											}
 										},
 										{
-											"id": 127,
+											"id": 134,
 											"name": "autoType",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1254,7 +1254,7 @@
 							]
 						},
 						{
-							"id": 109,
+							"id": 116,
 							"name": "sort",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1264,7 +1264,7 @@
 							},
 							"signatures": [
 								{
-									"id": 110,
+									"id": 117,
 									"name": "sort",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1280,7 +1280,7 @@
 									},
 									"parameters": [
 										{
-											"id": 111,
+											"id": 118,
 											"name": "sortFn",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1298,13 +1298,13 @@
 													{
 														"type": "reference",
 														"name": "sortFn",
-														"id": 111
+														"id": 118
 													}
 												]
 											}
 										},
 										{
-											"id": 112,
+											"id": 119,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1317,14 +1317,14 @@
 											"type": {
 												"type": "reference",
 												"name": "ColumnReference",
-												"id": 150
+												"id": 157
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
 										"name": "Data",
-										"id": 56
+										"id": 63
 									}
 								}
 							],
@@ -1337,7 +1337,7 @@
 							]
 						},
 						{
-							"id": 137,
+							"id": 144,
 							"name": "toDate",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1347,7 +1347,7 @@
 							},
 							"signatures": [
 								{
-									"id": 138,
+									"id": 145,
 									"name": "toDate",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1363,7 +1363,7 @@
 									},
 									"parameters": [
 										{
-											"id": 139,
+											"id": 146,
 											"name": "val",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1374,11 +1374,11 @@
 											"type": {
 												"type": "reference",
 												"name": "DataVal",
-												"id": 151
+												"id": 158
 											}
 										},
 										{
-											"id": 140,
+											"id": 147,
 											"name": "limitYear",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1408,7 +1408,7 @@
 							]
 						},
 						{
-							"id": 63,
+							"id": 70,
 							"name": "toDataSet",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1419,14 +1419,14 @@
 							},
 							"signatures": [
 								{
-									"id": 64,
+									"id": 71,
 									"name": "toDataSet",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 65,
+											"id": 72,
 											"name": "data",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1434,11 +1434,11 @@
 											"type": {
 												"type": "reference",
 												"name": "DataLiteralSet",
-												"id": 153
+												"id": 160
 											}
 										},
 										{
-											"id": 66,
+											"id": 73,
 											"name": "name",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1454,7 +1454,7 @@
 									"type": {
 										"type": "reference",
 										"name": "DataSet",
-										"id": 43
+										"id": 50
 									}
 								}
 							],
@@ -1467,7 +1467,7 @@
 							]
 						},
 						{
-							"id": 57,
+							"id": 64,
 							"name": "type",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -1478,7 +1478,7 @@
 							},
 							"children": [
 								{
-									"id": 61,
+									"id": 68,
 									"name": "currency",
 									"kind": 32,
 									"kindString": "Variable",
@@ -1502,7 +1502,7 @@
 									"defaultValue": "\"currency\""
 								},
 								{
-									"id": 60,
+									"id": 67,
 									"name": "date",
 									"kind": 32,
 									"kindString": "Variable",
@@ -1526,7 +1526,7 @@
 									"defaultValue": "\"date\""
 								},
 								{
-									"id": 59,
+									"id": 66,
 									"name": "name",
 									"kind": 32,
 									"kindString": "Variable",
@@ -1550,7 +1550,7 @@
 									"defaultValue": "\"name\""
 								},
 								{
-									"id": 58,
+									"id": 65,
 									"name": "number",
 									"kind": 32,
 									"kindString": "Variable",
@@ -1574,7 +1574,7 @@
 									"defaultValue": "\"number\""
 								},
 								{
-									"id": 62,
+									"id": 69,
 									"name": "percent",
 									"kind": 32,
 									"kindString": "Variable",
@@ -1603,11 +1603,11 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										61,
-										60,
-										59,
-										58,
-										62
+										68,
+										67,
+										66,
+										65,
+										69
 									]
 								}
 							],
@@ -1629,53 +1629,53 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								67
+								74
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								117,
-								118,
-								119
+								124,
+								125,
+								126
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								134,
-								104,
 								141,
-								82,
-								85,
-								92,
-								95,
+								111,
+								148,
 								89,
-								97,
-								75,
-								106,
-								100,
-								131,
-								128,
-								79,
-								77,
-								120,
-								70,
-								72,
+								92,
+								99,
+								102,
+								96,
+								104,
+								82,
 								113,
-								123,
-								109,
-								137,
-								63
+								107,
+								138,
+								135,
+								86,
+								84,
+								127,
+								77,
+								79,
+								120,
+								130,
+								116,
+								144,
+								70
 							]
 						},
 						{
 							"title": "Object literals",
 							"kind": 2097152,
 							"children": [
-								57
+								64
 							]
 						}
 					],
@@ -1688,7 +1688,7 @@
 					]
 				},
 				{
-					"id": 43,
+					"id": 50,
 					"name": "DataSet",
 					"kind": 256,
 					"kindString": "Interface",
@@ -1700,7 +1700,7 @@
 					},
 					"children": [
 						{
-							"id": 45,
+							"id": 52,
 							"name": "colNames",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1726,7 +1726,7 @@
 							}
 						},
 						{
-							"id": 44,
+							"id": 51,
 							"name": "name",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1750,7 +1750,7 @@
 							}
 						},
 						{
-							"id": 46,
+							"id": 53,
 							"name": "rows",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1772,7 +1772,7 @@
 								"elementType": {
 									"type": "reference",
 									"name": "DataRow",
-									"id": 152
+									"id": 159
 								}
 							}
 						}
@@ -1782,9 +1782,9 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								45,
-								44,
-								46
+								52,
+								51,
+								53
 							]
 						}
 					],
@@ -1797,14 +1797,14 @@
 					]
 				},
 				{
-					"id": 50,
+					"id": 57,
 					"name": "MetaStruct",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 53,
+							"id": 60,
 							"name": "accessed",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1822,7 +1822,7 @@
 							}
 						},
 						{
-							"id": 54,
+							"id": 61,
 							"name": "cast",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1840,7 +1840,7 @@
 							}
 						},
 						{
-							"id": 52,
+							"id": 59,
 							"name": "column",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1858,7 +1858,7 @@
 							}
 						},
 						{
-							"id": 51,
+							"id": 58,
 							"name": "name",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1876,7 +1876,7 @@
 							}
 						},
 						{
-							"id": 55,
+							"id": 62,
 							"name": "types",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1893,7 +1893,7 @@
 								"elementType": {
 									"type": "reference",
 									"name": "TypeStruct",
-									"id": 47
+									"id": 54
 								}
 							}
 						}
@@ -1903,11 +1903,11 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								53,
-								54,
-								52,
-								51,
-								55
+								60,
+								61,
+								59,
+								58,
+								62
 							]
 						}
 					],
@@ -1920,14 +1920,14 @@
 					]
 				},
 				{
-					"id": 47,
+					"id": 54,
 					"name": "TypeStruct",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 49,
+							"id": 56,
 							"name": "count",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1945,7 +1945,7 @@
 							}
 						},
 						{
-							"id": 48,
+							"id": 55,
 							"name": "type",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1968,8 +1968,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								49,
-								48
+								56,
+								55
 							]
 						}
 					],
@@ -1982,7 +1982,7 @@
 					]
 				},
 				{
-					"id": 150,
+					"id": 157,
 					"name": "ColumnReference",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2014,7 +2014,7 @@
 					}
 				},
 				{
-					"id": 153,
+					"id": 160,
 					"name": "DataLiteralSet",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2043,7 +2043,7 @@
 					}
 				},
 				{
-					"id": 152,
+					"id": 159,
 					"name": "DataRow",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2065,12 +2065,12 @@
 						"elementType": {
 							"type": "reference",
 							"name": "DataVal",
-							"id": 151
+							"id": 158
 						}
 					}
 				},
 				{
-					"id": 151,
+					"id": 158,
 					"name": "DataVal",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2106,7 +2106,7 @@
 					}
 				},
 				{
-					"id": 147,
+					"id": 154,
 					"name": "DateDomain",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2138,7 +2138,7 @@
 					}
 				},
 				{
-					"id": 149,
+					"id": 156,
 					"name": "Domain",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2161,23 +2161,23 @@
 							{
 								"type": "reference",
 								"name": "NumDomain",
-								"id": 146
+								"id": 153
 							},
 							{
 								"type": "reference",
 								"name": "DateDomain",
-								"id": 147
+								"id": 154
 							},
 							{
 								"type": "reference",
 								"name": "NameDomain",
-								"id": 148
+								"id": 155
 							}
 						]
 					}
 				},
 				{
-					"id": 148,
+					"id": 155,
 					"name": "NameDomain",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2203,7 +2203,7 @@
 					}
 				},
 				{
-					"id": 146,
+					"id": 153,
 					"name": "NumDomain",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2235,7 +2235,7 @@
 					}
 				},
 				{
-					"id": 145,
+					"id": 152,
 					"name": "NumRange",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2267,7 +2267,7 @@
 					}
 				},
 				{
-					"id": 159,
+					"id": 166,
 					"name": "mapFn",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2284,21 +2284,21 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 160,
+							"id": 167,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 161,
+									"id": 168,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 162,
+											"id": 169,
 											"name": "colVal",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2309,7 +2309,7 @@
 											}
 										},
 										{
-											"id": 163,
+											"id": 170,
 											"name": "colIndex",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2322,7 +2322,7 @@
 											}
 										},
 										{
-											"id": 164,
+											"id": 171,
 											"name": "rowIndex",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2335,7 +2335,7 @@
 											}
 										},
 										{
-											"id": 165,
+											"id": 172,
 											"name": "rows",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2371,7 +2371,7 @@
 					}
 				},
 				{
-					"id": 154,
+					"id": 161,
 					"name": "sortFn",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2388,21 +2388,21 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 155,
+							"id": 162,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 156,
+									"id": 163,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 157,
+											"id": 164,
 											"name": "x",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2413,7 +2413,7 @@
 											}
 										},
 										{
-											"id": 158,
+											"id": 165,
 											"name": "y",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2446,33 +2446,33 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						56
+						63
 					]
 				},
 				{
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						43,
 						50,
-						47
+						57,
+						54
 					]
 				},
 				{
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						150,
+						157,
+						160,
+						159,
+						158,
+						154,
+						156,
+						155,
 						153,
 						152,
-						151,
-						147,
-						149,
-						148,
-						146,
-						145,
-						159,
-						154
+						166,
+						161
 					]
 				}
 			],
@@ -2486,6 +2486,180 @@
 		},
 		{
 			"id": 1,
+			"name": "\"Data.spec\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/node.js/ts6/dev/hsLibs/standalone/hsDatab/src/Data.spec.ts",
+			"children": [
+				{
+					"id": 2,
+					"name": "colNames",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "Data.spec.ts",
+							"line": 4,
+							"character": 14
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "intrinsic",
+							"name": "string"
+						}
+					},
+					"defaultValue": " ['Name', 'Value', 'Start', 'End']"
+				},
+				{
+					"id": 4,
+					"name": "data",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "Data.spec.ts",
+							"line": 12,
+							"character": 10
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Data"
+					},
+					"defaultValue": " new hsdatab.Data({colNames:colNames, rows:rows})"
+				},
+				{
+					"id": 7,
+					"name": "result",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "Data.spec.ts",
+							"line": 15,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Data"
+					},
+					"defaultValue": " data.filter(query)"
+				},
+				{
+					"id": 3,
+					"name": "rows",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "Data.spec.ts",
+							"line": 5,
+							"character": 10
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "array",
+							"elementType": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					},
+					"defaultValue": " [\n  ['Harry', '100', '3/1/14', '11/20/14'], \n  ['Mary', '1500', '7/1/14',  '9/30/14'],\n  ['Peter', '400', '5/20/14', '4/30/15'],  \n  ['Jane', '700', '11/13/14', '8/15/15']\n]"
+				},
+				{
+					"id": 5,
+					"name": "query",
+					"kind": 2097152,
+					"kindString": "Object literal",
+					"flags": {},
+					"children": [
+						{
+							"id": 6,
+							"name": "Name",
+							"kind": 32,
+							"kindString": "Variable",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "Data.spec.ts",
+									"line": 14,
+									"character": 19
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							},
+							"defaultValue": "[\"Peter\", \"Jane\"]"
+						}
+					],
+					"groups": [
+						{
+							"title": "Variables",
+							"kind": 32,
+							"children": [
+								6
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "Data.spec.ts",
+							"line": 14,
+							"character": 11
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "object"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						2,
+						4,
+						7,
+						3
+					]
+				},
+				{
+					"title": "Object literals",
+					"kind": 2097152,
+					"children": [
+						5
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "Data.spec.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 8,
 			"name": "\"DataFilters\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -2499,7 +2673,7 @@
 			},
 			"children": [
 				{
-					"id": 2,
+					"id": 9,
 					"name": "SetAndCondition",
 					"kind": 256,
 					"kindString": "Interface",
@@ -2508,7 +2682,7 @@
 					},
 					"children": [
 						{
-							"id": 4,
+							"id": 11,
 							"name": "and",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2526,11 +2700,11 @@
 							"type": {
 								"type": "reference",
 								"name": "RecursiveCondition",
-								"id": 11
+								"id": 18
 							}
 						},
 						{
-							"id": 5,
+							"id": 12,
 							"name": "not",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2548,11 +2722,11 @@
 							"type": {
 								"type": "reference",
 								"name": "RecursiveCondition",
-								"id": 11
+								"id": 18
 							}
 						},
 						{
-							"id": 3,
+							"id": 10,
 							"name": "or",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2570,7 +2744,7 @@
 							"type": {
 								"type": "reference",
 								"name": "RecursiveCondition",
-								"id": 11
+								"id": 18
 							}
 						}
 					],
@@ -2579,9 +2753,9 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								4,
-								5,
-								3
+								11,
+								12,
+								10
 							]
 						}
 					],
@@ -2594,7 +2768,7 @@
 					]
 				},
 				{
-					"id": 6,
+					"id": 13,
 					"name": "TermAndCondition",
 					"kind": 256,
 					"kindString": "Interface",
@@ -2603,14 +2777,14 @@
 					},
 					"indexSignature": [
 						{
-							"id": 7,
+							"id": 14,
 							"name": "__index",
 							"kind": 8192,
 							"kindString": "Index signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 8,
+									"id": 15,
 									"name": "colDesc",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2627,20 +2801,20 @@
 									{
 										"type": "reference",
 										"name": "DataVal",
-										"id": 151
+										"id": 158
 									},
 									{
 										"type": "array",
 										"elementType": {
 											"type": "reference",
 											"name": "DataVal",
-											"id": 151
+											"id": 158
 										}
 									},
 									{
 										"type": "reference",
 										"name": "TermConditionFunction",
-										"id": 14
+										"id": 21
 									}
 								]
 							}
@@ -2655,7 +2829,7 @@
 					]
 				},
 				{
-					"id": 13,
+					"id": 20,
 					"name": "AndCondition",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2675,18 +2849,18 @@
 							{
 								"type": "reference",
 								"name": "SetAndCondition",
-								"id": 2
+								"id": 9
 							},
 							{
 								"type": "reference",
 								"name": "TermAndCondition",
-								"id": 6
+								"id": 13
 							}
 						]
 					}
 				},
 				{
-					"id": 9,
+					"id": 16,
 					"name": "Condition",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2706,18 +2880,18 @@
 							{
 								"type": "reference",
 								"name": "IndexCondition",
-								"id": 10
+								"id": 17
 							},
 							{
 								"type": "reference",
 								"name": "RecursiveCondition",
-								"id": 11
+								"id": 18
 							}
 						]
 					}
 				},
 				{
-					"id": 10,
+					"id": 17,
 					"name": "IndexCondition",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2740,7 +2914,7 @@
 					}
 				},
 				{
-					"id": 12,
+					"id": 19,
 					"name": "OrCondition",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2762,7 +2936,7 @@
 								"elementType": {
 									"type": "reference",
 									"name": "AndCondition",
-									"id": 13
+									"id": 20
 								}
 							},
 							{
@@ -2770,14 +2944,14 @@
 								"elementType": {
 									"type": "reference",
 									"name": "IndexCondition",
-									"id": 10
+									"id": 17
 								}
 							}
 						]
 					}
 				},
 				{
-					"id": 11,
+					"id": 18,
 					"name": "RecursiveCondition",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2797,18 +2971,18 @@
 							{
 								"type": "reference",
 								"name": "AndCondition",
-								"id": 13
+								"id": 20
 							},
 							{
 								"type": "reference",
 								"name": "OrCondition",
-								"id": 12
+								"id": 19
 							}
 						]
 					}
 				},
 				{
-					"id": 14,
+					"id": 21,
 					"name": "TermConditionFunction",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -2825,21 +2999,21 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 15,
+							"id": 22,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 16,
+									"id": 23,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 17,
+											"id": 24,
 											"name": "value",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2847,11 +3021,11 @@
 											"type": {
 												"type": "reference",
 												"name": "DataVal",
-												"id": 151
+												"id": 158
 											}
 										},
 										{
-											"id": 18,
+											"id": 25,
 											"name": "row",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2859,7 +3033,7 @@
 											"type": {
 												"type": "reference",
 												"name": "DataRow",
-												"id": 152
+												"id": 159
 											}
 										}
 									],
@@ -2880,7 +3054,7 @@
 					}
 				},
 				{
-					"id": 38,
+					"id": 45,
 					"name": "filter",
 					"kind": 64,
 					"kindString": "Function",
@@ -2889,7 +3063,7 @@
 					},
 					"signatures": [
 						{
-							"id": 39,
+							"id": 46,
 							"name": "filter",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2900,7 +3074,7 @@
 							},
 							"parameters": [
 								{
-									"id": 40,
+									"id": 47,
 									"name": "data",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2911,11 +3085,11 @@
 									"type": {
 										"type": "reference",
 										"name": "Data",
-										"id": 56
+										"id": 63
 									}
 								},
 								{
-									"id": 41,
+									"id": 48,
 									"name": "cond",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2926,14 +3100,14 @@
 									"type": {
 										"type": "reference",
 										"name": "Condition",
-										"id": 9
+										"id": 16
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
 								"name": "Data",
-								"id": 56
+								"id": 63
 							}
 						}
 					],
@@ -2946,14 +3120,14 @@
 					]
 				},
 				{
-					"id": 28,
+					"id": 35,
 					"name": "resolveCondition",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 29,
+							"id": 36,
 							"name": "resolveCondition",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2963,7 +3137,7 @@
 							},
 							"parameters": [
 								{
-									"id": 30,
+									"id": 37,
 									"name": "condition",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2974,11 +3148,11 @@
 									"type": {
 										"type": "reference",
 										"name": "Condition",
-										"id": 9
+										"id": 16
 									}
 								},
 								{
-									"id": 31,
+									"id": 38,
 									"name": "row",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2989,11 +3163,11 @@
 									"type": {
 										"type": "reference",
 										"name": "DataRow",
-										"id": 152
+										"id": 159
 									}
 								},
 								{
-									"id": 32,
+									"id": 39,
 									"name": "r",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3007,7 +3181,7 @@
 									}
 								},
 								{
-									"id": 33,
+									"id": 40,
 									"name": "colNumber",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3015,21 +3189,21 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 34,
+											"id": 41,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 35,
+													"id": 42,
 													"name": "__call",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 36,
+															"id": 43,
 															"name": "name",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -3057,7 +3231,7 @@
 									}
 								},
 								{
-									"id": 37,
+									"id": 44,
 									"name": "and",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3087,21 +3261,21 @@
 					]
 				},
 				{
-					"id": 19,
+					"id": 26,
 					"name": "resolveTerminalCondition",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 20,
+							"id": 27,
 							"name": "resolveTerminalCondition",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 21,
+									"id": 28,
 									"name": "name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3112,7 +3286,7 @@
 									}
 								},
 								{
-									"id": 22,
+									"id": 29,
 									"name": "val",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3123,7 +3297,7 @@
 									}
 								},
 								{
-									"id": 23,
+									"id": 30,
 									"name": "row",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3131,11 +3305,11 @@
 									"type": {
 										"type": "reference",
 										"name": "DataRow",
-										"id": 152
+										"id": 159
 									}
 								},
 								{
-									"id": 24,
+									"id": 31,
 									"name": "colNumber",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3143,21 +3317,21 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 25,
+											"id": 32,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 26,
+													"id": 33,
 													"name": "__call",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 27,
+															"id": 34,
 															"name": "name",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -3205,29 +3379,29 @@
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						2,
-						6
+						9,
+						13
 					]
 				},
 				{
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						13,
-						9,
-						10,
-						12,
-						11,
-						14
+						20,
+						16,
+						17,
+						19,
+						18,
+						21
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						38,
-						28,
-						19
+						45,
+						35,
+						26
 					]
 				}
 			],
@@ -3240,7 +3414,7 @@
 			]
 		},
 		{
-			"id": 166,
+			"id": 173,
 			"name": "\"index\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3257,7 +3431,7 @@
 			]
 		},
 		{
-			"id": 167,
+			"id": 174,
 			"name": "\"overview\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3283,10 +3457,11 @@
 			"title": "External modules",
 			"kind": 1,
 			"children": [
-				42,
+				49,
 				1,
-				166,
-				167
+				8,
+				173,
+				174
 			]
 		}
 	]
