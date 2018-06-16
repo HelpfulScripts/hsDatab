@@ -1,3 +1,6 @@
+[![npm version](https://badge.fury.io/js/hsdatab@2x.png)](https://badge.fury.io/js/hsdatab) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/)
+
+
 Helpful Scripts framework-independent data management functions. 
 
 **hsdatab** provides a JavaScript-based data management and query mechanism.
