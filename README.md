@@ -1,4 +1,4 @@
-# hsDatab [![npm version](https://badge.fury.io/js/hsdatab.svg)](https://badge.fury.io/js/hsdatab)[![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/)[![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hsdatab)
+# hsDatab [![npm version](https://badge.fury.io/js/hsdatab.svg)](https://badge.fury.io/js/hsdatab) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/) [![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hsdatab)
 
 
 Helpful Scripts framework-independent data management functions. 
@@ -7,7 +7,7 @@ Helpful Scripts framework-independent data management functions.
 Data is managed in a simple in-memory database that holds data in rows of columns. 
 It autodetermines the types of data held in each column, along with the 
 domain range for each column of data. 
-Complex filters can be applied by defining {@link hsDatab.DataFilters `Condition`}s using a simple query object structure.
+Complex filters can be applied by defining [`Conditions`](https://helpfulscripts.github.io/hsDatab/docs/indexGH.html#!/api/hsDatab/hsDatab.DataFilters) using a simple query object structure.
 
 ## Installation
 `npm i hsdatab`
@@ -21,7 +21,7 @@ supported {@link Data.Data.type data types} include
 - **percent**: 'd%'
 
 ## Data Class
-The fundamental object in this library is {@link Data.Data `Data`}, 
+The fundamental object in this library is [`Data`](https://helpfulscripts.github.io/hsDatab/docs/indexGH.html#!/api/hsDatab/hsDatab.Data.Data), 
 a simple row-column based database object, 
 featuring named columns, sorting, mapping and filtering functions.
 
@@ -46,7 +46,7 @@ const rows = [
 // creating the data object:
 const data = new Data({colNames:colNames, rows:rows});
 
-// getting type and domain:
+// getting type and domain:        > Column 'Value' has type Number and domain 100,1500
 console.log(`Column 'Value' has type '${data.colType('Value')}'and domain '${data.findDomain('Value')}'`);
 
 // querying the data
