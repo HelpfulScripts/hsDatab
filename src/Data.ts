@@ -64,12 +64,17 @@ export class Data {
     // public part
     //----------------------------
     public static type = {
-        number:     'number data',
-        name:       'name data',
-        date:       'date data',
-        currency:   'currency data',
-        percent:    'percent data',
-        nominal:    'nominal data'
+        /** numeric values */
+        number:     'number',
+        /** nominal values, represented by arbitrary words */
+        name:       'name',
+        /** date values */
+        date:       'date',
+        /** currency values. Currently support6ed are values ofg the format '$dd[,ddd]' */
+        currency:   'currency',
+        /** percent values: 'd%' */
+        percent:    'percent',
+//        nominal:    'nominal'
     };
 
     public static toDataSet(data:DataLiteralSet, name?:string):DataSet {
@@ -214,10 +219,13 @@ export class Data {
 
     /**
      * modifies `domain` to include all values in column `col`.
-     * @param col the column name or index 
-     * @param domain the 
+     * If no `col` is specified, the range of data indexes is returned.
+     * @param col optional; the column name or index 
+     * @param domain optional; the Domain range to update
+     * @return the updated domain
      */
-    public findDomain(col:ColumnReference, domain:Domain) {
+    public findDomain(col?:ColumnReference, domain?:Domain):Domain {
+        if (domain===undefined) { domain = <NumDomain>[]; }
         if (col === undefined) { // use array index as domain
             domain[0] = 0;
             domain[1] = this.data.length-1;
@@ -228,7 +236,7 @@ export class Data {
                 console.log('no data'); 
             }
             switch(type) {
-                case Data.type.nominal: 
+                case Data.type.name: 
                     this.data.forEach((r:DataRow) => {
                         const nomDom = <string[]>domain;
                         if (nomDom.indexOf(''+r[c]) < 0) { nomDom.push(''+r[c]); }
@@ -237,13 +245,16 @@ export class Data {
                 default: 
                     this.data.forEach((r:DataRow) => {
                         let v:number = <number>r[c];
+                        if (domain[0]===undefined) { domain[0] = v; }
+                        if (domain[1]===undefined) { domain[1] = v; }
                         if (v!==undefined && v!==null) {
-                            domain[0] = (v<domain[0])? v : domain[0];
-                            domain[1] = (v>domain[1])? v : domain[1];
+                            if (v<domain[0]) { domain[0] = v; }
+                            else if (v>domain[1]) { domain[1] = v; }
                         }
                     });
             }
         }
+        return domain;
     }
 
     public castData() {
@@ -460,7 +471,7 @@ export class Data {
             if (strVal.endsWith('%') && !isNaN(parseFloat(strVal)))            { return Data.type.percent; }
             if (!isNaN(this.toDate(strVal).getTime()))	                       { return Data.type.date; }
 
-            // european large number currency representation: '$dd,ddd[,ddd]'
+            // european large number currency representation: '$dd[,ddd]'
             if ((/^\$\d{0,2}((,\d\d\d)*)/g).test(val)) { 
                 if (!isNaN(parseFloat(val.trim().replace(/[^eE\+\-\.\d]/g, '').replace(/,/g, '')))) { 
                     return Data.type.currency; 
@@ -469,7 +480,7 @@ export class Data {
             switch (strVal.toLowerCase()) {
                 case "null": break;
                 case "#ref!": break;
-                default: if (val.length>0) { return Data.type.nominal; }
+                default: if (val.length>0) { return Data.type.name; }
             }
         }
         return null;
