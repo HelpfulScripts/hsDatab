@@ -29,7 +29,7 @@ module.exports = (grunt, dir, dependencies, type) => {
     grunt.loadNpmTasks('grunt-webpack');
 
     //------ Add Doc Tasks
-    grunt.registerTask('doc', ['clean:docs', 'typedoc', 'copy:docs']);
+    grunt.registerTask('doc', ['clean:docs', 'typedoc', 'copy:docs', 'sourceCode']);
 
     //------ Add Staging Tasks
     grunt.registerTask('stage', [`${(type === 'app')? 'copy:stageApp': 'copy:deployLib'}`]);
@@ -55,39 +55,24 @@ module.exports = (grunt, dir, dependencies, type) => {
     grunt.registerTask('build-spec',    ['tslint:spec', 'ts:test']);    
     grunt.registerTask('build-specES5', ['tslint:spec', 'ts:testES5']);    
 
-    let buildTasks = ['clean:src', 'build-html', 'build-css'];
-    let buildProduct;
-    switch (type) {
-        case 'node': buildProduct = buildTasks = buildTasks.concat(['build-es5', 'copy:example']); 
-                     break;
-        case 'util': buildTasks = buildTasks.concat(['build-js']); 
-                     buildProduct = buildTasks.concat(['build-jsMin']);
-                     break;
-        case 'app':  buildProduct = buildTasks.concat(['build-jsMin', 'build-appPrd']);
-                     buildTasks   = buildTasks.concat(['build-js', 'build-appDev']); 
-                     break;
-        case 'lib': 
-        default:     buildProduct = buildTasks.concat(['build-jsMin', 'build-example']);
-                     buildTasks   = buildTasks.concat(['build-js', 'build-example']); 
-                     break;
-    }
-    grunt.registerTask('build', buildTasks);
-    grunt.registerTask('buildMin', buildProduct);
+    tasks = assembleBuildTasks(type);
+    grunt.registerTask('build', tasks[0]);
+    grunt.registerTask('buildMin', tasks[1]);
    
     //------ Add other MultiTasks
     grunt.registerTask('make',    ['build', 'test', 'doc', 'stage']);
     grunt.registerTask('once',    ['make']);	
     grunt.registerTask('default', ['make', 'watch']);	
     grunt.registerTask('product', ['buildMin', 'doc', 'stage']);	
-       
-    //------ Add general help 
-    grunt.registerTask('h', 'help on grunt options', function() {
-        grunt.log.writeln(`  grunt: \t make, then watch`);
-        grunt.log.writeln(`  grunt once: \t make only, don't watch`);
-        grunt.log.writeln(`  grunt make: \t build, test, doc, and stage`);
-        grunt.log.writeln(`  grunt product: make optimized, don't watch; relevant for apps only`);
-    }); 	
 
+    grunt.registerMultiTask('sourceCode', translateSources);  
+
+    //------ Add general help 
+    grunt.registerTask('h', 'help on grunt options', printHelp); 	
+
+    //------ Add post to gh-pages 
+    grunt.registerTask('ghpages', 'Github post to gh-pages', publish_gh); 	
+  
     //------ Add Task Configurations
     return {
         pkg: grunt.file.readJSON(dir+'/package.json'),
@@ -279,6 +264,15 @@ module.exports = (grunt, dir, dependencies, type) => {
                 }
             }
         },
+        sourceCode: { 
+            main: {  // translate all *.ts files in src *.htmlfilesin doc
+                expand: true, 
+                cwd: 'src/', 
+                src: ['**/*.ts'], 
+                dest: 'docs/src/'
+            }
+        },
+
         watch: {
             dependencies: {
                 files: dependencies.map(d => `./node_modules/${d.toLowerCase()}/index.js`),
@@ -306,5 +300,88 @@ module.exports = (grunt, dir, dependencies, type) => {
 			}
 		}
     }
-};
 
+    function assembleBuildTasks(type) {
+        let buildTasks = ['clean:src', 'build-html', 'build-css'];
+        let buildProduct;
+        switch (type) {
+            case 'node': buildProduct = buildTasks = buildTasks.concat(['build-es5', 'copy:example']); 
+                        break;
+            case 'util': buildTasks = buildTasks.concat(['build-js']); 
+                        buildProduct = buildTasks.concat(['build-jsMin']);
+                        break;
+            case 'app':  buildProduct = buildTasks.concat(['build-jsMin', 'build-appPrd']);
+                        buildTasks   = buildTasks.concat(['build-js', 'build-appDev']); 
+                        break;
+            case 'lib': 
+            default:     buildProduct = buildTasks.concat(['build-jsMin', 'build-example']);
+                        buildTasks   = buildTasks.concat(['build-js', 'build-example']); 
+                        break;
+        }
+        return [buildTasks, buildProduct];
+    }
+
+    function printHelp() {
+        grunt.log.writeln(`  grunt: \t make, then watch`);
+        grunt.log.writeln(`  grunt once: \t make only, don't watch`);
+        grunt.log.writeln(`  grunt make: \t build, test, doc, and stage`);
+        grunt.log.writeln(`  grunt product: make optimized, don't watch; relevant for apps only`);
+    }
+
+    function translateSources() {  
+        // returns a 4-character, right aligned. line number
+        function lineNum(num) { return ('    '+(num)).substr(-4).replace(/( )/g, '&nbsp;'); }
+        function destFile(file, destDir) { return destDir+file.replace('.ts', '.html'); }
+        function wrapLine(line, i) {  
+            return `<span id=${i+1} class="line">${lineNum(i+1)}</span>${line}<br>`;
+        }
+        function comment(content) { return `<comment>${content}</comment>`; }
+        function module(content) { return `<module>${content}</module>`; }
+        function processFile(srcDir, file, destDir) {
+            let content = grunt.file.read(srcDir+file)
+                .replace(/( )/g, '&nbsp;')              // preserve whitespaces
+                .split('\n')                            // array of lines
+                .map(wrapLine)                          // wrap each line into some formatting
+                .join('\n')                             // join lines into a complete string
+                .replace(/(\/\/.*?)<\/code>/g, comment) // color code some syntax
+                .replace(/\/\*[\s\S]*?\*\//g, comment) // color code some syntax
+                ;
+            grunt.file.write(destFile(file, destDir), `
+                ${intro}
+                <h1>${file}</h1>
+                <div class='listing'><code>${content}</code></div>
+                ${extro}
+            `);
+        }
+
+        const style = `
+            body { overflow:hidden;}
+            h1 { font-family: Arial, sans-serif; font-size: 24px; color: #44a; }
+            p { margin:0; padding-top:5px; }
+            br  { margin:0; padding:0; }
+            .line { margin: 0 5px 0 0; padding-right: 5px; color:#999; background-color:#eef;  }
+            comment { color: #080;} module { color: #804;}
+            .listing { margin: 10px; border: 1px solid #ccc; 
+                    font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+                    font-size: 14px; line-height: 1.2em; 
+                    overflow:scroll;
+                    height:90%;
+            }
+            code { padding: 5px 0;}
+        `;
+        const intro = `<html><style>${style.trim()}</style></html><body>`;
+        const extro = `</body>`;
+        let files = grunt.file.expand({cwd:this.data.cwd}, this.data.src);
+    grunt.log.writeln(`${files.length} files in ${__dirname}`);    
+    grunt.log.writeln(files.map(file => this.data.cwd + file + " => " + this.data.dest).join('\n'));    
+        files.map(file => processFile(this.data.cwd, file, this.data.dest));
+        grunt.file.write('docs/data/index.json', `{"docs": ["${lib}.json"], "title": "HS Libraries"}`);
+    }
+
+    function publish_gh() {
+        grunt.util.spawn({cmd: 'cp', args:['-r', 'docs', '../']}, console.log);
+        grunt.util.spawn({cmd: 'git', args:['checkout', 'gh-pages', '']}, console.log);
+grunt.file.recurse('./', (abspath) => grunt.log.writeln(abspath));
+        grunt.util.spawn({cmd: 'git', args:['checkout', 'master', '']}, console.log);
+    }
+};
