@@ -161,7 +161,8 @@ module.exports = (grunt, dir, dependencies, type) => {
             srcES5 : {
                 outDir:     "_dist/src",
                 src: ["src/**/*.ts", "!src/**/*.spec.ts", "!src/example/*.ts"],
-                tsconfig:   __dirname+'/tsconfigGruntES5.json'
+                tsconfig:   __dirname+'/tsconfigGrunt.json'
+//                tsconfig:   __dirname+'/tsconfigGruntES5.json'
             },
             srcMin : {
                 outDir:     "_dist/src",
@@ -176,7 +177,8 @@ module.exports = (grunt, dir, dependencies, type) => {
             test : {
                 outDir:     "_dist/tests",
                 src: ["src/**/*.spec.ts"],
-                tsconfig:   __dirname+'/tsconfigGruntES5.json'
+                tsconfig:   __dirname+'/tsconfigGrunt.json'
+//                tsconfig:   __dirname+'/tsconfigGruntES5.json'
             }
         },
         typedoc: {
