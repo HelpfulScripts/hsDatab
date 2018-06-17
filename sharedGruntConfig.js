@@ -105,6 +105,10 @@ module.exports = (grunt, dir, dependencies, type) => {
             example:{ expand:true, cwd: 'src/example', 
                 src:['**/*', '!**/*.ts'], dest:'_dist/example' 
             },
+            libStage: { files: [
+                { expand:true, cwd: '_dist/src',        // copy everything from _dist/src to _dist/bin
+                    src:['**/*'], dest:'_dist/bin' }
+            ]},
             lib2NPM: { files: [
                 { expand:true, cwd: '_dist/bin',        // copy everything from _dist/bin
                     src:['**/*'], dest:`node_modules/${libPath}/` }
@@ -115,9 +119,9 @@ module.exports = (grunt, dir, dependencies, type) => {
             ]},
             docs2NPM:   { files: [                      // copy the module's typeodc json  
                 { expand:true, cwd: '_dist/docs', 
-                    src:['**/*.json'], dest:`node_modules/${libPath}/docs`},
+                    src:['**/*.json'], dest:`node_modules/${libPath}`},
                 { expand:true, cwd: '_dist/',           // copy examples to npm docs
-                    src:['example/**/*'], dest:`node_modules/${libPath}/docs` }, 
+                    src:['example/**/*'], dest:`node_modules/${libPath}` }, 
             ]},
 		    test: { files: [
                 { expand:true, cwd:'_dist/',    
