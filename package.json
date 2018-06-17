@@ -12,6 +12,7 @@
     "email": "helpfulscripts@gmail.com"
   },
   "scripts": {
+    "build": "grunt once",
     "test": "ospec"
   },
   "license": "MIT",
