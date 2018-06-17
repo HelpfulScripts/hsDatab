@@ -1,9 +1,9 @@
 /**
  * # hsDatab
  * 
- * Helpful Scripts framework-independent data management functions. 
+ * Helpful Scripts framework-independent data management functions. [Github page](https://github.com/HelpfulScripts/hsDatab)
  * 
- * *hsdatab* provides a JavaScript-based data management and query mechanism.
+ * **hsDatab** provides a JavaScript-based data management and query mechanism.
  * Data is managed in a simple in-memory database that holds data in rows of columns. 
  * It autodetermines the types of data held in each column, along with the 
  * domain range for each column of data. 
