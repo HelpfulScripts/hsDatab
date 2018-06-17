@@ -390,7 +390,6 @@ module.exports = (grunt, dir, dependencies, type) => {
             args: [dir]
         }, (error, result, code) => {
             grunt.log.writeln(`>> ${result.stdout.replace(/[\n|\r]/g, '\n>> ')}`);
-
             grunt.log.writeln(`exit code: ${code}, errors:${result.stderr}`);
             done();
         });
