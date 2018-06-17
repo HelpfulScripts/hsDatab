@@ -110,8 +110,8 @@ module.exports = (grunt, dir, dependencies, type) => {
                     src:['**/*'], dest:`node_modules/${libPath}/` }
             ]},
             app2NPM: { files: [ 
-//                { expand:true, cwd: '_dist/bin',        // copy css and maps to _dist
-//                    src:['**/*.css*'], dest:'_dist/bin' }, 
+                { expand:true, cwd: '_dist/bin',        // copy everything from _dist/bin
+                src:['**/*'], dest:`node_modules/${libPath}/` }
             ]},
             docs2NPM:   { files: [                      // copy the module's typeodc json  
                 { expand:true, cwd: '_dist/docs', 
@@ -156,17 +156,17 @@ module.exports = (grunt, dir, dependencies, type) => {
         },
         ts: {
             src : {
-                outDir:     "_dist/bin",
+                outDir:     "_dist/src",
                 src: ["src/**/*.ts", "!src/**/*.spec.ts", "!src/example/*.ts"],
                 tsconfig:   __dirname+'/tsconfigGrunt.json'
             },
             srcES5 : {
-                outDir:     "_dist/bin",
+                outDir:     "_dist/src",
                 src: ["src/**/*.ts", "!src/**/*.spec.ts", "!src/example/*.ts"],
                 tsconfig:   __dirname+'/tsconfigGruntES5.json'
             },
             srcMin : {
-                outDir:     "_dist/bin",
+                outDir:     "_dist/src",
                 src: ["src/**/*.ts", "!src/**/*.spec.ts", "!src/example/*.ts"],
                 tsconfig:   __dirname+'/tsconfigProduct.json'
             },
@@ -221,10 +221,10 @@ module.exports = (grunt, dir, dependencies, type) => {
                 stats: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
             },
             appProd: { 
-                entry: './_dist/bin/index.js',
+                entry: './_dist/src/index.js',
                 output: {
                     filename: `${lib}.js`,
-                    path: path.resolve(dir, './_dist/')
+                    path: path.resolve(dir, './_dist/bin')
                 },
                 plugins: [
                     new UglifyJsPlugin({
@@ -236,11 +236,11 @@ module.exports = (grunt, dir, dependencies, type) => {
                 ]
             },
             appDev: {
-                entry: './_dist/bin/index.js',
+                entry: './_dist/src/index.js',
                 devtool: "inline-source-map",
                 output: {
                     filename: `${lib}.js`,
-                    path: path.resolve(dir, './_dist')
+                    path: path.resolve(dir, './_dist/bin')
                 }
             },
 /*
@@ -305,20 +305,18 @@ module.exports = (grunt, dir, dependencies, type) => {
         switch (type) {
             case 'node':    buildProduct = buildTasks = buildTasks.concat(['build-es5']); 
                             break;
-            case 'util':    buildProduct = buildTasks.concat(['build-jsMin']);
-                            buildTasks = buildTasks.concat(['build-js']); 
-                            break;
             case 'app':     buildProduct = buildTasks.concat(['build-jsMin', 'webpack:appProd']);
                             buildTasks   = buildTasks.concat(['build-js', 'webpack:appDev']); 
                             break;
+            case 'util':    
             case 'lib': 
-            default:        buildProduct = buildTasks.concat(['build-jsMin']);
-                            buildTasks   = buildTasks.concat(['build-js']); 
+            default:        buildProduct = buildTasks.concat(['build-jsMin', 'copy:libStage']);
+                            buildTasks   = buildTasks.concat(['build-js', 'copy:libStage']); 
                             break;
         }
         grunt.registerTask('build', buildTasks);
         grunt.registerTask('buildMin', buildProduct);
-        }
+    }
 
     function printHelp() {
         grunt.log.writeln(`  grunt: \t make, then watch`);
