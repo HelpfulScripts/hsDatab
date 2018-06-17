@@ -383,9 +383,10 @@ module.exports = (grunt, dir, dependencies, type) => {
     }
 
     function publish_gh() {
+        grunt.log.writeln(`spawning ${devPath}ghpages-push.sh`);
         grunt.util.spawn({
-            cmd: devPath+'/ghpages-push.sh',
+            cmd: devPath+'ghpages-push.sh',
             args: [dir]
-        }, (error, result, code) => console.log(result));
+        }, (error, result, code) => grunt.log.writeln(result));
     }
 };
