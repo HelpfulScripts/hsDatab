@@ -14,7 +14,7 @@ Complex filters can be applied by defining [`Conditions`](https://helpfulscripts
 `npm i hsdatab`
 
 ## Data Types
-supported {@link Data.Data.type data types} include
+supported [data types](https://helpfulscripts.github.io/hsDatab/docs/indexGH.html#!/api/hsDatab/hsDatab.Data.Data.type) include
 - **number**: numeric values
 - **name**: nominal values, represented by arbitrary words
 - **date**: date values
