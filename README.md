@@ -1,10 +1,9 @@
 hsDatab [![npm version](https://badge.fury.io/js/hsdatab.svg)](https://badge.fury.io/js/hsdatab) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/) [![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hsdatab)
 ========
 
-
 Helpful Scripts framework-independent data management functions.
 
-**hsdatab** provides a JavaScript-based data management and query mechanism.
+**hsDatab** provides a JavaScript-based data management and query mechanism.
 Data is managed in a simple in-memory database that holds data in rows of columns. 
 It autodetermines the types of data held in each column, along with the 
 domain range for each column of data. 
