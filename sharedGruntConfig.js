@@ -12,11 +12,12 @@ function hsCamelCase(name) {
 }
 
 module.exports = (grunt, dir, dependencies, type) => {
+    const devPath = dir.slice(0, dir.indexOf('/dev/')+5);
     const pkg = grunt.file.readJSON(dir+'/package.json');
     const slash = pkg.name.lastIndexOf('/');
     const lib = hsCamelCase(slash<0? pkg.name : pkg.name.slice(slash+1));
     const libPath = lib.toLowerCase();
-    console.log(`${lib}: ${type}`);    
+    console.log(`${devPath} > ${lib}: ${type}`);    
 
 	// These plugins provide necessary tasks.
 	grunt.loadNpmTasks('grunt-contrib-watch');
@@ -29,7 +30,7 @@ module.exports = (grunt, dir, dependencies, type) => {
     grunt.loadNpmTasks('grunt-webpack');
 
     //------ Add Doc Tasks
-    grunt.registerTask('doc', ['clean:docs', 'typedoc', 'copy:docs', 'sourceCode']);
+    grunt.registerTask('doc', ['clean:docs', 'copy:htmlGH', 'typedoc', 'sourceCode', 'copy:docs2NPM']);
 
     //------ Add Staging Tasks
     grunt.registerTask('stage', [`${(type === 'app')? 'copy:app2NPM': 'copy:lib2NPM'}`]);
@@ -96,6 +97,11 @@ module.exports = (grunt, dir, dependencies, type) => {
                     src:['*.md', 'package.json'], dest:'_dist/bin' 
                 }
             ]},
+            htmlGH: { files: [
+                { expand:true, cwd: devPath,    // index.html and indexGH.html
+                    src:['index.html', 'indexGH.html'], dest:'_dist/docs' 
+                }
+            ]},
             example:{ expand:true, cwd: 'src/example', 
                 src:['**/*', '!**/*.ts'], dest:'_dist/example' 
             },
@@ -107,7 +113,7 @@ module.exports = (grunt, dir, dependencies, type) => {
 //                { expand:true, cwd: '_dist/bin',        // copy css and maps to _dist
 //                    src:['**/*.css*'], dest:'_dist/bin' }, 
             ]},
-            docs:   { files: [
+            docs2NPM:   { files: [                      // copy the module's typeodc json  
                 { expand:true, cwd: '_dist/docs', 
                     src:['**/*.json'], dest:`node_modules/${libPath}/docs`},
                 { expand:true, cwd: '_dist/',           // copy examples to npm docs
@@ -181,7 +187,7 @@ module.exports = (grunt, dir, dependencies, type) => {
                     target: 'es6',
                     module: 'commonjs',
                     moduleResolution: "node",
-                    json:   `_dist/docs/${lib}.json`,
+                    json:   `_dist/docs/data/${lib}.json`,
                     mode:   'modules',
                     name:   `${lib}`
                 },
@@ -218,7 +224,7 @@ module.exports = (grunt, dir, dependencies, type) => {
                 entry: './_dist/bin/index.js',
                 output: {
                     filename: `${lib}.js`,
-                    path: path.resolve(dir, './_dist')
+                    path: path.resolve(dir, './_dist/')
                 },
                 plugins: [
                     new UglifyJsPlugin({
@@ -378,7 +384,7 @@ module.exports = (grunt, dir, dependencies, type) => {
 
     function publish_gh() {
         grunt.util.spawn({
-            cmd: __dirname+'/ghpages-push.sh',
+            cmd: devPath+'/ghpages-push.sh',
             args: [dir]
         }, (error, result, code) => console.log(result));
     }
