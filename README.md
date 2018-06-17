@@ -2,7 +2,7 @@ hsDatab [![npm version](https://badge.fury.io/js/hsdatab.svg)](https://badge.fur
 ========
 
 
-Helpful Scripts framework-independent data management functions. 
+Helpful Scripts framework-independent data management functions.
 
 **hsdatab** provides a JavaScript-based data management and query mechanism.
 Data is managed in a simple in-memory database that holds data in rows of columns. 

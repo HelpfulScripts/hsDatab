@@ -1,5 +1,5 @@
-import { o }            from 'hslayout';
-import * as hsdatab     from 'hsdatab';
+var o = require("mithril/ospec/ospec");
+import * as hsdatab     from './';
 
 const colNames = ['Name', 'Value', 'Start', 'End'];
 const rows = [
@@ -16,12 +16,12 @@ const result = data.filter(query);
 
 o.spec("Data", () => {
     o("is created with 4 rows", () => {
-        o(data.getData.length).equals(4);
+        o(data.getData().length).equals(4);
     });
 });
 o.spec('Data Filters', () => {
     o('Query for {Name:["Peter", "Jane"]}', () => {
-        o(result.getData.length).equals(2)('has two rows');
+        o(result.getData().length).equals(2)('has two rows');
         o(result.getColumn('Name')[0]).equals('Peter')('has first row name Peter');
     });
 });
