@@ -77,6 +77,12 @@ export class Data {
 //        nominal:    'nominal'
     };
 
+    /**
+     * translates a structure of form
+     * `[{<key>:value, ...}, ...]` into a `Data` set.
+     * @param data 
+     * @param name 
+     */
     public static toDataSet(data:DataLiteralSet, name?:string):DataSet {
         data = data || [{}];
         const names = Object.keys(data[0]);

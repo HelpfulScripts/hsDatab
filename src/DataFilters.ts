@@ -151,7 +151,6 @@ export interface TermAndCondition {
 
 export type TermConditionFunction = (value:DataVal, row:DataRow) => boolean;
 
-
 function resolveTerminalCondition(name:string, val:any, row:DataRow, colNumber:(name:string)=>number):boolean { 
     const col = colNumber(name);
     const valIsFunction = (typeof val === 'function');
@@ -178,7 +177,7 @@ function resolveTerminalCondition(name:string, val:any, row:DataRow, colNumber:(
  * @param row the row values 
  * @param and 
  */
-function resolveCondition(condition:Condition, row:DataRow, r:number, colNumber:(name:string)=>number, and=true):boolean { 
+function resolveCondition(condition:Condition, row:DataRow, r:number, colNumber:(name:string)=>number, and?:boolean):boolean { 
     let orResult = false;
     let andResult= true;          
     // undefined condition is TRUE
@@ -192,16 +191,18 @@ function resolveCondition(condition:Condition, row:DataRow, r:number, colNumber:
         // array -> or condition on a list of row indices or compound conditions
         const mc = <AndCondition[]>condition;
 
-        // OR condition: [...] 
-        if (mc.length !== undefined) {            
-            return (mc.length === 0)? 
-                // empty OR is false:	
-                false : 
-                // else: OR is true if any sub-condition is met
-                mc.some((cd:AndCondition) => resolveCondition(cd, row, r, colNumber, false));
+        // OR condition: [...], or:[], not:[]
+        if (mc.length !== undefined) { 
+            if (and === undefined) { and = false; }  
+            if (mc.length === 0) { return false; }    // empty OR is false:	 
+            // else: OR is true if any sub-condition is met    
+            return and?
+                mc.every((cd:AndCondition) => resolveCondition(cd, row, r, colNumber, and)) :
+                mc.some((cd:AndCondition) => resolveCondition(cd, row, r, colNumber, and));
         } 
-        // AND condition: {...}
+        // AND condition: {...}, and:{}, not:{}
         else { 	
+            if (and === undefined) { and = true; }  
             for (const name in condition) {
                 let conditionMet = and; // initialize with false for OR, and true for AND conjunction
                 const setCond = <SetAndCondition>condition;
@@ -210,7 +211,7 @@ function resolveCondition(condition:Condition, row:DataRow, r:number, colNumber:
                 switch (name) {
                     case 'or':  conditionMet = resolveCondition(setCond.or, row, r, colNumber, false); break;
                     case 'and': conditionMet = resolveCondition(setCond.and, row, r, colNumber, true); break;
-                    case 'not': conditionMet = !resolveCondition(setCond.not, row, r, colNumber, true); break;
+                    case 'not': conditionMet = !resolveCondition(setCond.not, row, r, colNumber); break;
                     default:    conditionMet = resolveTerminalCondition(name, condition[name], row, colNumber); 
                 }
                 if (conditionMet) { orResult  = true;  if(!and) { break; }} // OR conjunction: exit for name loop if condition met
