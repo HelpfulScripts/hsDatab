@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build": "grunt travis",
-    "test": "grunt travis"
+    "test": "grunt test"
   },
   "license": "MIT",
   "repository": {
@@ -34,6 +34,7 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-less": "^2.0.0",
     "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.1.0",
     "grunt-ts": "^6.0.0-beta.19",
     "grunt-tslint": "^4.0.1",
     "grunt-typedoc": "^0.2.4",
