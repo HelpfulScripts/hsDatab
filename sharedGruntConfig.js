@@ -61,6 +61,7 @@ module.exports = (grunt, dir, dependencies, type) => {
     grunt.registerTask('once',    ['make']);	
     grunt.registerTask('default', ['make', 'watch']);	
     grunt.registerTask('product', ['buildMin', 'doc', 'stage']);	
+    grunt.registerTask('travis',  ['build', 'test']);	
 
     grunt.registerMultiTask('sourceCode', translateSources);  
 

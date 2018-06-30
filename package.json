@@ -12,8 +12,7 @@
     "email": "helpfulscripts@gmail.com"
   },
   "scripts": {
-    "build": "grunt once",
-    "test": "grunt once"
+    "test": "grunt travis"
   },
   "license": "MIT",
   "repository": {
