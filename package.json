@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build": "grunt once",
-    "test": "ospec"
+    "test": "grunt once"
   },
   "license": "MIT",
   "repository": {
