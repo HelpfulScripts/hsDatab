@@ -1,5 +1,9 @@
-hsDatab [![npm version](https://badge.fury.io/js/hsdatab.svg)](https://badge.fury.io/js/hsdatab) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/) [![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hsdatab)
+hsDatab 
 ========
+[![npm version](https://badge.fury.io/js/hsdatab.svg)](https://badge.fury.io/js/hsdatab) 
+[![Build status](https://ci.appveyor.com/api/projects/status/un7gcaay5lswfeau?svg=true)](https://ci.appveyor.com/project/HelpfulScripts/hsdatab)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/) 
+[![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hsdatab)
 
 Helpful Scripts framework-independent data management functions.
 
