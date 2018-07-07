@@ -1,11 +1,11 @@
 {
   "name": "hsdatab",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "main": "./index.js",
   "types": "./index.d.ts",
   "keywords": [
     ""
-  ], 
+  ],
   "description": "Helpful Scripts simple cross-framework data table management and filtering utilities ",
   "author": {
     "name": "masterscripter",
