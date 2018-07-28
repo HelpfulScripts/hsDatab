@@ -1,4 +1,3 @@
-var o = require("mithril/ospec/ospec");
 import * as hsdatab     from './';
 
 const colNames = ['Name', 'Value', 'Start', 'End'];
@@ -33,12 +32,12 @@ const queries:Array<[any, any[]]> = [
     [ {Name:(v:any) => v.length===4},      [  1,  3]]
 ];
 
-o.spec('Data Filters', () => {
-    o("is created with 4 rows", () => o(data.getData().length).equals(4));
+describe('Data Filters', () => {
+    it('is created with 4 rows', () => expect(data.getData().length).toEqual(4));
     queries.forEach((q, i) => {
         const r = data.filter(q[0]);
-        o(`query ${i}: ${JSON.stringify(q[0])} should yield ${JSON.stringify(q[1])}`, 
-            () => o(r.getData().length).equals(q[1].length)
+        test(`query ${i}: ${JSON.stringify(q[0])} should yield ${JSON.stringify(q[1])}`, 
+            () => expect(r.getData().length).toEqual(q[1].length)
         );
     });
 });

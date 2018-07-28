@@ -13,21 +13,21 @@ let data:hsdatab.Data;
 let result:hsdatab.Data;
 const query = {Name:["Peter", "Jane"]};
 
-o.beforeEach(() => {
+beforeEach(() => {
     data = new hsdatab.Data({colNames:colNames, rows:rows});
     result = data.filter(query);
 });
 
 o.spec("Data", () => {
-    o("is created with 4 rows", () => o(data.getData().length).equals(4));
+    it('is created with 4 rows', () => expect(data.getData().length).toEqual(4));
     o.spec("toDataSet", () => {
         const dataLit = [{Name: 'John', Value: 2000, Start:'2/15/14', End:'11/11/15'}];
         const s = hsdatab.Data.toDataSet(dataLit);
-        o('set has 1 row', () => o(s.rows.length).equals(1));
-        o('set has 1st colName "Name"', () => o(s.colNames[0]).equals('Name'));
-        o('set has 2nd colName "Value"', () => o(s.colNames[1]).equals('Value'));
-        o('set has 3rd colName "Start"', () => o(s.colNames[2]).equals('Start'));
-        o('set has 4th colName "End"', () => o(s.colNames[3]).equals('End'));
+        it('set has 1 row', () => expect(s.rows.length).toEqual(1));
+        it('set has 1st colName "Name"', () => expect(s.colNames[0]).toEqual('Name'));
+        it('set has 2nd colName "Value"', () => expect(s.colNames[1]).toEqual('Value'));
+        it('set has 3rd colName "Start"', () => expect(s.colNames[2]).toEqual('Start'));
+        it('set has 4th colName "End"', () => expect(s.colNames[3]).toEqual('End'));
     });
     o.spec("colAdd", () => {
     });
@@ -63,8 +63,8 @@ o.spec("Data", () => {
 /*
         var vnode = MyComponent.view()
 
-        o(vnode.tag).equals("div")
-        o(vnode.children.length).equals(1)
-        o(vnode.children[0].tag).equals("p")
-        o(vnode.children[0].children).equals("Hello world")
+        expect(vnode.tag).toEqual("div")
+        expect(vnode.children.length).toEqual(1)
+        expect(vnode.children[0].tag).toEqual("p")
+        expect(vnode.children[0].children).toEqual("Hello world")
 */
