@@ -51,8 +51,11 @@ interface MetaStruct {
     types:      TypeStruct[];   // data types, sorted by likelihood
 }
 
-export type sortFn = (x:any, y:any) => number;
-export type mapFn  = (colVal:any, colIndex?:number, rowIndex?:number, rows?:any[][]) => any;
+export type sortFn   = (x:any, y:any) => number;
+export type mapFn    = (colVal:DataVal, colIndex:number, rowIndex:number, rows:DataRow[]) => DataVal;
+export type mapRowFn = (row:DataRow, rowIndex:number, rows:DataRow[]) => DataRow;
+export type initFn   = (colVal: DataVal, colIndex:number, row:DataRow) => DataVal;
+    
 
 /**
  * # Data
@@ -139,21 +142,21 @@ export class Data {
 
     /**
      * adds a new column to the data set. if `newCol` already exists, 
-     * the column index is returned withoput change.
+     * the column index is returned without change.
      * @param col the name of the new column
      * @return the index for the new column
      */
-    public colAdd(col:string):number {
+    public colAdd(col:string):MetaStruct {
         let m = this.getMeta(col);
         if (m === undefined) { 
             m = this.meta[col] = <MetaStruct>{};
             m.name   = col; 
             m.column = this.meta.length;
             this.meta.push(m);      // access name by both column name and index
-            m.cast 	   = false;         // has not been cast yet
-            m.accessed = false;         // has not been accessed yet
+            m.cast 	   = false;     // has not been cast yet
+            m.accessed = false;     // has not been accessed yet
         }
-        return m.column;
+        return m;
     }
 
     /**
@@ -165,13 +168,13 @@ export class Data {
      * @param initializer the value to initialize with, or a function whose return
      * value is used to initialize the column
      */
-    public colInitialize(col:ColumnReference, initializer:any) {
-        const cn = this.colNumber(col);
-        if (!cn  && typeof col === 'string') { this.colAdd(col); }
+    public colInitialize(col:ColumnReference, initializer:initFn|DataVal) {
         const fn = typeof initializer === 'function';
-        if (cn!==undefined) {
-            this.data.map((r:DataRow, i:number) =>
-                r[cn] = fn? initializer(r[cn], i, r) : initializer
+        let cn:MetaStruct = this.getMeta(col);
+        if (!cn  && (typeof col === 'string')) { cn = this.colAdd(col); }
+        if (cn) {
+            this.data.map((row:DataRow, rowIndex:number) =>
+                row[cn.column] = fn? (<initFn>initializer)(row[cn.column], rowIndex, row) : <DataVal>initializer
             );
         }
     }
@@ -250,7 +253,7 @@ export class Data {
                     break;
                 default: 
                     this.data.forEach((r:DataRow) => {
-                        let v:number = <number>r[c];
+                        let v:number = parseFloat(r[c].toString());
                         if (domain[0]===undefined) { domain[0] = v; }
                         if (domain[1]===undefined) { domain[1] = v; }
                         if (v!==undefined && v!==null) {
@@ -327,7 +330,8 @@ export class Data {
     *  Maps one or more columns in each rows of values based 
      * on the result of the `mapFn`, which behaves similarly to the Array.map() method.
      * Two modes are supported:
-     * # Array Mode
+     * 
+     * ## Array Mode
      * If `col` is omitted, the `mapFn` is passed the column arrays per row as parameter. 
      * This allows for complex mapping combining conditions across multiple columns.
      * ```
@@ -337,7 +341,8 @@ export class Data {
      * });
      * ```
      * Be sure to return the `values` array as a result.
-     * # Column mode
+     * 
+     * ## Column mode
      * If `col` is specified, either as index or by column name, the respective column value is passed
      * into `mapFn`, along with the row index and the entire row array. This allows for simple mapping.
      * ```
@@ -356,38 +361,42 @@ export class Data {
      * follows the same specifications as the function passed to Array.map().<br>
      * For column mode, some predefined map functions can be invoked by providing a 
      * respective string instead of a function. The following functions are defined:
-        <table>
-        <tr><td>'noop'</td><td>replace value with itself, performing no operation.</td></tr>
-        <tr><td>'cumulate'</td><td>replace value with the cumulative sum of values up to the current element.</td></tr>
-        </table>
+     *  <table>
+     *  <tr><td>'noop'</td><td>replace value with itself, performing no operation.</td></tr>
+     *  <tr><td>'cumulate'</td><td>replace value with the cumulative sum of values up to the current element.</td></tr>
+     *  </table>
+     *
      * @return a new Data object containing the mapping.
      */
-    public map(col:ColumnReference|ColumnReference[], mapFn:string|mapFn):Data {
+    public map(mapFn:string|mapFn|mapRowFn, col?:ColumnReference):Data {
         const noop = (val:any) => val;
         const cumulate = () => { 
             let sum=0; 
             return (val:number, i:number) => { sum += +val; return sum; };
         };
-        function getFn() {
+        function getFn():mapFn|mapRowFn {
             let fn; // define fn inside each col loop to ensure initialization
             switch (mapFn) {
                 case 'cumulate': fn = cumulate(); break;
                 case 'noop':     fn = noop; break;
-                default:         fn = <mapFn>mapFn;
+                default:         fn = <mapFn|mapRowFn>mapFn;
             }
             return fn;
         }
 
-        let result = new Data({colNames:this.colNames(), rows:this.data.slice(), name:this.getName()});
-
-        const names = col['length']? <ColumnReference[]>col : [col];            
-        names.map((cn:ColumnReference) => {
-            const c = this.colNumber(cn);
-            let fn = getFn(); // define fn inside each col loop to ensure initialization
-            result.data = result.data.map((row:any[], i:number, rows:any[][]) => { 
-                row[c] = fn(row[c], c, i, rows); 
+        let fn = getFn(); // define fn inside each col loop to ensure initialization
+        const c = col? this.colNumber(col) : undefined;
+        let result = new Data({
+            colNames:this.colNames(), 
+            rows:this.data.map((row:any[], rowIndex:number, rows:any[][]) => { 
+                if (c) {
+                    row[c] = (<mapFn>fn)(row[c], c, rowIndex, rows); 
+                } else {
+                    rows[rowIndex] = (<mapRowFn>fn)(row, rowIndex, rows);
+                }
                 return row;
-            });
+            }), 
+            name:this.getName()
         });
         return result;
     }
