@@ -6,8 +6,9 @@ jobs:
     - stage: build
       script: grunt build
     - stage: test
-      script: grunt test
-      script: grunt coveralls
+      script: 
+        - grunt test
+        - grunt coveralls
 cache:
   directories:
     - "node_modules"
