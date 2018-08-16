@@ -4,9 +4,8 @@ node_js:
 jobs:
   include:
     - stage: build
-      script: grunt build
-    - stage: test
       script: 
+        - grunt once
         - grunt test
         - grunt coveralls
 cache:
