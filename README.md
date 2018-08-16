@@ -11,13 +11,13 @@ Helpful Scripts framework-independent data management functions.
 Data is managed in a simple in-memory database that holds data in rows of columns. 
 It autodetermines the types of data held in each column, along with the 
 domain range for each column of data. 
-Complex filters can be applied by defining [`Conditions`](https://helpfulscripts.github.io/hsDatab/indexGH.html#!/api/hsDatab/hsDatab.DataFilters) using a simple query object structure.
+Complex filters can be applied by defining [`Conditions`](https://helpfulscripts.github.io/hsDatab/#!/api/hsDatab/hsDatab.DataFilters) using a simple query object structure.
 
 ## Installation
 `npm i hsdatab`
 
 ## Data Types
-supported [data types](https://helpfulscripts.github.io/hsDatab/indexGH.html#!/api/hsDatab/hsDatab.Data.Data.type) include
+supported [data types](https://helpfulscripts.github.io/hsDatab/#!/api/hsDatab/hsDatab.Data.Data.type) include
 - **number**: numeric values
 - **name**: nominal values, represented by arbitrary words
 - **date**: date values
@@ -25,12 +25,12 @@ supported [data types](https://helpfulscripts.github.io/hsDatab/indexGH.html#!/a
 - **percent**: 'd%'
 
 ## Data Class
-The fundamental object in this library is [`Data`](https://helpfulscripts.github.io/hsDatab/indexGH.html#!/api/hsDatab/hsDatab.Data.Data), 
+The fundamental object in this library is [`Data`](https://helpfulscripts.github.io/hsDatab/#!/api/hsDatab/hsDatab.Data.Data), 
 a simple row-column based database object, 
 featuring named columns, sorting, mapping and filtering functions.
 
 ## Example
-see the [docs](https://helpfulscripts.github.io/hsDatab/indexGH.html#!/api/hsDatab/0) for a live example.
+see the [docs](https://helpfulscripts.github.io/hsDatab/#!/api/hsDatab/0) for a live example.
 
 ## Usage 
 The following simple example illustrates some of the features: 
