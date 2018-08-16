@@ -31,10 +31,10 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.loadNpmTasks('jest');
 
     //------ Add Doc Tasks
-    grunt.registerTask('doc', ['clean:docs', 'copy:htmlGH', 'typedoc', 'sourceCode', 'copy:docs2NPM']);
+    grunt.registerTask('doc', ['clean:docs', 'copy:html', 'typedoc', 'sourceCode']);
 
     //------ Add Staging Tasks
-    grunt.registerTask('stage', [`${(type === 'app')? 'copy:app2NPM': 'copy:lib2NPM'}`]);
+    grunt.registerTask('stage', ['copy:docs2NPM', `${(type === 'app')? 'copy:app2NPM': 'copy:lib2NPM'}`]);
     
     //------ Add Test Tasks
     grunt.registerTask('ospec', () => { require('child_process').spawnSync('./node_modules/.bin/ospec', {stdio: 'inherit'}); });
@@ -59,7 +59,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.registerTask('once',      ['make']);	
     grunt.registerTask('default',   ['watch']);	
     grunt.registerTask('product',   ['buildMin', 'doc', 'stage']);	
-    grunt.registerTask('travis',    ['build', 'test']);	
+    grunt.registerTask('travis',    ['build', 'doc']);	
 
     grunt.registerMultiTask('sourceCode', translateSources);  
     grunt.registerMultiTask('cleanupCoverage', removeTimestampFromCoverage);  
@@ -94,7 +94,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                     src:['*.md', 'package.json'], dest:'bin' 
                 }
             ]},
-            htmlGH: { files: [
+            html: { files: [
                 { expand:true, cwd: devPath+'/staging/',    // index.html
                     src:['index.html'], dest:'docs' 
                 }

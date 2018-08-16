@@ -5,7 +5,7 @@ jobs:
   include:
     - stage: build
       script: 
-        - grunt once
+        - grunt travis
         - grunt test
         - grunt coveralls
 cache:
