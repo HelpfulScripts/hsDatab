@@ -23,6 +23,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
 	grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-coveralls');
     grunt.loadNpmTasks('grunt-typedoc');
     grunt.loadNpmTasks('grunt-tslint');
     grunt.loadNpmTasks('grunt-ts');
@@ -252,6 +253,14 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
             }
         },
 
+        coveralls: {
+            options: { force: false },
+            your_target: {
+                // LCOV coverage file (can be string, glob or array)
+                src: 'docs/data/src/${lib}/coverage/lcov.info',
+                options: {}
+            },
+        },
         watch: {
             dependencies: {
                 files: dependencies.map(d => `./node_modules/${d.toLowerCase()}/index.js`),
