@@ -1,7 +1,7 @@
 hsDatab 
 ========
 [![npm version](https://badge.fury.io/js/hsdatab.svg)](https://badge.fury.io/js/hsdatab) 
-[![Build status](https://ci.appveyor.com/api/projects/status/un7gcaay5lswfeau?svg=true)](https://ci.appveyor.com/project/HelpfulScripts/hsdatab)
+[![Build Status](https://travis-ci.org/HelpfulScripts/hsDatab.svg?branch=master)](https://travis-ci.org/HelpfulScripts/hsDatab)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/) 
 [![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hsdatab)
 
