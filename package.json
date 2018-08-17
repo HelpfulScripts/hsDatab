@@ -1,6 +1,6 @@
 {
   "name": "hsdatab",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "main": "./index.js",
   "types": "./index.d.ts",
   "keywords": [
@@ -38,7 +38,7 @@
     "grunt-contrib-less": "^2.0.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.1.0",
-    "grunt-coveralls":"^2.0.0",
+    "grunt-coveralls": "^2.0.0",
     "grunt-ts": "^6.0.0-beta.19",
     "grunt-tslint": "^4.0.1",
     "grunt-typedoc": "^0.2.4",
