@@ -255,11 +255,10 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
 
         coveralls: {
             options: { force: false },
-            your_target: {
-                // LCOV coverage file (can be string, glob or array)
-                src: 'docs/data/src/${lib}/coverage/lcov.info',
+            target: {
+                src: `./docs/data/src/${lib}/coverage/lcov.info`,
                 options: {}
-            },
+            }
         },
         watch: {
             dependencies: {
