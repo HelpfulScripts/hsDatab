@@ -23,7 +23,6 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
 	grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-coveralls');
     grunt.loadNpmTasks('grunt-typedoc');
     grunt.loadNpmTasks('grunt-tslint');
     grunt.loadNpmTasks('grunt-ts');
@@ -31,16 +30,14 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.loadNpmTasks('jest');
 
     //------ Add Doc Tasks
-    grunt.registerTask('doc', ['clean:docs', 'copy:html', 'typedoc', 'sourceCode']);
+    grunt.registerTask('doc', ['clean:docs', 'copy:htmlGH', 'typedoc', 'sourceCode', 'copy:docs2NPM']);
 
     //------ Add Staging Tasks
-    grunt.registerTask('stage', ['copy:docs2NPM', `${(type === 'app')? 'copy:app2NPM': 'copy:lib2NPM'}`]);
+    grunt.registerTask('stage', [`${(type === 'app')? 'copy:app2NPM': 'copy:lib2NPM'}`]);
     
     //------ Add Test Tasks
     grunt.registerTask('ospec', () => { require('child_process').spawnSync('./node_modules/.bin/ospec', {stdio: 'inherit'}); });
-    grunt.registerTask('jest',  () => { require('child_process').spawnSync('./node_modules/.bin/jest',  
-        ['-c=jest.config.json', '-i'], 
-        {stdio: 'inherit'}); });
+    grunt.registerTask('jest',  () => { require('child_process').spawnSync('./node_modules/.bin/jest',  ['-c=jest.config.json', '-i'], {stdio: 'inherit'}); });
     grunt.registerTask('test', ['clean:cov', 'jest', 'copy:coverage', 'cleanupCoverage']); 
     
     //------ Add Build Tasks
@@ -94,7 +91,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                     src:['*.md', 'package.json'], dest:'bin' 
                 }
             ]},
-            html: { files: [
+            htmlGH: { files: [
                 { expand:true, cwd: devPath+'/staging/',    // index.html
                     src:['index.html'], dest:'docs' 
                 }
@@ -253,13 +250,6 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
             }
         },
 
-        coveralls: {
-            options: { force: false },
-            target: {
-                src: `./docs/data/src/${lib}/coverage/lcov.info`,
-                options: {}
-            }
-        },
         watch: {
             dependencies: {
                 files: dependencies.map(d => `./node_modules/${d.toLowerCase()}/index.js`),

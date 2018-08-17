@@ -1,5 +1,3 @@
-require('coveralls');
-
 import * as hsdatab     from './';
 import { Data } from './Data';
 
