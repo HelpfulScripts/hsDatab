@@ -167,8 +167,9 @@ export class Data {
      * @param col the column to initialize
      * @param initializer the value to initialize with, or a function whose return
      * value is used to initialize the column
+     * @return the initialized column number
      */
-    public colInitialize(col:ColumnReference, initializer:initFn|DataVal) {
+    public colInitialize(col:ColumnReference, initializer:initFn|DataVal):number {
         const fn = typeof initializer === 'function';
         let cn:MetaStruct = this.getMeta(col);
         if (!cn  && (typeof col === 'string')) { cn = this.colAdd(col); }
@@ -177,6 +178,7 @@ export class Data {
                 row[cn.column] = fn? (<initFn>initializer)(row[cn.column], rowIndex, row) : <DataVal>initializer
             );
         }
+        return cn.column;
     }
 
     /**
@@ -427,9 +429,6 @@ export class Data {
     private setData(data:DataRow[], names:string[], autoType=true):void {
         this.meta = [];
         this.data = data;
-        if (!names) {
-            console.log();
-        }
         names.forEach((col:string) => this.colAdd(col));
         names.forEach((col:string) => this.findTypes(col));
         this.castData();

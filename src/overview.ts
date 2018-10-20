@@ -39,6 +39,7 @@
  * 
  * query = {Name:["Peter", "Jane"]};
  * const result = data.filter(query);
+ * console.log(data.getData());
  *
  * m.mount(root, {
  *   view:() => m('', [

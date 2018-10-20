@@ -1,7 +1,7 @@
 import * as hsdatab     from './';
 import { Data } from './Data';
 
-const colNames = ['Name', 'Value', 'Start', 'End'];
+const colNames = ['Name', 'Value', 'Start', 'End', 'Share', 'Sum'];
 
 let data:hsdatab.Data;
 let result:hsdatab.Data;
@@ -10,10 +10,10 @@ const query = {Name:["Peter", "Jane"]};
 describe('Data', () => {
     beforeEach(() => {
         const rows = [
-            ['Harry', '400', '3/1/14', '11/20/14'], 
-            ['Mary', '1500', '7/1/14',  '9/30/14'],
-            ['Peter', '100', '5/20/14', '4/30/15'],  
-            ['Jane', '700', '11/13/14', '8/15/15']
+            ['Harry', '400', '3/1/14', '11/20/14', '20%', '$15,666'], 
+            ['Mary', '1500', '7/1/88',  '9/30/88', '10%', '$16'],
+            ['Peter', '100', '5/20/14', '4/30/15', '30%', '$17'],  
+            ['Jane', '700', '11/13/14', '8/15/15', '40%', '$18']
           ];
         data = new hsdatab.Data({colNames:colNames, rows:rows});
         result = data.filter(query);
@@ -36,7 +36,8 @@ describe('Data', () => {
             expect(data.colAdd('Value').column).toEqual(1);
         });
         it('should add new column', ()=>{
-            expect(data.colAdd('Value2').column).toEqual(4);
+            const cols = data.colNames().length;
+            expect(data.colAdd('Value2').column).toEqual(cols);
         });
     });
     
@@ -46,8 +47,8 @@ describe('Data', () => {
             expect(data.getColumn('Value')[2]).toEqual(15); 
         });
         it('should initialize new column', () => {
-            data.colInitialize('Value2', (val:number, i, row:number[])=>row[1]*2);
-            expect(data.colNames()[4]).toEqual('Value2');
+            const newnum = data.colInitialize('Value2', (val:number, i, row:number[])=>row[1]*2);
+            expect(data.colNames()[newnum]).toEqual('Value2');
             expect(data.getColumn('Value2')[2]).toEqual(200);
         });
     });
@@ -60,7 +61,7 @@ describe('Data', () => {
     
     describe('colNames', () => {
         it('should return all names', ()=>{
-            expect(data.colNames()).toHaveLength(4);
+            expect(data.colNames()).toHaveLength(6);
             expect(data.colNames()[2]).toEqual('Start');
         });
     });
@@ -76,7 +77,7 @@ describe('Data', () => {
             expect(data.colNumber('stupid')).toEqual(undefined);
         });        
         it('should return invalid column number for number', () => {
-            expect(data.colNumber(5)).toEqual(undefined);
+            expect(data.colNumber(8)).toEqual(undefined);
         });        
     });
     
@@ -90,17 +91,32 @@ describe('Data', () => {
         it('should return valid column type for name', () => {
             expect(data.colType('Name')).toEqual(Data.type.name);
         });
+        it('should return valid column type for Share', () => {
+            expect(data.colType('Share')).toEqual(Data.type.percent);
+        });
+        it('should return valid column type for Sum', () => {
+            expect(data.colType('Sum')).toEqual(Data.type.currency);
+        });
+        it('should return currency value', () => {
+            expect(data.colType('Sum')).toEqual(Data.type.currency);
+        });
         it('should return default column type "name" for invalid', () => {
             expect(data.colType('stupid')).toEqual(Data.type.name);
         });
     });
     
+    describe('get Value', () => {
+        it('should return currency value', () => {
+            expect(data.getColumn('Sum')[0]).toEqual(15666);
+        });
+    });
+
     describe('export', () => {
         it('should have rows and colNames', () => {
             const d = data.export();
             expect(d).toHaveProperty('rows');
             expect(d).toHaveProperty('colNames');
-            expect(d.colNames).toHaveLength(4);
+            expect(d.colNames).toHaveLength(6);
         });
     });
     
