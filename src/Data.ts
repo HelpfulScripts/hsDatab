@@ -253,6 +253,17 @@ export class Data {
                         if (nomDom.indexOf(''+r[c]) < 0) { nomDom.push(''+r[c]); }
                     });
                     break;
+                case Data.type.date: 
+                    this.data.forEach((r:DataRow) => {
+                        let v:Date = (['string', 'number'].indexOf(typeof r[c]) < 0 )? <Date>r[c] : new Date(r[c]);
+                        if (domain[0]===undefined) { domain[0] = v; }
+                        if (domain[1]===undefined) { domain[1] = v; }
+                        if (v!==undefined && v!==null) {
+                            if (v<domain[0]) { domain[0] = v; }
+                            else if (v>domain[1]) { domain[1] = v; }
+                        }
+                    });
+                    break;
                 default: 
                     this.data.forEach((r:DataRow) => {
                         let v:number = parseFloat(r[c].toString());

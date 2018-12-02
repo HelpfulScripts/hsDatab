@@ -125,6 +125,11 @@ describe('Data', () => {
             expect(data.findDomain('Name')).toHaveLength(4);
             expect(data.findDomain('Name')).toContain('Harry');
         });
+        it('should return valid initial domain for date', () => {
+            expect(data.findDomain('Start')).toHaveLength(2);
+            expect((<Date>data.findDomain('Start')[0]).getFullYear()).toBe(1988);
+            expect((<Date>data.findDomain('Start')[1]).getFullYear()).toBe(2014);
+        });
         it('should return valid initial domain for value', () => {
             const domain = data.findDomain('Value');
             expect(domain).toHaveLength(2);
