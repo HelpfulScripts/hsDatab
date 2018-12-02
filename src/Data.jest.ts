@@ -1,21 +1,20 @@
-import * as hsdatab     from './';
 import { Data } from './Data';
 
 const colNames = ['Name', 'Value', 'Start', 'End', 'Share', 'Sum'];
 
-let data:hsdatab.Data;
-let result:hsdatab.Data;
+let data:Data;
+let result:Data;
 const query = {Name:["Peter", "Jane"]};
 
 describe('Data', () => {
     beforeEach(() => {
         const rows = [
             ['Harry', '400', '3/1/14', '11/20/14', '20%', '$15,666'], 
-            ['Mary', '1500', '7/1/88',  '9/30/88', '10%', '$16'],
+            ['Mary', '1500', '7/1/1969',  '9/30/69', '10%', '$16'],
             ['Peter', '100', '5/20/14', '4/30/15', '30%', '$17'],  
             ['Jane', '700', '11/13/14', '8/15/15', '40%', '$18']
           ];
-        data = new hsdatab.Data({colNames:colNames, rows:rows});
+        data = new Data({colNames:colNames, rows:rows});
         result = data.filter(query);
     });
     
@@ -23,7 +22,7 @@ describe('Data', () => {
     
     describe('toDataSet', () => {
         const dataLit = [{Name: 'John', Value: 2000, Start:'2/15/14', End:'11/11/15'}];
-        const s = hsdatab.Data.toDataSet(dataLit);
+        const s = Data.toDataSet(dataLit);
         it('set has 1 row', () => expect(s.rows.length).toEqual(1));
         it('set has 1st colName "Name"', () => expect(s.colNames[0]).toEqual('Name'));
         it('set has 2nd colName "Value"', () => expect(s.colNames[1]).toEqual('Value'));
@@ -127,8 +126,10 @@ describe('Data', () => {
         });
         it('should return valid initial domain for date', () => {
             expect(data.findDomain('Start')).toHaveLength(2);
-            expect((<Date>data.findDomain('Start')[0]).getFullYear()).toBe(1988);
+            expect((<Date>data.findDomain('Start')[0]).getFullYear()).toBe(1969);
             expect((<Date>data.findDomain('Start')[1]).getFullYear()).toBe(2014);
+            expect((<Date>data.findDomain('End')[0]).getFullYear()).toBe(2014);
+            expect((<Date>data.findDomain('End')[1]).getFullYear()).toBe(2069);
         });
         it('should return valid initial domain for value', () => {
             const domain = data.findDomain('Value');
@@ -206,12 +207,12 @@ describe('Data', () => {
             expect(data.getColumn('Name')[0]).toEqual('Jane');
         });
         it('should sort Date by function', () => {
-            data.sort((v,w)=>v-w, 'End');
-            expect(data.getColumn('Name')[0]).toEqual('Mary');
+            data.sort((v,w)=>v-w, 'End');   // find earliest End
+            expect(data.getColumn('Name')[0]).toEqual('Harry');
         });
         it('should sort rows by function', () => {
-            data.sort((v,w)=>v[3]-w[3]);
-            expect(data.getColumn('Name')[0]).toEqual('Mary');
+            data.sort((v,w)=>v[3]-w[3]);   // find earliest End
+            expect(data.getColumn('Name')[0]).toEqual('Harry');
         });
     });
 });

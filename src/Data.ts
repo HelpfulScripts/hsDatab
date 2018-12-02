@@ -255,7 +255,7 @@ export class Data {
                     break;
                 case Data.type.date: 
                     this.data.forEach((r:DataRow) => {
-                        let v:Date = (['string', 'number'].indexOf(typeof r[c]) < 0 )? <Date>r[c] : new Date(r[c]);
+                        let v:Date = this.toDate(r[c]);
                         if (domain[0]===undefined) { domain[0] = v; }
                         if (domain[1]===undefined) { domain[1] = v; }
                         if (v!==undefined && v!==null) {
@@ -531,16 +531,19 @@ export class Data {
      * The string "15/7/03" will convert to Jul 15 1903 in Mozilla and July 15 2003 in Webkit.
      * If `limitYear` is not specified this method uses 1970 as the decision date: 
      * years 00-69 will be interpreted as 2000-2069, years 70-99 as 1970-1999.
+     * @todo the current imnplementation is sloppy: It captures explicit centuries
+     * only for '19**';  "15/7/03", "15/7/1803", "15/7/2003" will all be converted to 2003-07-15, 
+     * whereas only "15/7/1903" is coverted to 1903-07-15.
      */
     private toDate(val:DataVal, limitYear=1970):Date {
         let d:Date;
         if (val instanceof Date) { d = <Date>val; }
                             else { d = new Date(<string>val); }   
-        let yr=d.getFullYear();
-        if (yr < 100) { 
-            yr += 1900; 
-            d.setFullYear( (yr < limitYear)? yr+100 : yr);
+        let yr = 1900 + d.getFullYear() % 100;
+        if (typeof val === 'string' && val.indexOf(''+yr) < 0) { // unless '19xx' is specified, apply limit rule:
+            d.setFullYear( (yr < limitYear)? yr+100 : yr); 
         }
+console.log(`${val} -> ${d}`);        
         return d;
     }
 
@@ -552,25 +555,28 @@ export class Data {
      * @description Casts the sample to the specified data type.
      */
     private castVal(type:string, val:DataVal):DataVal {
+        let result:DataVal = val;
         switch (type) {
             case Data.type.date:    if (val instanceof Date) { return val; }
-                            val = this.toDate(val);
-                            if (isNaN(val.getTime())) { val = null; }
+                            result = this.toDate(val);
+                            if (isNaN(result.getTime())) { result = null; }
                             break;
             case Data.type.percent: if (typeof val === 'string') {
                                 const num = parseFloat(val);
-                                val = (<string>val).endsWith('%')? num/100 : num;
-                            } 
-                            if (isNaN(<number>val)) { val = null; }
+                                result = (<string>val).endsWith('%')? num/100 : num;
+                            } else {
+                                result = val;
+                            }
+                            if (isNaN(<number>result)) { result = null; }
                             break;
             case Data.type.currency:// replace all except 'e/E', '.', '+/-' and digits
-            				if (typeof val === 'string') { val = val.replace(/[^eE\+\-\.\d]/g, ''); }            				
+                            result = (typeof val === 'string')? val.replace(/[^eE\+\-\.\d]/g, '') : val;          				
             				/* falls through */
-            case Data.type.number:  if (typeof val === 'string') { val = parseFloat(val); }
-                            if (isNaN(<number>val)) { val = null; }
+            case Data.type.number:  if (typeof result === 'string') { result = parseFloat(result); }
+                            if (isNaN(<number>result)) { result = null; }
                             break;
-            default:        val = ''+val;
+            default:        result = ''+val;
         }
-        return val;
+        return result;
      }     
 }

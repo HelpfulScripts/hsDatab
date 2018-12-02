@@ -296,7 +296,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 554,
+									"line": 557,
 									"character": 19
 								}
 							]
@@ -1358,7 +1358,11 @@
 										"tags": [
 											{
 												"tag": "description",
-												"text": "returns a new Date object parsed from `str` and corrects for a difference in\ninterpreting centuries between webkit and mozilla in converting strings to Dates:\nThe string \"15/7/03\" will convert to Jul 15 1903 in Mozilla and July 15 2003 in Webkit.\nIf `limitYear` is not specified this method uses 1970 as the decision date:\nyears 00-69 will be interpreted as 2000-2069, years 70-99 as 1970-1999.\n"
+												"text": "returns a new Date object parsed from `str` and corrects for a difference in\ninterpreting centuries between webkit and mozilla in converting strings to Dates:\nThe string \"15/7/03\" will convert to Jul 15 1903 in Mozilla and July 15 2003 in Webkit.\nIf `limitYear` is not specified this method uses 1970 as the decision date:\nyears 00-69 will be interpreted as 2000-2069, years 70-99 as 1970-1999."
+											},
+											{
+												"tag": "todo",
+												"text": "the current imnplementation is sloppy: It captures explicit centuries\nonly for '19**';  \"15/7/03\", \"15/7/1803\", \"15/7/2003\" will all be converted to 2003-07-15,\nwhereas only \"15/7/1903\" is coverted to 1903-07-15.\n"
 											}
 										]
 									},
@@ -1403,7 +1407,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 535,
+									"line": 538,
 									"character": 18
 								}
 							]
