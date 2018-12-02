@@ -172,12 +172,13 @@ export class Data {
     public colInitialize(col:ColumnReference, initializer:initFn|DataVal):number {
         const fn = typeof initializer === 'function';
         let cn:MetaStruct = this.getMeta(col);
-        if (!cn  && (typeof col === 'string')) { cn = this.colAdd(col); }
-        if (cn) {
-            this.data.map((row:DataRow, rowIndex:number) =>
-                row[cn.column] = fn? (<initFn>initializer)(row[cn.column], rowIndex, row) : <DataVal>initializer
-            );
+        if (!cn) {
+            if (typeof col === 'string') { cn = this.colAdd(col); }
+            else { throw new Error(`column ${col} does not exist in Data`); }
         }
+        this.data.map((row:DataRow, rowIndex:number) =>
+            row[cn.column] = fn? (<initFn>initializer)(row[cn.column], rowIndex, row) : <DataVal>initializer
+        );
         return cn.column;
     }
 
@@ -243,9 +244,6 @@ export class Data {
         } else {
             const c = this.colNumber(col);
             const type = this.colType(col);
-            if (this.data === undefined) {
-                console.log('no data'); 
-            }
             switch(type) {
                 case Data.type.name: 
                     this.data.forEach((r:DataRow) => {
@@ -422,7 +420,7 @@ export class Data {
     private name: string;
 
     private getMeta(col:ColumnReference):MetaStruct { 
-        if (!this.meta) { this.meta = []; }
+        // if (!this.meta) { this.meta = []; }
         if (!this.meta[col]) { return undefined; }
        	this.meta[col].accessed = true;
         return this.meta[col]; 
@@ -488,7 +486,7 @@ export class Data {
         if (val && val!=='') {
             if (val instanceof Date) { return Data.type.date; }         // if val is already a date
             if (typeof val === 'number') { return Data.type.number; }   // if val is already a number
-
+            
             // else: val is a string:
             const strVal = ''+val;
             if (''+parseFloat(strVal) === strVal)                              { return Data.type.number; }
@@ -496,12 +494,12 @@ export class Data {
             if (strVal.endsWith('%') && !isNaN(parseFloat(strVal)))            { return Data.type.percent; }
             if (!isNaN(this.toDate(strVal).getTime()))	                       { return Data.type.date; }
 
-            // european large number currency representation: '$dd[,ddd]'
-            if ((/^\$\d{0,2}((,\d\d\d)*)/g).test(val)) { 
-                if (!isNaN(parseFloat(val.trim().replace(/[^eE\+\-\.\d]/g, '').replace(/,/g, '')))) { 
-                    return Data.type.currency; 
-                }
-            }
+            // // european large number currency representation: '$dd[,ddd]'
+            // if ((/^\$\d{0,2}((,\d\d\d)*)/g).test(val)) { 
+            //     if (!isNaN(parseFloat(val.trim().replace(/[^eE\+\-\.\d]/g, '').replace(/,/g, '')))) { 
+            //         return Data.type.currency; 
+            //     }
+            // }
             switch (strVal.toLowerCase()) {
                 case "null": break;
                 case "#ref!": break;

@@ -1,6 +1,6 @@
 import { Data } from './Data';
 
-const colNames = ['Name', 'Value', 'Start', 'End', 'Share', 'Sum'];
+const colNames = ['Name', 'Value', 'Start', 'End', 'Share', 'Sum', 'Invalid'];
 
 let data:Data;
 let result:Data;
@@ -9,10 +9,10 @@ const query = {Name:["Peter", "Jane"]};
 describe('Data', () => {
     beforeEach(() => {
         const rows = [
-            ['Harry', '400', '3/1/14', '11/20/14', '20%', '$15,666'], 
-            ['Mary', '1500', '7/1/1969',  '9/30/69', '10%', '$16'],
-            ['Peter', '100', '5/20/14', '4/30/15', '30%', '$17'],  
-            ['Jane', '700', '11/13/14', '8/15/15', '40%', '$18']
+            ['Harry', '400', '3/1/14', '11/20/14', '20%', '$10,666', ''], 
+            ['Mary', '1500', '7/1/1969',  '9/30/69', '10%', '$16 555', '#ref!'],
+            ['Peter', '100', '5/20/14', '4/30/15', '0.3', '$13000.17', undefined],  
+            ['Jane', '400', '11/13/14', '8/15/15', '40%', '$15000', 'null']
           ];
         data = new Data({colNames:colNames, rows:rows});
         result = data.filter(query);
@@ -50,6 +50,9 @@ describe('Data', () => {
             expect(data.colNames()[newnum]).toEqual('Value2');
             expect(data.getColumn('Value2')[2]).toEqual(200);
         });
+        it('should throw for invalid index', () => {
+            expect(() => data.colInitialize(35, 15)).toThrow();
+        });
     });
     
     describe('colName', () => {
@@ -60,7 +63,7 @@ describe('Data', () => {
     
     describe('colNames', () => {
         it('should return all names', ()=>{
-            expect(data.colNames()).toHaveLength(6);
+            expect(data.colNames()).toHaveLength(7);
             expect(data.colNames()[2]).toEqual('Start');
         });
     });
@@ -106,7 +109,7 @@ describe('Data', () => {
     
     describe('get Value', () => {
         it('should return currency value', () => {
-            expect(data.getColumn('Sum')[0]).toEqual(15666);
+            expect(data.getColumn('Sum')[0]).toEqual(10666);
         });
     });
 
@@ -115,7 +118,7 @@ describe('Data', () => {
             const d = data.export();
             expect(d).toHaveProperty('rows');
             expect(d).toHaveProperty('colNames');
-            expect(d.colNames).toHaveLength(6);
+            expect(d.colNames).toHaveLength(7);
         });
     });
     
@@ -145,6 +148,16 @@ describe('Data', () => {
             const domain = data.findDomain();
             expect(domain).toHaveLength(2);
             expect(domain).toEqual([0, 3]);
+        });
+        it('should return valid initial domain for Share', () => {
+            const domain = data.findDomain('Share');
+            expect(domain).toHaveLength(2);
+            expect(domain).toEqual([0.1, 0.4]);
+        });
+        it('should return valid initial domain for Sum', () => {
+            const domain = data.findDomain('Sum');
+            expect(domain).toHaveLength(2);
+            expect(domain).toEqual([10666, 16555]);
         });
     });
     
@@ -185,11 +198,11 @@ describe('Data', () => {
         });
         it('should accumulate', () => {
             const result = data.map('cumulate', 'Value');
-            expect(result.getColumn('Value')[3]).toEqual(2700);
+            expect(result.getColumn('Value')[3]).toEqual(2400);
         });
         it('should do nothing', () => {
             const result = data.map('noop', 'Value');
-            expect(result.getColumn('Value')[3]).toEqual(700);
+            expect(result.getColumn('Value')[3]).toEqual(400);
         });
     });
     
@@ -197,6 +210,10 @@ describe('Data', () => {
         it('should sort ascending by Name', () => {
             data.sort('ascending', 'Name');
             expect(data.getColumn('Name')[1]).toEqual('Jane');
+        });
+        it('should sort ascending by Value', () => {
+            data.sort('ascending', 'Value');
+            expect(data.getColumn('Value')[0]).toEqual(100);
         });
         it('should sort descending by Value', () => {
             data.sort('descending', 'Value');

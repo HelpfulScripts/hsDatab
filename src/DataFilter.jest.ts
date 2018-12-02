@@ -33,11 +33,21 @@ const queries:Array<[any, any[]]> = [
 ];
 
 describe('Data Filters', () => {
-    it('is created with 4 rows', () => expect(data.getData().length).toEqual(4));
-    queries.forEach((q, i) => {
-        const r = data.filter(q[0]);
-        test(`query ${i}: ${JSON.stringify(q[0])} should yield ${JSON.stringify(q[1])}`, 
-            () => expect(r.getData().length).toEqual(q[1].length)
+    describe('standard tests', () => {
+        it('is created with 4 rows', () => expect(data.getData().length).toEqual(4));
+        queries.forEach((q, i) => {
+            const r = data.filter(q[0]);
+            test(`query ${i}: ${JSON.stringify(q[0])} should yield ${JSON.stringify(q[1])}`, 
+                () => expect(r.getData().length).toEqual(q[1].length)
+            );
+        });
+    });
+    describe('exceptions test', () => {
+        test(`invalid column name`, () => 
+            expect(data.filter({Bogus:'bogus'}).getData().length).toBeFalsy()
+        );
+        test(`invalid condition type`, () => 
+            expect(data.filter(<hsdatab.Condition>'bogus').getData().length).toBeFalsy()
         );
     });
 });
