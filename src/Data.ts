@@ -543,7 +543,6 @@ export class Data {
         if (typeof val === 'string' && val.indexOf(''+yr) < 0) { // unless '19xx' is specified, apply limit rule:
             d.setFullYear( (yr < limitYear)? yr+100 : yr); 
         }
-console.log(`${val} -> ${d}`);        
         return d;
     }
 
