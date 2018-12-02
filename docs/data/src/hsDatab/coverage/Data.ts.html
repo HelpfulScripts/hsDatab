@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">94.52% </span>
+        <span class="strong">94.57% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>207/219</span>
+        <span class='fraction'>209/221</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">83.55% </span>
+        <span class="strong">82.89% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>127/152</span>
+        <span class='fraction'>126/152</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>47/47</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">95.93% </span>
+        <span class="strong">95.98% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>165/172</span>
+        <span class='fraction'>167/174</span>
       </div>
     </div>
   </div>
@@ -623,7 +623,10 @@
 578
 579
 580
-581</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+581
+582
+583
+584</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1160,13 +1163,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1037x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1017x</span>
-<span class="cline-any cline-yes">1037x</span>
-<span class="cline-any cline-yes">1037x</span>
-<span class="cline-any cline-yes">931x</span>
+<span class="cline-any cline-yes">1017x</span>
+<span class="cline-any cline-yes">704x</span>
+<span class="cline-any cline-yes">704x</span>
+<span class="cline-any cline-yes">618x</span>
+<span class="cline-any cline-yes">618x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1037x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1736,18 +1742,21 @@ export class Data {
      * The string "15/7/03" will convert to Jul 15 1903 in Mozilla and July 15 2003 in Webkit.
      * If `limitYear` is not specified this method uses 1970 as the decision date: 
      * years 00-69 will be interpreted as 2000-2069, years 70-99 as 1970-1999.
-     * @todo the current imnplementation is sloppy: It captures explicit centuries
-     * only for '19**';  "15/7/03", "15/7/1803", "15/7/2003" will all be converted to 2003-07-15, 
-     * whereas only "15/7/1903" is coverted to 1903-07-15.
+     * Specifying a century in the string leads to a correct parse, e.g. "15/7/1903"
      */
     private toDate(val:DataVal, limitYear=1970):Date {
         let d:Date;
         if (val instanceof Date) { d = &lt;Date&gt;val; }
-                            else { d = new Date(&lt;string&gt;val); }   
-        let yr = 1900 + d.getFullYear() % 100;
-        if (typeof val === 'string' &amp;&amp; val.indexOf(''+yr) &lt; 0) { // unless '19xx' is specified, apply limit rule:
-            d.setFullYear( (yr &lt; limitYear)? yr+100 : yr); 
-        }
+        else { 
+            d = new Date(&lt;string&gt;val); 
+            if (!isNaN(d.getTime())) {
+                const r = new RegExp(`\\d\\d${d.getFullYear() % 100}`, 'g');
+                if (!(&lt;string&gt;val).match(r)) {
+                    const yr = 1900 + d.getFullYear() % 100;
+                    d.setFullYear( (yr &lt; limitYear)? yr+100 : <span class="branch-1 cbranch-no" title="branch not covered" >yr)</span>; 
+                }
+            }
+        }   
         return d;
     }
 &nbsp;

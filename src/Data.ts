@@ -531,18 +531,21 @@ export class Data {
      * The string "15/7/03" will convert to Jul 15 1903 in Mozilla and July 15 2003 in Webkit.
      * If `limitYear` is not specified this method uses 1970 as the decision date: 
      * years 00-69 will be interpreted as 2000-2069, years 70-99 as 1970-1999.
-     * @todo the current imnplementation is sloppy: It captures explicit centuries
-     * only for '19**';  "15/7/03", "15/7/1803", "15/7/2003" will all be converted to 2003-07-15, 
-     * whereas only "15/7/1903" is coverted to 1903-07-15.
+     * Specifying a century in the string leads to a correct parse, e.g. "15/7/1903"
      */
     private toDate(val:DataVal, limitYear=1970):Date {
         let d:Date;
         if (val instanceof Date) { d = <Date>val; }
-                            else { d = new Date(<string>val); }   
-        let yr = 1900 + d.getFullYear() % 100;
-        if (typeof val === 'string' && val.indexOf(''+yr) < 0) { // unless '19xx' is specified, apply limit rule:
-            d.setFullYear( (yr < limitYear)? yr+100 : yr); 
-        }
+        else { 
+            d = new Date(<string>val); 
+            if (!isNaN(d.getTime())) {
+                const r = new RegExp(`\\d\\d${d.getFullYear() % 100}`, 'g');
+                if (!(<string>val).match(r)) {
+                    const yr = 1900 + d.getFullYear() % 100;
+                    d.setFullYear( (yr < limitYear)? yr+100 : yr); 
+                }
+            }
+        }   
         return d;
     }
 
