@@ -56,6 +56,7 @@ export type mapFn    = (colVal:DataVal, colIndex:number, rowIndex:number, rows:D
 export type mapRowFn = (row:DataRow, rowIndex:number, rows:DataRow[]) => DataRow;
 export type initFn   = (colVal: DataVal, colIndex:number, row:DataRow) => DataVal;
     
+export type DataType = string;
 
 /**
  * # Data
@@ -68,15 +69,15 @@ export class Data {
     //----------------------------
     public static type = {
         /** numeric values */
-        number:     'number',
+        number:     <DataType>'number',
         /** nominal values, represented by arbitrary words */
-        name:       'name',
+        name:       <DataType>'name',
         /** date values */
-        date:       'date',
+        date:       <DataType>'date',
         /** currency values. Currently support6ed are values ofg the format '$dd[,ddd]' */
-        currency:   'currency',
+        currency:   <DataType>'currency',
         /** percent values: 'd%' */
-        percent:    'percent',
+        percent:    <DataType>'percent',
 //        nominal:    'nominal'
     };
 
@@ -203,7 +204,7 @@ export class Data {
      * @param column the data column, name or index. 
      * @return the column name or `undefined`.
      */
-    public colName(col:ColumnReference) {
+    public colName(col:ColumnReference):string {
         var m = this.getMeta(col);
         if (!m) { return undefined; }
         m.accessed = true; 
@@ -224,7 +225,7 @@ export class Data {
      * @param column the data column, name or index. 
      * @return the column type.
      */
-    public colType(col:ColumnReference) { 
+    public colType(col:ColumnReference):DataType { 
         const meta = this.getMeta(col);
         return meta? meta.types[0].type : Data.type.name;
     }

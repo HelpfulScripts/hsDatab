@@ -40,6 +40,8 @@
  * query = {Name:["Peter", "Jane"]};
  * const result = data.filter(query);
  * console.log(data.getData());
+ * 
+ * const dateConvert = d => new Date(d).toDateString();
  *
  * m.mount(root, {
  *   view:() => m('', [
@@ -59,8 +61,8 @@
  *                  m('tr', m('th', 'Column'),   m('th', 'Type'),   m('th', 'Domain')),
  *                  m('tr', m('td', '"Name":'),  m('td', data.colType("Name")),   m('td', data.findDomain("Name").join(', '))),
  *                  m('tr', m('td', '"Value":'), m('td', data.colType("Value")),  m('td', data.findDomain("Value").join(' - '))),
- *                  m('tr', m('td', '"Start":'), m('td', data.colType("Start")),  m('td', data.findDomain("Start").map(d => d.toDateString()).join(' - '))),
- *                  m('tr', m('td', '"Stop":'),  m('td', data.colType("End")),    m('td', data.findDomain("End").map(d => d.toDateString()).join(' - ')))
+ *                  m('tr', m('td', '"Start":'), m('td', data.colType("Start")),  m('td', data.findDomain("Start").map(dateConvert).join(' - '))),
+ *                  m('tr', m('td', '"Stop":'),  m('td', data.colType("End")),    m('td', data.findDomain("End").map(dateConvert).join(' - ')))
  *       )),
  *       m('h3', 'The query:'),
  *       m('code', '{Name:["Peter", "Jane"]}'),

@@ -68,7 +68,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 95,
+									"line": 96,
 									"character": 5
 								}
 							]
@@ -85,7 +85,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 418,
+									"line": 419,
 									"character": 16
 								}
 							],
@@ -111,7 +111,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 419,
+									"line": 420,
 									"character": 16
 								}
 							],
@@ -137,7 +137,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 420,
+									"line": 421,
 									"character": 16
 								}
 							],
@@ -198,7 +198,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 516,
+									"line": 517,
 									"character": 21
 								}
 							]
@@ -228,7 +228,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 280,
+									"line": 281,
 									"character": 19
 								}
 							]
@@ -296,7 +296,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 557,
+									"line": 558,
 									"character": 19
 								}
 							]
@@ -347,7 +347,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 149,
+									"line": 150,
 									"character": 17
 								}
 							]
@@ -416,7 +416,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 172,
+									"line": 173,
 									"character": 24
 								}
 							]
@@ -464,7 +464,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 206,
+									"line": 207,
 									"character": 18
 								}
 							]
@@ -501,7 +501,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 217,
+									"line": 218,
 									"character": 19
 								}
 							]
@@ -549,7 +549,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 191,
+									"line": 192,
 									"character": 20
 								}
 							]
@@ -589,15 +589,16 @@
 										}
 									],
 									"type": {
-										"type": "intrinsic",
-										"name": "string"
+										"type": "reference",
+										"name": "DataType",
+										"id": 178
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 227,
+									"line": 228,
 									"character": 18
 								}
 							]
@@ -631,7 +632,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 120,
+									"line": 121,
 									"character": 17
 								}
 							]
@@ -683,7 +684,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 297,
+									"line": 298,
 									"character": 17
 								}
 							]
@@ -754,7 +755,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 239,
+									"line": 240,
 									"character": 21
 								}
 							]
@@ -810,7 +811,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 485,
+									"line": 486,
 									"character": 20
 								}
 							]
@@ -861,7 +862,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 453,
+									"line": 454,
 									"character": 21
 								}
 							]
@@ -915,7 +916,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 138,
+									"line": 139,
 									"character": 20
 								}
 							]
@@ -952,7 +953,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 130,
+									"line": 131,
 									"character": 18
 								}
 							]
@@ -997,7 +998,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 422,
+									"line": 423,
 									"character": 19
 								}
 							]
@@ -1030,7 +1031,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 104,
+									"line": 105,
 									"character": 18
 								}
 							]
@@ -1080,7 +1081,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 112,
+									"line": 113,
 									"character": 17
 								}
 							]
@@ -1164,7 +1165,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 382,
+									"line": 383,
 									"character": 14
 								}
 							]
@@ -1249,7 +1250,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 438,
+									"line": 439,
 									"character": 19
 								}
 							]
@@ -1332,7 +1333,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 327,
+									"line": 328,
 									"character": 15
 								}
 							]
@@ -1403,7 +1404,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 534,
+									"line": 535,
 									"character": 18
 								}
 							]
@@ -1469,7 +1470,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 89,
+									"line": 90,
 									"character": 27
 								}
 							]
@@ -1499,7 +1500,7 @@
 									"sources": [
 										{
 											"fileName": "Data.ts",
-											"line": 77,
+											"line": 78,
 											"character": 16
 										}
 									],
@@ -1507,7 +1508,7 @@
 										"type": "intrinsic",
 										"name": "string"
 									},
-									"defaultValue": "\"currency\""
+									"defaultValue": "   <DataType>'currency'"
 								},
 								{
 									"id": 60,
@@ -1523,7 +1524,7 @@
 									"sources": [
 										{
 											"fileName": "Data.ts",
-											"line": 75,
+											"line": 76,
 											"character": 12
 										}
 									],
@@ -1531,7 +1532,7 @@
 										"type": "intrinsic",
 										"name": "string"
 									},
-									"defaultValue": "\"date\""
+									"defaultValue": "       <DataType>'date'"
 								},
 								{
 									"id": 59,
@@ -1547,7 +1548,7 @@
 									"sources": [
 										{
 											"fileName": "Data.ts",
-											"line": 73,
+											"line": 74,
 											"character": 12
 										}
 									],
@@ -1555,7 +1556,7 @@
 										"type": "intrinsic",
 										"name": "string"
 									},
-									"defaultValue": "\"name\""
+									"defaultValue": "       <DataType>'name'"
 								},
 								{
 									"id": 58,
@@ -1571,7 +1572,7 @@
 									"sources": [
 										{
 											"fileName": "Data.ts",
-											"line": 71,
+											"line": 72,
 											"character": 14
 										}
 									],
@@ -1579,7 +1580,7 @@
 										"type": "intrinsic",
 										"name": "string"
 									},
-									"defaultValue": "\"number\""
+									"defaultValue": "     <DataType>'number'"
 								},
 								{
 									"id": 62,
@@ -1595,7 +1596,7 @@
 									"sources": [
 										{
 											"fileName": "Data.ts",
-											"line": 79,
+											"line": 80,
 											"character": 15
 										}
 									],
@@ -1603,7 +1604,7 @@
 										"type": "intrinsic",
 										"name": "string"
 									},
-									"defaultValue": "\"percent\""
+									"defaultValue": "    <DataType>'percent'"
 								}
 							],
 							"groups": [
@@ -1622,7 +1623,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 69,
+									"line": 70,
 									"character": 22
 								}
 							],
@@ -1690,7 +1691,7 @@
 					"sources": [
 						{
 							"fileName": "Data.ts",
-							"line": 65,
+							"line": 66,
 							"character": 17
 						}
 					]
@@ -2075,6 +2076,26 @@
 							"name": "DataVal",
 							"id": 151
 						}
+					}
+				},
+				{
+					"id": 178,
+					"name": "DataType",
+					"kind": 4194304,
+					"kindString": "Type alias",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "Data.ts",
+							"line": 59,
+							"character": 20
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
 					}
 				},
 				{
@@ -2638,6 +2659,7 @@
 						150,
 						153,
 						152,
+						178,
 						151,
 						147,
 						149,
@@ -3113,7 +3135,7 @@
 					"sources": [
 						{
 							"fileName": "DataFilters.ts",
-							"line": 236,
+							"line": 235,
 							"character": 22
 						}
 					]
@@ -3222,7 +3244,7 @@
 											"sources": [
 												{
 													"fileName": "DataFilters.ts",
-													"line": 181,
+													"line": 180,
 													"character": 80
 												}
 											]
@@ -3255,7 +3277,7 @@
 					"sources": [
 						{
 							"fileName": "DataFilters.ts",
-							"line": 181,
+							"line": 180,
 							"character": 25
 						}
 					]
@@ -3414,7 +3436,7 @@
 			]
 		},
 		{
-			"id": 178,
+			"id": 179,
 			"name": "\"index\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3431,7 +3453,7 @@
 			]
 		},
 		{
-			"id": 179,
+			"id": 180,
 			"name": "\"overview\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3441,7 +3463,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/standalone/hsDatab/src/overview.ts",
 			"comment": {
 				"shortText": "# hsDatab",
-				"text": "Helpful Scripts framework-independent data management functions.\n[`[Github page]`](https://github.com/HelpfulScripts/hsDatab)\n[`[Coverage Info]`](./data/src/hsDatab/coverage/)\n___\n\n**hsDatab** provides a JavaScript-based data management and query mechanism.\nData is managed in a simple in-memory database that holds data in rows of columns.\nIt autodetermines the types of data held in each column, along with the\ndomain range for each column of data.\nComplex filters can be applied by defining {@link DataFilters `Condition`}s using a simple query object structure.\n\n## Data Types\nsupported {@link Data.Data.type data types} include\n- **number**: numeric values\n- **name**: nominal values, represented by arbitrary words\n- **date**: date values\n- **currency**: Currently supported: '$dd[,ddd]'\n- **percent**: 'd%'\n\n## Data Class\nThe fundamental object in this library is {@link Data.Data `Data`},\na simple row-column based database object,\nfeaturing named columns, sorting, mapping and filtering functions.\n\n## Example\n<example height=500>\n<file name=\"script.js\">\nconst colNames = ['Name', 'Value', 'Start', 'End'];\nconst rows = [\n  ['Harry', '100', '3/1/14', '11/20/14'],\n  ['Mary', '1500', '7/1/14',  '9/30/14'],\n  ['Peter', '400', '5/20/14', '4/30/15'],\n  ['Jane', '700', '11/13/14', '8/15/15']\n]\nconst data = new hsdatab.Data({colNames:colNames, rows:rows});\n\nquery = {Name:[\"Peter\", \"Jane\"]};\nconst result = data.filter(query);\nconsole.log(data.getData());\n\nm.mount(root, {\n  view:() => m('', [\n      m('h3', 'Given the data set:'),\n      m('pre',\n      m('table#data', [\n          m('tr', colNames.map(n => m('th', n))),\n          ...rows.map(row => m('tr', [\n             m('td', row[0]),\n             m('td', row[1]),\n             m('td', `${row[2].getMonth()+1}/${row[2].getDate()}/${row[2].getFullYear()}`),\n             m('td', `${row[3].getMonth()+1}/${row[3].getDate()}/${row[3].getFullYear()}`)\n         ]))\n      ])),\n      m('h3', 'The column types and domains are'),\n      m('pre', m('table',\n                 m('tr', m('th', 'Column'),   m('th', 'Type'),   m('th', 'Domain')),\n                 m('tr', m('td', '\"Name\":'),  m('td', data.colType(\"Name\")),   m('td', data.findDomain(\"Name\").join(', '))),\n                 m('tr', m('td', '\"Value\":'), m('td', data.colType(\"Value\")),  m('td', data.findDomain(\"Value\").join(' - '))),\n                 m('tr', m('td', '\"Start\":'), m('td', data.colType(\"Start\")),  m('td', data.findDomain(\"Start\").map(d => d.toDateString()).join(' - '))),\n                 m('tr', m('td', '\"Stop\":'),  m('td', data.colType(\"End\")),    m('td', data.findDomain(\"End\").map(d => d.toDateString()).join(' - ')))\n      )),\n      m('h3', 'The query:'),\n      m('code', '{Name:[\"Peter\", \"Jane\"]}'),\n      m('h3', 'yields results with \"Name\"'),\n      m('code', result.getColumn('Name').join(', '))\n  ])\n});\n</file>\n<file name='style.css'>\n  $exampleID { height: 600px; }\n  #data th { width:15%; }\n  #data  { font-size: 11pt; }\n</file>\n</example>\n"
+				"text": "Helpful Scripts framework-independent data management functions.\n[`[Github page]`](https://github.com/HelpfulScripts/hsDatab)\n[`[Coverage Info]`](./data/src/hsDatab/coverage/)\n___\n\n**hsDatab** provides a JavaScript-based data management and query mechanism.\nData is managed in a simple in-memory database that holds data in rows of columns.\nIt autodetermines the types of data held in each column, along with the\ndomain range for each column of data.\nComplex filters can be applied by defining {@link DataFilters `Condition`}s using a simple query object structure.\n\n## Data Types\nsupported {@link Data.Data.type data types} include\n- **number**: numeric values\n- **name**: nominal values, represented by arbitrary words\n- **date**: date values\n- **currency**: Currently supported: '$dd[,ddd]'\n- **percent**: 'd%'\n\n## Data Class\nThe fundamental object in this library is {@link Data.Data `Data`},\na simple row-column based database object,\nfeaturing named columns, sorting, mapping and filtering functions.\n\n## Example\n<example height=500>\n<file name=\"script.js\">\nconst colNames = ['Name', 'Value', 'Start', 'End'];\nconst rows = [\n  ['Harry', '100', '3/1/14', '11/20/14'],\n  ['Mary', '1500', '7/1/14',  '9/30/14'],\n  ['Peter', '400', '5/20/14', '4/30/15'],\n  ['Jane', '700', '11/13/14', '8/15/15']\n]\nconst data = new hsdatab.Data({colNames:colNames, rows:rows});\n\nquery = {Name:[\"Peter\", \"Jane\"]};\nconst result = data.filter(query);\nconsole.log(data.getData());\n\nconst dateConvert = d => new Date(d).toDateString();\n\nm.mount(root, {\n  view:() => m('', [\n      m('h3', 'Given the data set:'),\n      m('pre',\n      m('table#data', [\n          m('tr', colNames.map(n => m('th', n))),\n          ...rows.map(row => m('tr', [\n             m('td', row[0]),\n             m('td', row[1]),\n             m('td', `${row[2].getMonth()+1}/${row[2].getDate()}/${row[2].getFullYear()}`),\n             m('td', `${row[3].getMonth()+1}/${row[3].getDate()}/${row[3].getFullYear()}`)\n         ]))\n      ])),\n      m('h3', 'The column types and domains are'),\n      m('pre', m('table',\n                 m('tr', m('th', 'Column'),   m('th', 'Type'),   m('th', 'Domain')),\n                 m('tr', m('td', '\"Name\":'),  m('td', data.colType(\"Name\")),   m('td', data.findDomain(\"Name\").join(', '))),\n                 m('tr', m('td', '\"Value\":'), m('td', data.colType(\"Value\")),  m('td', data.findDomain(\"Value\").join(' - '))),\n                 m('tr', m('td', '\"Start\":'), m('td', data.colType(\"Start\")),  m('td', data.findDomain(\"Start\").map(dateConvert).join(' - '))),\n                 m('tr', m('td', '\"Stop\":'),  m('td', data.colType(\"End\")),    m('td', data.findDomain(\"End\").map(dateConvert).join(' - ')))\n      )),\n      m('h3', 'The query:'),\n      m('code', '{Name:[\"Peter\", \"Jane\"]}'),\n      m('h3', 'yields results with \"Name\"'),\n      m('code', result.getColumn('Name').join(', '))\n  ])\n});\n</file>\n<file name='style.css'>\n  $exampleID { height: 600px; }\n  #data th { width:15%; }\n  #data  { font-size: 11pt; }\n</file>\n</example>\n"
 			},
 			"sources": [
 				{
@@ -3459,8 +3481,8 @@
 			"children": [
 				42,
 				1,
-				178,
-				179
+				179,
+				180
 			]
 		}
 	]

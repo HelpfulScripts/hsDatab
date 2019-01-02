@@ -4,11 +4,12 @@ export { NumRange,
          NameDomain,
          Domain,
          ColumnReference,
+         Data,
          DataVal,
          DataRow,
-         DataSet
+         DataSet,
+         DataType
         }       from './Data';
 
-export { Data } from './Data';
 export { Condition} from './DataFilters';
 
