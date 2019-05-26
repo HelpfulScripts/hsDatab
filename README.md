@@ -1,9 +1,10 @@
 hsDatab 
 ========
-[![npm version](https://badge.fury.io/js/hsdatab.svg)](https://badge.fury.io/js/hsdatab) 
+[![npm version](https://badge.fury.io/js/hsdatab.svg)](https://badge.fury.io/js/hsdatab)
+[![GitHub](https://img.shields.io/badge/GitHub-hsDatab-blue.svg)](https://github.com/helpfulscripts/hsdatab)
+[![docs](https://img.shields.io/badge/hsDocs-hsDatab-blue.svg)](https://helpfulscripts.github.io/hsExcel/#!/api/hsDatab/0)
 [![Build Status](https://travis-ci.org/HelpfulScripts/hsDatab.svg?branch=master)](https://travis-ci.org/HelpfulScripts/hsDatab)
 [![Coverage Status](https://coveralls.io/repos/github/HelpfulScripts/hsDatab/badge.svg?branch=master)](https://coveralls.io/github/HelpfulScripts/hsDatab?branch=master)
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/) 
 [![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hsdatab)
 [![Known Vulnerabilities](https://snyk.io/test/github/HelpfulScripts/hsDatab/badge.svg?targetFile=package.json)](https://snyk.io/test/github/HelpfulScripts/hsDatab?targetFile=package.json)
 
