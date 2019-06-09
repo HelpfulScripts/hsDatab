@@ -311,18 +311,22 @@ export class Data {
      * ```
      * # Column mode
      * If `col` is specified, either as index or by column name, the respective column value is passed
-     * into `sortFn`. This allows filtering for simple conditions.<br>
+     * into `sortFn`. This allows filtering for simple conditions.
      * **The specified column will be automatically cast prior to sorting**<br>
-     * `data.sort('Date', function(val1, val2) { return val1 - val2; });`
+     * ```
+     * data.sort('ascending', 'Date');
+     * data.sort('decending', 'Date');
+     * data.sort(function(val1, val2) { return val1 - val2; }, 'Date');
+     * ```
      * @param col optional; the data column to use for sorting. 
      * @param sortFn a function to implement the conditions, 
      * follows the same specifications as the function passed to Array.sort(). 
      * Some predefined sort function can be invoked by providing a 
      * respective string instead of a function. The following functions are defined:
-        <table>
-        <tr><td>'`ascending`'</td><td>sort in ascending order.</td></tr>
-        <tr><td>'`descending`'</td><td>sort in decending order.</td></tr>
-        </table>
+        ```
+        ascending    sort in ascending order.
+        descending   sort in decending order.
+        ```
      * @return the Data object in order to allow for chaining.
      */
     public sort(sortFn:string|sortFn, col?:ColumnReference):Data {

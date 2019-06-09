@@ -85,7 +85,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 419,
+									"line": 423,
 									"character": 16
 								}
 							],
@@ -111,7 +111,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 420,
+									"line": 424,
 									"character": 16
 								}
 							],
@@ -137,7 +137,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 421,
+									"line": 425,
 									"character": 16
 								}
 							],
@@ -198,7 +198,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 517,
+									"line": 521,
 									"character": 21
 								}
 							]
@@ -296,7 +296,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 558,
+									"line": 562,
 									"character": 19
 								}
 							]
@@ -811,7 +811,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 486,
+									"line": 490,
 									"character": 20
 								}
 							]
@@ -862,7 +862,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 454,
+									"line": 458,
 									"character": 21
 								}
 							]
@@ -998,7 +998,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 423,
+									"line": 427,
 									"character": 19
 								}
 							]
@@ -1165,7 +1165,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 383,
+									"line": 387,
 									"character": 14
 								}
 							]
@@ -1250,7 +1250,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 439,
+									"line": 443,
 									"character": 19
 								}
 							]
@@ -1276,7 +1276,7 @@
 										"tags": [
 											{
 												"tag": "description",
-												"text": "Sorts the rows of values based on the result of the `sortFn`,\nwhich behaves similarly to the Array.sort method.\nTwo modes are supported:\n# Array Mode\nIf `col` is omitted, the column arrays are passed as samples into the `sortFn`.\nThis allows for complex sorts, combining conditions across multiple columns.\n```\ndata.sort((row1, row2) => row1[5] - row2[5] );\n```\n# Column mode\nIf `col` is specified, either as index or by column name, the respective column value is passed\ninto `sortFn`. This allows filtering for simple conditions.<br>\n**The specified column will be automatically cast prior to sorting**<br>\n`data.sort('Date', function(val1, val2) { return val1 - val2; });`"
+												"text": "Sorts the rows of values based on the result of the `sortFn`,\nwhich behaves similarly to the Array.sort method.\nTwo modes are supported:\n# Array Mode\nIf `col` is omitted, the column arrays are passed as samples into the `sortFn`.\nThis allows for complex sorts, combining conditions across multiple columns.\n```\ndata.sort((row1, row2) => row1[5] - row2[5] );\n```\n# Column mode\nIf `col` is specified, either as index or by column name, the respective column value is passed\ninto `sortFn`. This allows filtering for simple conditions.\n**The specified column will be automatically cast prior to sorting**<br>\n```\ndata.sort('ascending', 'Date');\ndata.sort('decending', 'Date');\ndata.sort(function(val1, val2) { return val1 - val2; }, 'Date');\n```"
 											}
 										]
 									},
@@ -1288,7 +1288,7 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"comment": {
-												"text": "a function to implement the conditions,\nfollows the same specifications as the function passed to Array.sort().\nSome predefined sort function can be invoked by providing a\nrespective string instead of a function. The following functions are defined:\n<table>\n<tr><td>'`ascending`'</td><td>sort in ascending order.</td></tr>\n<tr><td>'`descending`'</td><td>sort in decending order.</td></tr>\n</table>"
+												"text": "a function to implement the conditions,\nfollows the same specifications as the function passed to Array.sort().\nSome predefined sort function can be invoked by providing a\nrespective string instead of a function. The following functions are defined:\n```\nascending    sort in ascending order.\ndescending   sort in decending order.\n```"
 											},
 											"type": {
 												"type": "union",
@@ -1333,7 +1333,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 328,
+									"line": 332,
 									"character": 15
 								}
 							]
@@ -1404,7 +1404,7 @@
 							"sources": [
 								{
 									"fileName": "Data.ts",
-									"line": 535,
+									"line": 539,
 									"character": 18
 								}
 							]

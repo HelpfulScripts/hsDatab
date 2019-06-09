@@ -625,7 +625,11 @@
 580
 581
 582
-583</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+583
+584
+585
+586
+587</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -924,6 +928,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">69x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1520,18 +1528,22 @@ export class Data {
      * ```
      * # Column mode
      * If `col` is specified, either as index or by column name, the respective column value is passed
-     * into `sortFn`. This allows filtering for simple conditions.&lt;br&gt;
+     * into `sortFn`. This allows filtering for simple conditions.
      * **The specified column will be automatically cast prior to sorting**&lt;br&gt;
-     * `data.sort('Date', function(val1, val2) { return val1 - val2; });`
+     * ```
+     * data.sort('ascending', 'Date');
+     * data.sort('decending', 'Date');
+     * data.sort(function(val1, val2) { return val1 - val2; }, 'Date');
+     * ```
      * @param col optional; the data column to use for sorting. 
      * @param sortFn a function to implement the conditions, 
      * follows the same specifications as the function passed to Array.sort(). 
      * Some predefined sort function can be invoked by providing a 
      * respective string instead of a function. The following functions are defined:
-        &lt;table&gt;
-        &lt;tr&gt;&lt;td&gt;'`ascending`'&lt;/td&gt;&lt;td&gt;sort in ascending order.&lt;/td&gt;&lt;/tr&gt;
-        &lt;tr&gt;&lt;td&gt;'`descending`'&lt;/td&gt;&lt;td&gt;sort in decending order.&lt;/td&gt;&lt;/tr&gt;
-        &lt;/table&gt;
+        ```
+        ascending    sort in ascending order.
+        descending   sort in decending order.
+        ```
      * @return the Data object in order to allow for chaining.
      */
     public sort(sortFn:string|sortFn, col?:ColumnReference):Data {
