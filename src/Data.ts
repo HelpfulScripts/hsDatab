@@ -41,7 +41,7 @@ export interface DataSet {
 /** a JSON format data set, using an array of {name:value, ...} literals*/
 export type DataLiteralSet = Array<any>;
 
-interface TypeStruct { type: string; count: number;};
+interface TypeStruct { type: string; count: number;}
 
 interface MetaStruct {
     name:       string;         // column name
