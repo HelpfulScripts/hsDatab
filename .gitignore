@@ -1,7 +1,6 @@
 _coverage
 _example
-bin/*.*
-!bin/hs*.js
+bin
 node_modules
 lcov-report
 .DS_Store
