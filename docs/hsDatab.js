@@ -1,4 +1,4 @@
-var hsDatab =
+this["hsDatab"] =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
