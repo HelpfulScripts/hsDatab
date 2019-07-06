@@ -35,7 +35,7 @@
  *   ['Peter', '400', '5/20/14', '4/30/15'],  
  *   ['Jane', '700', '11/13/14', '8/15/15']
  * ]
- * const data = new hsdatab.Data({colNames:colNames, rows:rows});
+ * const data = new hsDatab.Data({colNames:colNames, rows:rows});
  * 
  * query = {Name:["Peter", "Jane"]};
  * const result = data.filter(query);
