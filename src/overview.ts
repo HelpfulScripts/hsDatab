@@ -26,7 +26,7 @@
  * featuring named columns, sorting, mapping and filtering functions.
  *
  * ## Example
- * <example height=500>
+ * <example height=500,libs={hsDatab:hsDatab}>
  * <file name="script.js">
  * const colNames = ['Name', 'Value', 'Start', 'End'];
  * const rows = [
