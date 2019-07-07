@@ -80,7 +80,7 @@
 <p id=57 class="line"><span>&nbsp;&nbsp;57</span><comment>*&nbsp;```</comment></p>
 <p id=58 class="line"><span>&nbsp;&nbsp;58</span><comment>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</comment></p>
 <p id=59 class="line"><span>&nbsp;&nbsp;59</span><comment>*&nbsp;#&nbsp;Example</comment></p>
-<p id=60 class="line"><span>&nbsp;&nbsp;60</span><comment>*&nbsp;<example&nbsp;height=1000px></comment></p>
+<p id=60 class="line"><span>&nbsp;&nbsp;60</span><comment>*&nbsp;<example&nbsp;height=1000px&nbsp;libs={hsDatab:hsDatab}></comment></p>
 <p id=61 class="line"><span>&nbsp;&nbsp;61</span><comment>*&nbsp;<file&nbsp;name=<quote>"script.js"</quote>></comment></p>
 <p id=62 class="line"><span>&nbsp;&nbsp;62</span><comment>*&nbsp;const&nbsp;colNames&nbsp;=&nbsp;[<quote>'Name'</quote>,&nbsp;<quote>'Value'</quote>,&nbsp;<quote>'Start'</quote>,&nbsp;<quote>'End'</quote>];</comment></p>
 <p id=63 class="line"><span>&nbsp;&nbsp;63</span><comment>*&nbsp;const&nbsp;rows&nbsp;=&nbsp;[</comment></p>
@@ -89,7 +89,7 @@
 <p id=66 class="line"><span>&nbsp;&nbsp;66</span><comment>*&nbsp;&nbsp;&nbsp;[<quote>'Peter'</quote>,&nbsp;<quote>'400'</quote>,&nbsp;<quote>'5/20/14'</quote>,&nbsp;<quote>'4/30/15'</quote>],&nbsp;&nbsp;</comment></p>
 <p id=67 class="line"><span>&nbsp;&nbsp;67</span><comment>*&nbsp;&nbsp;&nbsp;[<quote>'Jane'</quote>,&nbsp;<quote>'700'</quote>,&nbsp;<quote>'11/13/14'</quote>,&nbsp;<quote>'8/15/15'</quote>]</comment></p>
 <p id=68 class="line"><span>&nbsp;&nbsp;68</span><comment>*&nbsp;]</comment></p>
-<p id=69 class="line"><span>&nbsp;&nbsp;69</span><comment>*&nbsp;const&nbsp;data&nbsp;=&nbsp;new&nbsp;hsdatab.Data({colNames:colNames,&nbsp;rows:rows});</comment></p>
+<p id=69 class="line"><span>&nbsp;&nbsp;69</span><comment>*&nbsp;const&nbsp;data&nbsp;=&nbsp;new&nbsp;hsDatab.Data({colNames:colNames,&nbsp;rows:rows});</comment></p>
 <p id=70 class="line"><span>&nbsp;&nbsp;70</span><comment>*&nbsp;</comment></p>
 <p id=71 class="line"><span>&nbsp;&nbsp;71</span><comment>*&nbsp;queries&nbsp;=&nbsp;[</comment></p>
 <p id=72 class="line"><span>&nbsp;&nbsp;72</span><comment>*&nbsp;&nbsp;&nbsp;[<quote>'0'</quote>,&nbsp;undefined,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<quote>'undefined&nbsp;query&nbsp;=>&nbsp;pass&nbsp;all'</quote>],</comment></p>
@@ -162,7 +162,7 @@
 <p id=139 class="line"><span>&nbsp;139</span>&nbsp;&nbsp;&nbsp;&nbsp;or?:&nbsp;RecursiveCondition;</p>
 <p id=140 class="line"><span>&nbsp;140</span>&nbsp;&nbsp;&nbsp;&nbsp;and?:RecursiveCondition;</p>
 <p id=141 class="line"><span>&nbsp;141</span>&nbsp;&nbsp;&nbsp;&nbsp;not?:RecursiveCondition;</p>
-<p id=142 class="line"><span>&nbsp;142</span>};</p>
+<p id=142 class="line"><span>&nbsp;142</span>}</p>
 <p id=143 class="line"><span>&nbsp;143</span></p>
 <p id=144 class="line"><span>&nbsp;144</span>export&nbsp;interface&nbsp;TermAndCondition&nbsp;{&nbsp;</p>
 <p id=145 class="line"><span>&nbsp;145</span>&nbsp;&nbsp;&nbsp;&nbsp;[colDesc:string]:&nbsp;</p>
@@ -170,7 +170,7 @@
 <p id=147 class="line"><span>&nbsp;147</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;DataVal[]</p>
 <p id=148 class="line"><span>&nbsp;148</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;TermConditionFunction</p>
 <p id=149 class="line"><span>&nbsp;149</span>&nbsp;&nbsp;&nbsp;&nbsp;;</p>
-<p id=150 class="line"><span>&nbsp;150</span>};</p>
+<p id=150 class="line"><span>&nbsp;150</span>}</p>
 <p id=151 class="line"><span>&nbsp;151</span></p>
 <p id=152 class="line"><span>&nbsp;152</span>export&nbsp;type&nbsp;TermConditionFunction&nbsp;=&nbsp;(value:DataVal,&nbsp;row:DataRow)&nbsp;=>&nbsp;boolean;</p>
 <p id=153 class="line"><span>&nbsp;153</span></p>
