@@ -57,7 +57,7 @@
 * ```
 *      
 * # Example
-* <example height=1000px>
+* <example height=1000px libs={hsDatab:hsDatab}>
 * <file name="script.js">
 * const colNames = ['Name', 'Value', 'Start', 'End'];
 * const rows = [
@@ -66,7 +66,7 @@
 *   ['Peter', '400', '5/20/14', '4/30/15'],  
 *   ['Jane', '700', '11/13/14', '8/15/15']
 * ]
-* const data = new hsdatab.Data({colNames:colNames, rows:rows});
+* const data = new hsDatab.Data({colNames:colNames, rows:rows});
 * 
 * queries = [
 *   ['0', undefined,                           'undefined query => pass all'],
@@ -139,7 +139,7 @@ export interface SetAndCondition {
     or?: RecursiveCondition;
     and?:RecursiveCondition;
     not?:RecursiveCondition;
-};
+}
 
 export interface TermAndCondition { 
     [colDesc:string]: 
@@ -147,7 +147,7 @@ export interface TermAndCondition {
       | DataVal[]
       | TermConditionFunction
     ;
-};
+}
 
 export type TermConditionFunction = (value:DataVal, row:DataRow) => boolean;
 
