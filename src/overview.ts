@@ -38,8 +38,6 @@
  * const data = new hsDatab.Data({colNames:colNames, rows:rows});
  * 
  * query = {Name:["Peter", "Jane"]};
- * const result = data.filter(query);
- * console.log(data.getData());
  * 
  * const dateConvert = d => new Date(d).toDateString();
  *
@@ -65,9 +63,9 @@
  *                  m('tr', m('td', '"Stop":'),  m('td', data.colType("End")),    m('td', data.findDomain("End").map(dateConvert).join(' - ')))
  *       )),
  *       m('h3', 'The query:'),
- *       m('code', '{Name:["Peter", "Jane"]}'),
+ *       m('code', JSON.stringify(query)),
  *       m('h3', 'yields results with "Name"'),
- *       m('code', result.getColumn('Name').join(', '))
+ *       m('code', data.filter(query).getColumn('Name').join(', '))
  *   ])
  * });
  * </file>
