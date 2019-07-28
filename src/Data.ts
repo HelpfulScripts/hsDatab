@@ -3,6 +3,7 @@
 
  /** */
 import { Condition, filter } from './DataFilters';
+import { log as _log}        from 'hsutil'; const log = _log('hsData');
 
 /** defines a [min-max] range */
 export type NumRange = [number, number];
@@ -38,8 +39,8 @@ export interface DataSet {
     rows:   DataRow[];
 }
 
-/** a JSON format data set, using an array of {name:value, ...} literals*/
-export type DataLiteralSet = Array<any>;
+/** a data set in table format. The first row contains the column names. */
+export type DataTable = (string|number)[][];
 
 interface TypeStruct { type: string; count: number;}
 
@@ -81,22 +82,8 @@ export class Data {
 //        nominal:    'nominal'
     };
 
-    /**
-     * translates a structure of form
-     * `[{<key>:value, ...}, ...]` into a `Data` set.
-     * @param data 
-     * @param name 
-     */
-    public static toDataSet(data:DataLiteralSet, name?:string):DataSet {
-        data = data || [{}];
-        const names = Object.keys(data[0]);
-        const rows = data.map((r:any) => 
-            names.map((n:string) => r[n]));
-        return { rows:rows, colNames:names, name:name||undefined };
-    }
-
-    constructor(data?:DataSet) {
-        this.import(data);
+    constructor(dataset?:DataSet|DataTable) {
+        if (dataset) { this.importData(dataset); }
     }
 
     /**
@@ -107,12 +94,21 @@ export class Data {
     }
 
     /**
-     * Imports data from an object literal `data`
+     * Imports data from an object literal or an array whos header row contains the column numbers
      * @param data the data set to import
      */
-    public import(data:DataSet) {
-        this.name = data.name;
-        this.setData(data.rows, data.colNames);
+    public importData(dataset:DataSet|DataTable) {
+        this.name = 'data'+(Math.round(1000*Math.random()));
+        if (dataset) {
+            if (dataset instanceof Array) {
+                const names = <string[]>dataset[0];
+                const rows = dataset.slice(1);
+                this.setData(rows, names);
+            } else {
+                if (dataset.name) { this.name = dataset.name; }
+                this.setData(dataset.rows, dataset.colNames);
+            }
+        }
     }
 
     /**
@@ -432,20 +428,24 @@ export class Data {
     }
 
     /**
-     * sets `data` to the existing data set. If data has previously been set, 
-     * `data` will be added to the end of the list if all `names`  match those of the 
-     * existing set. 
+     * sets `rows` as the data set. A copy of the rows array will be set.
      * @param data the data to add
      * @param names an array of names that match the columns
      * @param autoType unless set to false, the method will attempt to determine the 
      * type of data and automatically cast data points to their correct value
      */
-    private setData(data:DataRow[], names:string[], autoType=true):void {
+    private setData(rows:DataRow[], names:string[], autoType=true):void {
         this.meta = [];
-        this.data = data;
-        names.forEach((col:string) => this.colAdd(col));
-        names.forEach((col:string) => this.findTypes(col));
-        this.castData();
+        this.data = rows.slice();
+        if (names && names.forEach) {
+            names.forEach((col:string) => this.colAdd(col));
+            if (autoType) { 
+                names.forEach((col:string) => this.findTypes(col)); 
+                this.castData();
+            }
+        } else {
+            log.warn(`invalid names setData:\n${log.inspect(names, 5)}`);
+        }
     }
 
     /**

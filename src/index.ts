@@ -8,6 +8,7 @@ export { NumRange,
          DataVal,
          DataRow,
          DataSet,
+         DataTable,
          DataType
         }       from './Data';
 

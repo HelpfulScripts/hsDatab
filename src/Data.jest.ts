@@ -20,10 +20,14 @@ describe('Data', () => {
     
     it('is created with 4 rows', () => expect(data.getData().length).toEqual(4));
     
-    describe('toDataSet', () => {
-        const dataLit = [{Name: 'John', Value: 2000, Start:'2/15/14', End:'11/11/15'}];
-        const s = Data.toDataSet(dataLit);
-        it('set has 1 row', () => expect(s.rows.length).toEqual(1));
+    describe('DataSet constructor', () => {
+        const dataLit = [
+            ['Name', 'Value', 'Start', 'End', 'Share', 'Sum', 'Invalid'],
+            ['Harry', '400', '3/1/14', '11/20/14', '20%', '$10,666', ''], 
+            ['Mary', '1500', '7/1/1969',  '9/30/69', '10%', '$16 555', '#ref!']
+        ];
+        const s = new Data(dataLit).export();
+        it('set has 1 row', () => expect(s.rows.length).toEqual(2));
         it('set has 1st colName "Name"', () => expect(s.colNames[0]).toEqual('Name'));
         it('set has 2nd colName "Value"', () => expect(s.colNames[1]).toEqual('Value'));
         it('set has 3rd colName "Start"', () => expect(s.colNames[2]).toEqual('Start'));

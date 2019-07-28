@@ -45,6 +45,7 @@
     "grunt-tslint": "^4.0.1",
     "grunt-typedoc": "^0.2.4",
     "grunt-webpack": "^3.1.2",
+    "hsutil": "*",
     "jest": "^23.4.2",
     "tslint": "^4.5.1",
     "ts-jest": "^23.0.1",
