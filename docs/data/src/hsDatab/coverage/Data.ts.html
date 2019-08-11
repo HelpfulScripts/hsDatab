@@ -1256,7 +1256,7 @@ export interface DataSet {
     rows:   DataRow[];
 }
 &nbsp;
-/** a JSON format data set, using an array of {name:value, ...} literals*/
+/** a data set in table format. The first row contains the column names. */
 export type DataTable = (string|number)[][];
 &nbsp;
 interface TypeStruct { type: string; count: number;}

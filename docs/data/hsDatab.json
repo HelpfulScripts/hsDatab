@@ -219,8 +219,8 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
-								"isExported": true,
-								"isPublic": true
+								"isPublic": true,
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -317,8 +317,8 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
-								"isExported": true,
-								"isPublic": true
+								"isPublic": true,
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -368,8 +368,8 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
-								"isExported": true,
-								"isPublic": true
+								"isPublic": true,
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -437,8 +437,8 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
-								"isExported": true,
-								"isPublic": true
+								"isPublic": true,
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -485,8 +485,8 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
-								"isExported": true,
-								"isPublic": true
+								"isPublic": true,
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -522,8 +522,8 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
-								"isExported": true,
-								"isPublic": true
+								"isPublic": true,
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -570,8 +570,8 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
-								"isExported": true,
-								"isPublic": true
+								"isPublic": true,
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -619,8 +619,8 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
-								"isExported": true,
-								"isPublic": true
+								"isPublic": true,
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -653,8 +653,8 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
-								"isExported": true,
-								"isPublic": true
+								"isPublic": true,
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -705,8 +705,8 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
-								"isExported": true,
-								"isPublic": true
+								"isPublic": true,
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -883,8 +883,8 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
-								"isExported": true,
-								"isPublic": true
+								"isPublic": true,
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -937,8 +937,8 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
-								"isExported": true,
-								"isPublic": true
+								"isPublic": true,
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -1019,8 +1019,8 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
-								"isExported": true,
-								"isPublic": true
+								"isPublic": true,
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -1052,8 +1052,8 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
-								"isExported": true,
-								"isPublic": true
+								"isPublic": true,
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -1109,8 +1109,8 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
-								"isExported": true,
-								"isPublic": true
+								"isPublic": true,
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -1275,8 +1275,8 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
-								"isExported": true,
-								"isPublic": true
+								"isPublic": true,
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -1429,9 +1429,9 @@
 							"kind": 2097152,
 							"kindString": "Object literal",
 							"flags": {
+								"isPublic": true,
 								"isStatic": true,
-								"isExported": true,
-								"isPublic": true
+								"isExported": true
 							},
 							"children": [
 								{
@@ -2005,7 +2005,7 @@
 						"isExported": true
 					},
 					"comment": {
-						"shortText": "a JSON format data set, using an array of {name:value, ...} literals"
+						"shortText": "a data set in table format. The first row contains the column names."
 					},
 					"sources": [
 						{
@@ -2782,49 +2782,51 @@
 					"flags": {
 						"isExported": true
 					},
-					"indexSignature": {
-						"id": 7,
-						"name": "__index",
-						"kind": 8192,
-						"kindString": "Index signature",
-						"flags": {},
-						"parameters": [
-							{
-								"id": 8,
-								"name": "colDesc",
-								"kind": 32768,
-								"kindString": "Parameter",
-								"flags": {},
-								"type": {
-									"type": "intrinsic",
-									"name": "string"
+					"indexSignature": [
+						{
+							"id": 7,
+							"name": "__index",
+							"kind": 8192,
+							"kindString": "Index signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 8,
+									"name": "colDesc",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
 								}
-							}
-						],
-						"type": {
-							"type": "union",
-							"types": [
-								{
-									"type": "reference",
-									"name": "DataVal",
-									"id": 148
-								},
-								{
-									"type": "array",
-									"elementType": {
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
 										"type": "reference",
 										"name": "DataVal",
 										"id": 148
+									},
+									{
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"name": "DataVal",
+											"id": 148
+										}
+									},
+									{
+										"type": "reference",
+										"name": "TermConditionFunction",
+										"id": 14
 									}
-								},
-								{
-									"type": "reference",
-									"name": "TermConditionFunction",
-									"id": 14
-								}
-							]
+								]
+							}
 						}
-					},
+					],
 					"sources": [
 						{
 							"fileName": "DataFilters.ts",
