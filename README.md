@@ -6,8 +6,8 @@ hsDatab
 [![Build Status](https://travis-ci.org/HelpfulScripts/hsDatab.svg?branch=master)](https://travis-ci.org/HelpfulScripts/hsDatab)
 [![Dependencies Status](https://david-dm.org/helpfulscripts/hdatab.svg)](https://david-dm.org/helpfulscripts/hdatab)
 [![Coverage Status](https://coveralls.io/repos/github/HelpfulScripts/hsDatab/badge.svg?branch=master)](https://coveralls.io/github/HelpfulScripts/hsDatab?branch=master)
-[![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hsdatab)
 [![Known Vulnerabilities](https://snyk.io/test/github/HelpfulScripts/hsDatab/badge.svg?targetFile=package.json)](https://snyk.io/test/github/HelpfulScripts/hsDatab?targetFile=package.json)
+[![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hsdatab)
 
 Helpful Scripts framework-independent data management functions.
 
