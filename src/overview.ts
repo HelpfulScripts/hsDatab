@@ -1,9 +1,18 @@
 /**
- * # hsDatab
- * 
- * Helpful Scripts framework-independent data management functions. 
- * [`[Github page]`](https://github.com/HelpfulScripts/hsDatab)
- * [`[Coverage Info]`](./data/src/hsDatab/coverage/)
+# hsDatab
+
+Helpful Scripts framework-independent data management functions. 
+[`[Coverage Info]`](./data/src/hsDatab/coverage/)
+ 
+[![npm version](https://badge.fury.io/js/hsdatab.svg)](https://badge.fury.io/js/hsdatab)
+[![GitHub](https://img.shields.io/badge/GitHub-hsDatab-blue.svg)](https://github.com/helpfulscripts/hsdatab)
+[![docs](https://img.shields.io/badge/hsDocs-hsDatab-blue.svg)](https://helpfulscripts.github.io/hsExcel/#!/api/hsDatab/0)
+[![Build Status](https://travis-ci.org/HelpfulScripts/hsDatab.svg?branch=master)](https://travis-ci.org/HelpfulScripts/hsDatab)
+[![Dependencies Status](https://david-dm.org/helpfulscripts/hdatab.svg)](https://david-dm.org/helpfulscripts/hdatab)
+[![Coverage Status](https://coveralls.io/repos/github/HelpfulScripts/hsDatab/badge.svg?branch=master)](https://coveralls.io/github/HelpfulScripts/hsDatab?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/github/HelpfulScripts/hsDatab/badge.svg?targetFile=package.json)](https://snyk.io/test/github/HelpfulScripts/hsDatab?targetFile=package.json)
+[![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hsdatab)
+
  * ___
  * 
  * **hsDatab** provides a JavaScript-based data management and query mechanism.
