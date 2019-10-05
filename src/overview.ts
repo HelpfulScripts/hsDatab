@@ -2,7 +2,7 @@
 # hsDatab
 
 Helpful Scripts framework-independent data management functions. 
-[`[Coverage Info]`](./data/src/hsDatab/coverage/)
+<a href="./data/src/hsDatab/coverage/" target="_blank">[Coverage Info]</a>
  
 [![npm version](https://badge.fury.io/js/hsdatab.svg)](https://badge.fury.io/js/hsdatab)
 [![GitHub](https://img.shields.io/badge/GitHub-hsDatab-blue.svg)](https://github.com/helpfulscripts/hsdatab)
