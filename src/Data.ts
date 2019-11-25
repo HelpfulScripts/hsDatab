@@ -42,7 +42,7 @@ export interface DataSet {
 /** a data set in table format. The first row contains the column names. */
 export type DataTable = (string|number)[][];
 
-interface TypeStruct { type: string; count: number;}
+interface TypeStruct { type: Type; count: number;}
 
 interface MetaStruct {
     name:       string;         // column name
@@ -52,12 +52,173 @@ interface MetaStruct {
     types:      TypeStruct[];   // data types, sorted by likelihood
 }
 
+
 export type sortFn   = (x:any, y:any) => number;
 export type mapFn    = (colVal:DataVal, colIndex:number, rowIndex:number, rows:DataRow[]) => DataVal;
 export type mapRowFn = (row:DataRow, rowIndex:number, rows:DataRow[]) => DataRow;
 export type initFn   = (colVal: DataVal, colIndex:number, row:DataRow) => DataVal;
     
-export type DataType = string;
+/**
+ * Type definition. Can be one of 
+ * - 'number'     : numeric values
+ * - 'name'       : nominal values, represented by arbitrary words
+ * - 'date'       : date values 
+ * - 'currency'   : currency values. Currently supported are values ofg the format '$dd[,ddd]'
+ * - 'percent';   : percent values: 'd%'
+ */
+export type Type = 'number' | 'name' | 'date' | 'currency' | 'percent';
+
+export enum Types {
+        /** numeric values */
+        number =     'number',
+        /** nominal values, represented by arbitrary words */
+        name =       'name',
+        /** date values */
+        date =       'date',
+        /** currency values. Currently support6ed are values ofg the format '$dd[,ddd]' */
+        currency =   'currency',
+        /** percent values: 'd%' */
+        percent =    'percent',
+} 
+
+/**
+ * @param val the string to convert to a date
+ * @param limitYear the year below which the century is corrected. Defaults to 1970.
+ * @returns a new Date object parsed from `str`.
+ * @description returns a new Date object parsed from `str` and corrects for a difference in 
+ * interpreting centuries between webkit and mozilla in converting strings to Dates:
+ * The string "15/7/03" will convert to Jul 15 1903 in Mozilla and July 15 2003 in Webkit.
+ * If `limitYear` is not specified this method uses 1970 as the decision date: 
+ * years 00-69 will be interpreted as 2000-2069, years 70-99 as 1970-1999.
+ * Specifying a century in the string leads to a correct parse, e.g. "15/7/1903"
+ */
+function toDate(val:DataVal, limitYear=1970):Date {
+    let d:Date;
+    if (val instanceof Date) { return <Date>val; }
+    d = new Date(<string>val); 
+    if (!isNaN(d.getTime())) {
+        const r = new RegExp(`\\d\\d${d.getFullYear() % 100}`, 'g');
+        if (!(<string>val).match(r)) {
+            const yr = 1900 + d.getFullYear() % 100;
+            d.setFullYear( (yr < limitYear)? yr+100 : yr); 
+        }
+    }
+    return d;
+}
+
+/**
+ * @param type ['date' | 'percent' | 'real' | _any_] The type to cast into. In case of _any_ - i.e. `type` 
+ * does not match any of the previous keywords, no casting occurs.
+ * @param sample The value to cast.
+ * @returns The result of the cast. 
+ * @description Casts the sample to the specified data type.
+ */
+function castVal(type:Type, val:DataVal):DataVal {
+    let result:DataVal = val;
+    switch (type) {
+        case 'date':    
+            if (val instanceof Date) { return val; }
+            result = toDate(val);
+            if (isNaN(result.getTime())) { result = null; }
+            return result;
+        case 'percent': 
+            if (typeof val === 'string') {
+                const num = parseFloat(val);
+                return (<string>val).endsWith('%')? num/100 : num;
+            } else {
+                return val;
+            }
+            // if (isNaN(<number>result)) { result = null; }
+            // break;
+        case 'currency':
+            // replace all except 'e/E', '.', '+/-' and digits
+            result = (typeof val === 'string')? val.replace(/[^eE\+\-\.\d]/g, '') : val;          				
+            /* falls through */
+        case 'number':  
+            if (typeof result === 'string') { result = parseFloat(result); }
+            if (isNaN(<number>result)) { result = null; }
+            return result;
+        default:        return ''+val;
+    }
+}   
+
+export function findDomain(data: DataRow[], col:number, type:Type, domain:Domain):Domain {
+    if (domain===undefined) { domain = <Domain>[]; }
+    if (col === undefined) { // use array index as domain
+        domain[0] = 0;
+        domain[1] = data.length-1;
+    } else {
+        let expand:(r:DataRow) => void;
+        switch(type) {
+            case Types.name: 
+                expand = (r:DataRow) => (<string[]>domain).indexOf(''+r[col]) < 0?  (<string[]>domain).push(''+r[col]) : '';
+                break;
+            case Types.date: 
+                expand = (r:DataRow) => {
+                    let v:Date = this.toDate(r[col]);
+                    if (domain[0]===undefined) { domain[0] = v; }
+                    if (domain[1]===undefined) { domain[1] = v; }
+                    if (v!==undefined && v!==null) {
+                        if (v<domain[0]) { domain[0] = v; }
+                        else if (v>domain[1]) { domain[1] = v; }
+                    }
+                };
+                break;
+            case Types.number:
+            case Types.date:
+            case Types.percent:
+            default: 
+                expand = (r:DataRow) => {
+                    let v:number = parseFloat(r[col].toString());
+                    if (domain[0]===undefined) { domain[0] = v; }
+                    if (domain[1]===undefined) { domain[1] = v; }
+                    if (v!==undefined && v!==null) {
+                        if (v<domain[0]) { domain[0] = v; }
+                        else if (v>domain[1]) { domain[1] = v; }
+                    }
+                };
+        }
+        data.forEach(expand);
+    }
+    return domain;
+}
+
+/**
+ * @description determines the data type. Supported types are 
+ * ```
+ * 'date':    sample represents a Date, either as a Date object or a String 
+ * 'number':  sample represents a number
+ * 'percent': sample represents a percentage (special case of a real number)
+ * 'nominal': sample represents a nominal (ordinal or categorical) value
+ * ```
+ * @param val the value to bve typed.
+ * @returns the type ('number', 'date', 'percent', 'nominal', 'currency') corresponding to the sample
+ */
+function findType(val:DataVal):Type {
+    if (!val || val==='') { return null; }
+    if (val instanceof Date)     { return 'date'; }     // if val is already a date
+    if (typeof val === 'number') { return 'number'; }   // if val is already a number
+    
+    // else: val is a string:
+    const strVal = <string>val;
+    if (''+parseFloat(strVal) === strVal)                              { return 'number'; }
+    if (strVal.startsWith('$') && !isNaN(parseFloat(strVal.slice(1)))) { return 'currency'; }
+    if (strVal.endsWith('%') && !isNaN(parseFloat(strVal)))            { return 'percent'; }
+    if (!isNaN(toDate(strVal).getTime()))	                           { return 'date'; }
+
+    // // european large number currency representation: '$dd[,ddd]'
+    // if ((/^\$\d{0,2}((,\d\d\d)*)/g).test(val)) { 
+    //     if (!isNaN(parseFloat(val.trim().replace(/[^eE\+\-\.\d]/g, '').replace(/,/g, '')))) { 
+    //         return Data.type.currency; 
+    //     }
+    // }
+    switch (strVal.toLowerCase()) {
+        case "null": break;
+        case "#ref!": break;
+        default: if (val.length>0) { return 'name'; }
+    }
+    return null;
+}    
 
 /**
  * # Data
@@ -70,15 +231,15 @@ export class Data {
     //----------------------------
     public static type = {
         /** numeric values */
-        number:     <DataType>'number',
+        number:     <Type>'number',
         /** nominal values, represented by arbitrary words */
-        name:       <DataType>'name',
+        name:       <Type>'name',
         /** date values */
-        date:       <DataType>'date',
+        date:       <Type>'date',
         /** currency values. Currently support6ed are values ofg the format '$dd[,ddd]' */
-        currency:   <DataType>'currency',
+        currency:   <Type>'currency',
         /** percent values: 'd%' */
-        percent:    <DataType>'percent',
+        percent:    <Type>'percent',
 //        nominal:    'nominal'
     };
 
@@ -221,9 +382,9 @@ export class Data {
      * @param column the data column, name or index. 
      * @return the column type.
      */
-    public colType(col:ColumnReference):DataType { 
+    public colType(col:ColumnReference):Type { 
         const meta = this.getMeta(col);
-        return meta? meta.types[0].type : Data.type.name;
+        return meta? meta.types[0].type : 'name';
     }
 
     /**
@@ -234,51 +395,14 @@ export class Data {
      * @return the updated domain
      */
     public findDomain(col?:ColumnReference, domain?:Domain):Domain {
-        if (domain===undefined) { domain = <Domain>[]; }
-        if (col === undefined) { // use array index as domain
-            domain[0] = 0;
-            domain[1] = this.data.length-1;
-        } else {
-            const c = this.colNumber(col);
-            const type = this.colType(col);
-            switch(type) {
-                case Data.type.name: 
-                    this.data.forEach((r:DataRow) => {
-                        const nomDom = <string[]>domain;
-                        if (nomDom.indexOf(''+r[c]) < 0) { nomDom.push(''+r[c]); }
-                    });
-                    break;
-                case Data.type.date: 
-                    this.data.forEach((r:DataRow) => {
-                        let v:Date = this.toDate(r[c]);
-                        if (domain[0]===undefined) { domain[0] = v; }
-                        if (domain[1]===undefined) { domain[1] = v; }
-                        if (v!==undefined && v!==null) {
-                            if (v<domain[0]) { domain[0] = v; }
-                            else if (v>domain[1]) { domain[1] = v; }
-                        }
-                    });
-                    break;
-                default: 
-                    this.data.forEach((r:DataRow) => {
-                        let v:number = parseFloat(r[c].toString());
-                        if (domain[0]===undefined) { domain[0] = v; }
-                        if (domain[1]===undefined) { domain[1] = v; }
-                        if (v!==undefined && v!==null) {
-                            if (v<domain[0]) { domain[0] = v; }
-                            else if (v>domain[1]) { domain[1] = v; }
-                        }
-                    });
-            }
-        }
-        return domain;
+        return findDomain(this.data, this.colNumber(col), this.colType(col), domain);
     }
 
     public castData() {
         this.meta.forEach((c:MetaStruct) => {
             const col = c.column;
             if (!c.cast) {
-                this.data.forEach((row:DataRow) => row[col] = this.castVal(c.types[0].type, row[col]));
+                this.data.forEach((row:DataRow) => row[col] = castVal(c.types[0].type, row[col]));
             }
             c.cast = true;
         });
@@ -477,44 +601,6 @@ export class Data {
     }
 
     /**
-     * @description determines the data type. Supported types are 
-     * ```
-     * 'date':    sample represents a Date, either as a Date object or a String 
-     * 'number':  sample represents a number
-     * 'percent': sample represents a percentage (special case of a real number)
-     * 'nominal': sample represents a nominal (ordinal or categorical) value
-     * ```
-     * @param val the value to bve typed.
-     * @returns the type ('number', 'date', 'percent', 'nominal', 'currency') corresponding to the sample
-     */
-    private findType(val:DataVal) {
-        if (val && val!=='') {
-            if (val instanceof Date) { return Data.type.date; }         // if val is already a date
-            if (typeof val === 'number') { return Data.type.number; }   // if val is already a number
-            
-            // else: val is a string:
-            const strVal = ''+val;
-            if (''+parseFloat(strVal) === strVal)                              { return Data.type.number; }
-            if (strVal.startsWith('$') && !isNaN(parseFloat(strVal.slice(1)))) { return Data.type.currency; }
-            if (strVal.endsWith('%') && !isNaN(parseFloat(strVal)))            { return Data.type.percent; }
-            if (!isNaN(this.toDate(strVal).getTime()))	                       { return Data.type.date; }
-
-            // // european large number currency representation: '$dd[,ddd]'
-            // if ((/^\$\d{0,2}((,\d\d\d)*)/g).test(val)) { 
-            //     if (!isNaN(parseFloat(val.trim().replace(/[^eE\+\-\.\d]/g, '').replace(/,/g, '')))) { 
-            //         return Data.type.currency; 
-            //     }
-            // }
-            switch (strVal.toLowerCase()) {
-                case "null": break;
-                case "#ref!": break;
-                default: if (val.length>0) { return Data.type.name; }
-            }
-        }
-        return null;
-    }    
-
-    /**
      * A generator that provides the specified column value for each row in `Data` in sequence. 
      * @param column 
      */
@@ -523,65 +609,5 @@ export class Data {
         for (let r=0; r<this.data.length; r++) {
             yield this.data[r][c];
         }
-    }
-
-    /**
-     * @param val the string to convert to a date
-     * @param limitYear the year below which the century is corrected. Defaults to 1970.
-     * @returns a new Date object parsed from `str`.
-     * @description returns a new Date object parsed from `str` and corrects for a difference in 
-     * interpreting centuries between webkit and mozilla in converting strings to Dates:
-     * The string "15/7/03" will convert to Jul 15 1903 in Mozilla and July 15 2003 in Webkit.
-     * If `limitYear` is not specified this method uses 1970 as the decision date: 
-     * years 00-69 will be interpreted as 2000-2069, years 70-99 as 1970-1999.
-     * Specifying a century in the string leads to a correct parse, e.g. "15/7/1903"
-     */
-    private toDate(val:DataVal, limitYear=1970):Date {
-        let d:Date;
-        if (val instanceof Date) { d = <Date>val; }
-        else { 
-            d = new Date(<string>val); 
-            if (!isNaN(d.getTime())) {
-                const r = new RegExp(`\\d\\d${d.getFullYear() % 100}`, 'g');
-                if (!(<string>val).match(r)) {
-                    const yr = 1900 + d.getFullYear() % 100;
-                    d.setFullYear( (yr < limitYear)? yr+100 : yr); 
-                }
-            }
-        }   
-        return d;
-    }
-
-    /**
-     * @param type ['date' | 'percent' | 'real' | _any_] The type to cast into. In case of _any_ - i.e. `type` 
-     * does not match any of the previous keywords, no casting occurs.
-     * @param sample The value to cast.
-     * @returns The result of the cast. 
-     * @description Casts the sample to the specified data type.
-     */
-    private castVal(type:string, val:DataVal):DataVal {
-        let result:DataVal = val;
-        switch (type) {
-            case Data.type.date:    if (val instanceof Date) { return val; }
-                            result = this.toDate(val);
-                            if (isNaN(result.getTime())) { result = null; }
-                            break;
-            case Data.type.percent: if (typeof val === 'string') {
-                                const num = parseFloat(val);
-                                result = (<string>val).endsWith('%')? num/100 : num;
-                            } else {
-                                result = val;
-                            }
-                            if (isNaN(<number>result)) { result = null; }
-                            break;
-            case Data.type.currency:// replace all except 'e/E', '.', '+/-' and digits
-                            result = (typeof val === 'string')? val.replace(/[^eE\+\-\.\d]/g, '') : val;          				
-            				/* falls through */
-            case Data.type.number:  if (typeof result === 'string') { result = parseFloat(result); }
-                            if (isNaN(<number>result)) { result = null; }
-                            break;
-            default:        result = ''+val;
-        }
-        return result;
-     }     
+    }  
 }
