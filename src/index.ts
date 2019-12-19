@@ -9,7 +9,7 @@ export { NumRange,
          DataRow,
          DataSet,
          DataTable,
-         DataType
+         Types
         }       from './Data';
 
 export { Condition} from './DataFilters';

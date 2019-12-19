@@ -155,7 +155,7 @@ export function findDomain(data: DataRow[], col:number, type:Type, domain:Domain
                 break;
             case Types.date: 
                 expand = (r:DataRow) => {
-                    let v:Date = this.toDate(r[col]);
+                    let v:Date = toDate(r[col]);
                     if (domain[0]===undefined) { domain[0] = v; }
                     if (domain[1]===undefined) { domain[1] = v; }
                     if (v!==undefined && v!==null) {
@@ -165,7 +165,6 @@ export function findDomain(data: DataRow[], col:number, type:Type, domain:Domain
                 };
                 break;
             case Types.number:
-            case Types.date:
             case Types.percent:
             default: 
                 expand = (r:DataRow) => {
@@ -588,7 +587,7 @@ export class Data {
             types[Data.type[t]] = ts;
         });
         for (let v of this.allRows(col)) {
-            const t = this.findType(v);
+            const t = findType(v);
             if (t !== null) { types[t].count++; }
         }
         types.sort(function(a:TypeStruct, b:TypeStruct) { 
