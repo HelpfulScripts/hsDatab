@@ -121,10 +121,9 @@
 */
 
 /** */
-import { Data,
-         DataVal,
-         DataRow
-} from './Data'; 
+import { Data, DataVal, DataRow } from './Data'; 
+import { log as _log}             from 'hsutil'; const log = _log('DataFilters');
+
 
 export type Condition = IndexCondition | RecursiveCondition;
 
@@ -156,8 +155,8 @@ function resolveTerminalCondition(name:string, val:any, row:DataRow, colNumber:(
     const valIsFunction = (typeof val === 'function');
     const valIsArray = ((typeof val === 'object') && (val.length!==undefined));
     if (isNaN(col)) { 
-        console.log(`column name '${name}' cannot be resolved in terminal condition ${name}=${val}`);
-        console.log(row);
+        log.warn(`column name '${name}' cannot be resolved in terminal condition ${name}=${val}`);
+        log.warn(row);
         return false; // -> this condition is not met;
     } else if (valIsFunction) { 
         // query true if function evaluates to true
@@ -244,7 +243,7 @@ export function filter(data:Data, cond:Condition):Data {
             })
         });
     } catch(err) {
-        console.log(err);
-        console.log(err.stack);
+        log.warn(err);
+        log.warn(err.stack);
     }
 }

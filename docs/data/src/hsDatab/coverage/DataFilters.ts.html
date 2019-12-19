@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">96.77% </span>
+        <span class="strong">96.88% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>60/62</span>
+        <span class='fraction'>62/64</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>8/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">95.74% </span>
+        <span class="strong">95.83% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>45/47</span>
+        <span class='fraction'>46/48</span>
       </div>
     </div>
     <p class="quiet">
@@ -295,8 +295,7 @@
 <a name='L247'></a><a href='#L247'>247</a>
 <a name='L248'></a><a href='#L248'>248</a>
 <a name='L249'></a><a href='#L249'>249</a>
-<a name='L250'></a><a href='#L250'>250</a>
-<a name='L251'></a><a href='#L251'>251</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L250'></a><a href='#L250'>250</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -420,8 +419,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -669,10 +667,9 @@
 */
 &nbsp;
 /** */
-import { Data,
-         DataVal,
-         DataRow
-} from './Data'; 
+import { Data, DataVal, DataRow } from './Data'; 
+import { log as _log}             from 'hsutil'; const log = _log('DataFilters');
+&nbsp;
 &nbsp;
 export type Condition = IndexCondition | RecursiveCondition;
 &nbsp;
@@ -704,8 +701,8 @@ function resolveTerminalCondition(name:string, val:any, row:DataRow, colNumber:(
     const valIsFunction = (typeof val === 'function');
     const valIsArray = ((typeof val === 'object') &amp;&amp; (val.length!==undefined));
     if (isNaN(col)) { 
-        console.log(`column name '${name}' cannot be resolved in terminal condition ${name}=${val}`);
-        console.log(row);
+        log.warn(`column name '${name}' cannot be resolved in terminal condition ${name}=${val}`);
+        log.warn(row);
         return false; // -&gt; this condition is not met;
     } else if (valIsFunction) { 
         // query true if function evaluates to true
@@ -792,8 +789,8 @@ export function filter(data:Data, cond:Condition):Data {
             })
         });
     } catch(err) {
-<span class="cstat-no" title="statement not covered" >        console.log(err);</span>
-<span class="cstat-no" title="statement not covered" >        console.log(err.stack);</span>
+<span class="cstat-no" title="statement not covered" >        log.warn(err);</span>
+<span class="cstat-no" title="statement not covered" >        log.warn(err.stack);</span>
     }
 }
 &nbsp;</pre></td></tr>
