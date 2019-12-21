@@ -2670,7 +2670,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"name": "LogType"
+						"name": "LogFn"
 					},
 					"defaultValue": " _log('Data')"
 				},
@@ -3427,7 +3427,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"name": "LogType"
+						"name": "LogFn"
 					},
 					"defaultValue": " _log('DataFilters')"
 				},
