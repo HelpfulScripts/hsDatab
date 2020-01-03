@@ -122,7 +122,7 @@
 
 /** */
 import { Data, DataVal, DataRow } from './Data'; 
-import { log as _log}             from 'hsutil'; const log = _log('DataFilters');
+import { Log}                     from 'hsutil'; const log = new Log('DataFilters');
 
 
 export type Condition = IndexCondition | RecursiveCondition;

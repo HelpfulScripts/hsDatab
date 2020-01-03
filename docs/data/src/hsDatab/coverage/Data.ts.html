@@ -1113,9 +1113,9 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1250,9 +1250,9 @@
 <span class="cline-any cline-yes">2256x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">785x</span>
-<span class="cline-any cline-yes">3614x</span>
-<span class="cline-any cline-yes">3614x</span>
-<span class="cline-any cline-yes">3470x</span>
+<span class="cline-any cline-yes">4715x</span>
+<span class="cline-any cline-yes">4571x</span>
+<span class="cline-any cline-yes">4571x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">785x</span>
 <span class="cline-any cline-yes">785x</span>
@@ -1273,7 +1273,7 @@
 &nbsp;
  /** */
 import { Condition, filter } from './DataFilters';
-import { log as _log}        from 'hsutil'; const log = _log('Data');
+import { Log}                from 'hsutil'; const log = new Log('Data');
 &nbsp;
 /** defines a [min-max] range */
 export type NumRange = [number, number];
@@ -1861,8 +1861,8 @@ export class Data {
             if (t !== null) { types[t].count++; }
         }
         types.sort(function(a:TypeStruct, b:TypeStruct) { 
-            <span class="missing-if-branch" title="if path not taken" >I</span>if (a.type==='currency'&amp;&amp;a.count&gt;0) { <span class="cstat-no" title="statement not covered" >return -1; </span>}
-            if (b.type==='currency'&amp;&amp;b.count&gt;0) { return 1; }
+            if (a.type==='currency'&amp;&amp;a.count&gt;0) { return -1; }
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (b.type==='currency'&amp;&amp;b.count&gt;0) { <span class="cstat-no" title="statement not covered" >return 1; </span>}
             return b.count - a.count;
         });
         m.types = types;

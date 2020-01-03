@@ -1,6 +1,7 @@
 import * as hsdatab     from './';
-import { log }          from 'hsutil'; 
-log.level(log.ERROR);
+import { Log }          from 'hsutil'; 
+const log = Log.log;
+log.level(Log.ERROR);
 
 const colNames = ['Name', 'Value', 'Start', 'End'];
 const rows = [

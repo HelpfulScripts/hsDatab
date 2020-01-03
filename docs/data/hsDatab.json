@@ -2670,9 +2670,9 @@
 					],
 					"type": {
 						"type": "reference",
-						"name": "LogFn"
+						"name": "Log"
 					},
-					"defaultValue": " _log('Data')"
+					"defaultValue": " new Log('Data')"
 				},
 				{
 					"id": 176,
@@ -3427,9 +3427,9 @@
 					],
 					"type": {
 						"type": "reference",
-						"name": "LogFn"
+						"name": "Log"
 					},
-					"defaultValue": " _log('DataFilters')"
+					"defaultValue": " new Log('DataFilters')"
 				},
 				{
 					"id": 39,
