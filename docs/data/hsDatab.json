@@ -172,7 +172,9 @@
 									"name": "new Data",
 									"kind": 16384,
 									"kindString": "Constructor signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 72,
@@ -180,6 +182,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {
+												"isExported": true,
 												"isOptional": true
 											},
 											"type": {
@@ -187,13 +190,13 @@
 												"types": [
 													{
 														"type": "reference",
-														"name": "DataSet",
-														"id": 44
+														"id": 44,
+														"name": "DataSet"
 													},
 													{
 														"type": "reference",
-														"name": "DataTable",
-														"id": 146
+														"id": 146,
+														"name": "DataTable"
 													}
 												]
 											}
@@ -201,8 +204,8 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Data",
-										"id": 63
+										"id": 63,
+										"name": "Data"
 									}
 								}
 							],
@@ -234,11 +237,11 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"name": "DataRow",
-									"id": 145
+									"id": 145,
+									"name": "DataRow"
 								}
 							},
-							"defaultValue": " []"
+							"defaultValue": "[]"
 						},
 						{
 							"id": 121,
@@ -260,11 +263,11 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"name": "MetaStruct",
-									"id": 51
+									"id": 51,
+									"name": "MetaStruct"
 								}
 							},
-							"defaultValue": " []"
+							"defaultValue": "[]"
 						},
 						{
 							"id": 122,
@@ -302,7 +305,9 @@
 									"name": "allRows",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "A generator that provides the specified column value for each row in `Data` in sequence."
 									},
@@ -312,27 +317,29 @@
 											"name": "column",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "\n"
 											},
 											"type": {
 												"type": "reference",
-												"name": "ColumnReference",
-												"id": 143
+												"id": 143,
+												"name": "ColumnReference"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Iterable",
 										"typeArguments": [
 											{
 												"type": "reference",
-												"name": "DataVal",
-												"id": 144
+												"id": 144,
+												"name": "DataVal"
 											}
-										]
+										],
+										"name": "Iterable"
 									}
 								}
 							],
@@ -359,7 +366,9 @@
 									"name": "castData",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "void"
@@ -389,7 +398,9 @@
 									"name": "colAdd",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "adds a new column to the data set. if `newCol` already exists,\nthe column index is returned without change.",
 										"returns": "the index for the new column\n"
@@ -400,7 +411,9 @@
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "the name of the new column"
 											},
@@ -412,8 +425,8 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "MetaStruct",
-										"id": 51
+										"id": 51,
+										"name": "MetaStruct"
 									}
 								}
 							],
@@ -440,7 +453,9 @@
 									"name": "colInitialize",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "initializes the specifed column with values, adding a new column if needed.\nIf `val`is a function, it is called as ```\nval(colValue:DataVal, rowIndex:number, row:DataRow)\n```\n@param col the column to initialize\n@param initializer the value to initialize with, or a function whose return\nvalue is used to initialize the column\n@return the initialized column number"
 									},
@@ -450,11 +465,13 @@
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "ColumnReference",
-												"id": 143
+												"id": 143,
+												"name": "ColumnReference"
 											}
 										},
 										{
@@ -462,19 +479,21 @@
 											"name": "initializer",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "union",
 												"types": [
 													{
 														"type": "reference",
-														"name": "initFn",
-														"id": 165
+														"id": 165,
+														"name": "initFn"
 													},
 													{
 														"type": "reference",
-														"name": "DataVal",
-														"id": 144
+														"id": 144,
+														"name": "DataVal"
 													}
 												]
 											}
@@ -509,7 +528,9 @@
 									"name": "colName",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "returns the column name for the specified column.\n`col` can be either an index or a name.",
 										"returns": "the column name or `undefined`.\n"
@@ -520,11 +541,13 @@
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "ColumnReference",
-												"id": 143
+												"id": 143,
+												"name": "ColumnReference"
 											}
 										}
 									],
@@ -557,7 +580,9 @@
 									"name": "colNames",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "returns the names for all columns.",
 										"returns": "an array of strings with the names.\n"
@@ -594,7 +619,9 @@
 									"name": "colNumber",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "returns the column index of the specified column.\n`col` can be either an index or a name.",
 										"returns": "the column number or `undefined`.\n"
@@ -605,11 +632,13 @@
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "ColumnReference",
-												"id": 143
+												"id": 143,
+												"name": "ColumnReference"
 											}
 										}
 									],
@@ -642,7 +671,9 @@
 									"name": "colType",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "returns the column type for the specified column.\n`col` can be either an index or a name.",
 										"returns": "the column type.\n"
@@ -653,18 +684,20 @@
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "ColumnReference",
-												"id": 143
+												"id": 143,
+												"name": "ColumnReference"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Type",
-										"id": 171
+										"id": 171,
+										"name": "Type"
 									}
 								}
 							],
@@ -691,14 +724,16 @@
 									"name": "export",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "Exports to an object literal"
 									},
 									"type": {
 										"type": "reference",
-										"name": "DataSet",
-										"id": 44
+										"id": 44,
+										"name": "DataSet"
 									}
 								}
 							],
@@ -725,7 +760,9 @@
 									"name": "filter",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "filters this data set and returns a new data set with a\nshallow copy of rows that pass the `condition`.\nSee {@link DataFilters DataFilters} for rules and examples on how to construct conditions.",
 										"returns": "a new Data object with rows that pass the filter\n"
@@ -736,21 +773,23 @@
 											"name": "condition",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "filters"
 											},
 											"type": {
 												"type": "reference",
-												"name": "Condition",
-												"id": 10
+												"id": 10,
+												"name": "Condition"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Data",
-										"id": 63
+										"id": 63,
+										"name": "Data"
 									}
 								}
 							],
@@ -777,7 +816,9 @@
 									"name": "findDomain",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "modifies `domain` to include all values in column `col`.\nIf no `col` is specified, the range of data indexes is returned.",
 										"returns": "the updated domain\n"
@@ -789,6 +830,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {
+												"isExported": true,
 												"isOptional": true
 											},
 											"comment": {
@@ -796,8 +838,8 @@
 											},
 											"type": {
 												"type": "reference",
-												"name": "ColumnReference",
-												"id": 143
+												"id": 143,
+												"name": "ColumnReference"
 											}
 										},
 										{
@@ -806,6 +848,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {
+												"isExported": true,
 												"isOptional": true
 											},
 											"comment": {
@@ -813,15 +856,15 @@
 											},
 											"type": {
 												"type": "reference",
-												"name": "Domain",
-												"id": 142
+												"id": 142,
+												"name": "Domain"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Domain",
-										"id": 142
+										"id": 142,
+										"name": "Domain"
 									}
 								}
 							],
@@ -848,7 +891,9 @@
 									"name": "findTypes",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "Determines the type of data in `col`. An array of counts is created for all\nencountered types, sorted by descending frequency. THe most likely type in position 0\nof the array is returned.",
 										"returns": "the most likely type of data in `col`.\n"
@@ -859,14 +904,16 @@
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "the index of the column to be typed."
 											},
 											"type": {
 												"type": "reference",
-												"name": "ColumnReference",
-												"id": 143
+												"id": 143,
+												"name": "ColumnReference"
 											}
 										}
 									],
@@ -899,7 +946,9 @@
 									"name": "getColumn",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "Returns the values in the specified column as a new array."
 									},
@@ -909,14 +958,16 @@
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "the column to return.\n"
 											},
 											"type": {
 												"type": "reference",
-												"name": "ColumnReference",
-												"id": 143
+												"id": 143,
+												"name": "ColumnReference"
 											}
 										}
 									],
@@ -924,8 +975,8 @@
 										"type": "array",
 										"elementType": {
 											"type": "reference",
-											"name": "DataVal",
-											"id": 144
+											"id": 144,
+											"name": "DataVal"
 										}
 									}
 								}
@@ -953,7 +1004,9 @@
 									"name": "getData",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "returns the 2D array underlying the data base."
 									},
@@ -961,8 +1014,8 @@
 										"type": "array",
 										"elementType": {
 											"type": "reference",
-											"name": "DataRow",
-											"id": 145
+											"id": 145,
+											"name": "DataRow"
 										}
 									}
 								}
@@ -990,25 +1043,29 @@
 									"name": "getMeta",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 125,
 											"name": "col",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "ColumnReference",
-												"id": 143
+												"id": 143,
+												"name": "ColumnReference"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "MetaStruct",
-										"id": 51
+										"id": 51,
+										"name": "MetaStruct"
 									}
 								}
 							],
@@ -1035,7 +1092,9 @@
 									"name": "getName",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"returns": "the `name` field for this data base, if any\n"
 									},
@@ -1068,7 +1127,9 @@
 									"name": "importData",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "Imports data from an object literal or an array whos header row contains the column numbers"
 									},
@@ -1078,19 +1139,21 @@
 											"name": "dataset",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "union",
 												"types": [
 													{
 														"type": "reference",
-														"name": "DataSet",
-														"id": 44
+														"id": 44,
+														"name": "DataSet"
 													},
 													{
 														"type": "reference",
-														"name": "DataTable",
-														"id": 146
+														"id": 146,
+														"name": "DataTable"
 													}
 												]
 											}
@@ -1125,7 +1188,9 @@
 									"name": "map",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": " Maps one or more columns in each rows of values based\non the result of the `mapFn`, which behaves similarly to the Array.map() method.\nTwo modes are supported:",
 										"text": "## Array Mode\nIf `col` is omitted, the `mapFn` is passed the column arrays per row as parameter.\nThis allows for complex mapping combining conditions across multiple columns.\n```\ndata.map(function(values){\n   values[1] = values[3] * values[5];\n   return values;\n});\n```\nBe sure to return the `values` array as a result.\n\n## Column mode\nIf `col` is specified, either as index or by column name, the respective column value is passed\ninto `mapFn`, along with the row index and the entire row array. This allows for simple mapping.\n```\ndata.map('Price', function(value, i, values) {\n   return value * 2;\n});\n```",
@@ -1137,7 +1202,9 @@
 											"name": "mapFn",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "a function to implement the mapping,\ncalled on each row of the data set in turn as `mapFn(val, i, c, rows)`, where\n- `val`: the column value in the current row\n- `c`: the column index in the current row\n- `i`: the row index\n- `rows`: the rows being iterated over\n`    *\nfollows the same specifications as the function passed to Array.map().<br>\nFor column mode, some predefined map functions can be invoked by providing a\nrespective string instead of a function. The following functions are defined:\n <table>\n <tr><td>'noop'</td><td>replace value with itself, performing no operation.</td></tr>\n <tr><td>'cumulate'</td><td>replace value with the cumulative sum of values up to the current element.</td></tr>\n </table>\n"
 											},
@@ -1150,13 +1217,13 @@
 													},
 													{
 														"type": "reference",
-														"name": "mapFn",
-														"id": 118
+														"id": 118,
+														"name": "mapFn"
 													},
 													{
 														"type": "reference",
-														"name": "mapRowFn",
-														"id": 159
+														"id": 159,
+														"name": "mapRowFn"
 													}
 												]
 											}
@@ -1167,6 +1234,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {
+												"isExported": true,
 												"isOptional": true
 											},
 											"comment": {
@@ -1174,15 +1242,15 @@
 											},
 											"type": {
 												"type": "reference",
-												"name": "ColumnReference",
-												"id": 143
+												"id": 143,
+												"name": "ColumnReference"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Data",
-										"id": 63
+										"id": 63,
+										"name": "Data"
 									}
 								}
 							],
@@ -1209,7 +1277,9 @@
 									"name": "setData",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "sets `rows` as the data set. A copy of the rows array will be set."
 									},
@@ -1219,13 +1289,15 @@
 											"name": "rows",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "array",
 												"elementType": {
 													"type": "reference",
-													"name": "DataRow",
-													"id": 145
+													"id": 145,
+													"name": "DataRow"
 												}
 											}
 										},
@@ -1234,7 +1306,9 @@
 											"name": "names",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "an array of names that match the columns"
 											},
@@ -1251,7 +1325,9 @@
 											"name": "autoType",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "unless set to false, the method will attempt to determine the\ntype of data and automatically cast data points to their correct value\n"
 											},
@@ -1291,7 +1367,9 @@
 									"name": "sort",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"returns": "the Data object in order to allow for chaining.\n",
 										"tags": [
@@ -1307,7 +1385,9 @@
 											"name": "sortFn",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "a function to implement the conditions,\nfollows the same specifications as the function passed to Array.sort().\nSome predefined sort function can be invoked by providing a\nrespective string instead of a function. The following functions are defined:\n```\nascending    sort in ascending order.\ndescending   sort in decending order.\n```"
 											},
@@ -1320,8 +1400,8 @@
 													},
 													{
 														"type": "reference",
-														"name": "sortFn",
-														"id": 114
+														"id": 114,
+														"name": "sortFn"
 													}
 												]
 											}
@@ -1332,6 +1412,7 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {
+												"isExported": true,
 												"isOptional": true
 											},
 											"comment": {
@@ -1339,15 +1420,15 @@
 											},
 											"type": {
 												"type": "reference",
-												"name": "ColumnReference",
-												"id": 143
+												"id": 143,
+												"name": "ColumnReference"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Data",
-										"id": 63
+										"id": 63,
+										"name": "Data"
 									}
 								}
 							],
@@ -1413,7 +1494,7 @@
 											}
 										]
 									},
-									"defaultValue": "   <Type>'currency'"
+									"defaultValue": "<Type>'currency'"
 								},
 								{
 									"id": 67,
@@ -1458,7 +1539,7 @@
 											}
 										]
 									},
-									"defaultValue": "       <Type>'date'"
+									"defaultValue": "<Type>'date'"
 								},
 								{
 									"id": 66,
@@ -1503,7 +1584,7 @@
 											}
 										]
 									},
-									"defaultValue": "       <Type>'name'"
+									"defaultValue": "<Type>'name'"
 								},
 								{
 									"id": 65,
@@ -1548,7 +1629,7 @@
 											}
 										]
 									},
-									"defaultValue": "     <Type>'number'"
+									"defaultValue": "<Type>'number'"
 								},
 								{
 									"id": 69,
@@ -1593,7 +1674,7 @@
 											}
 										]
 									},
-									"defaultValue": "    <Type>'percent'"
+									"defaultValue": "<Type>'percent'"
 								}
 							],
 							"groups": [
@@ -1765,8 +1846,8 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"name": "DataRow",
-									"id": 145
+									"id": 145,
+									"name": "DataRow"
 								}
 							}
 						}
@@ -1886,8 +1967,8 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"name": "TypeStruct",
-									"id": 48
+									"id": 48,
+									"name": "TypeStruct"
 								}
 							}
 						}
@@ -1953,8 +2034,8 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "Type",
-								"id": 171
+								"id": 171,
+								"name": "Type"
 							}
 						}
 					],
@@ -2030,8 +2111,8 @@
 						"type": "array",
 						"elementType": {
 							"type": "reference",
-							"name": "DataVal",
-							"id": 144
+							"id": 144,
+							"name": "DataVal"
 						}
 					}
 				},
@@ -2164,18 +2245,18 @@
 						"types": [
 							{
 								"type": "reference",
-								"name": "NumDomain",
-								"id": 139
+								"id": 139,
+								"name": "NumDomain"
 							},
 							{
 								"type": "reference",
-								"name": "DateDomain",
-								"id": 140
+								"id": 140,
+								"name": "DateDomain"
 							},
 							{
 								"type": "reference",
-								"name": "NameDomain",
-								"id": 141
+								"id": 141,
+								"name": "NameDomain"
 							}
 						]
 					}
@@ -2336,25 +2417,31 @@
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"signatures": [
 								{
 									"id": 167,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 168,
 											"name": "colVal",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "DataVal",
-												"id": 144
+												"id": 144,
+												"name": "DataVal"
 											}
 										},
 										{
@@ -2362,7 +2449,9 @@
 											"name": "colIndex",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "number"
@@ -2373,18 +2462,20 @@
 											"name": "row",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "DataRow",
-												"id": 145
+												"id": 145,
+												"name": "DataRow"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "DataVal",
-										"id": 144
+										"id": 144,
+										"name": "DataVal"
 									}
 								}
 							],
@@ -2420,25 +2511,31 @@
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"signatures": [
 								{
 									"id": 154,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 155,
 											"name": "colVal",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "DataVal",
-												"id": 144
+												"id": 144,
+												"name": "DataVal"
 											}
 										},
 										{
@@ -2446,7 +2543,9 @@
 											"name": "colIndex",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "number"
@@ -2457,7 +2556,9 @@
 											"name": "rowIndex",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "number"
@@ -2468,21 +2569,23 @@
 											"name": "rows",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "array",
 												"elementType": {
 													"type": "reference",
-													"name": "DataRow",
-													"id": 145
+													"id": 145,
+													"name": "DataRow"
 												}
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "DataVal",
-										"id": 144
+										"id": 144,
+										"name": "DataVal"
 									}
 								}
 							],
@@ -2518,25 +2621,31 @@
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"signatures": [
 								{
 									"id": 161,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 162,
 											"name": "row",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "DataRow",
-												"id": 145
+												"id": 145,
+												"name": "DataRow"
 											}
 										},
 										{
@@ -2544,7 +2653,9 @@
 											"name": "rowIndex",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "number"
@@ -2555,21 +2666,23 @@
 											"name": "rows",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "array",
 												"elementType": {
 													"type": "reference",
-													"name": "DataRow",
-													"id": 145
+													"id": 145,
+													"name": "DataRow"
 												}
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "DataRow",
-										"id": 145
+										"id": 145,
+										"name": "DataRow"
 									}
 								}
 							],
@@ -2605,21 +2718,27 @@
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"signatures": [
 								{
 									"id": 149,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 150,
 											"name": "x",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "any"
@@ -2630,7 +2749,9 @@
 											"name": "y",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "any"
@@ -2672,7 +2793,7 @@
 						"type": "reference",
 						"name": "Log"
 					},
-					"defaultValue": " new Log('Data')"
+					"defaultValue": "new Log('Data')"
 				},
 				{
 					"id": 176,
@@ -2708,8 +2829,8 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "Type",
-										"id": 171
+										"id": 171,
+										"name": "Type"
 									}
 								},
 								{
@@ -2720,15 +2841,15 @@
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"name": "DataVal",
-										"id": 144
+										"id": 144,
+										"name": "DataVal"
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"name": "DataVal",
-								"id": 144
+								"id": 144,
+								"name": "DataVal"
 							}
 						}
 					],
@@ -2754,20 +2875,24 @@
 							"name": "findDomain",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"parameters": [
 								{
 									"id": 182,
 									"name": "data",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "array",
 										"elementType": {
 											"type": "reference",
-											"name": "DataRow",
-											"id": 145
+											"id": 145,
+											"name": "DataRow"
 										}
 									}
 								},
@@ -2776,7 +2901,9 @@
 									"name": "col",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "number"
@@ -2787,11 +2914,13 @@
 									"name": "type",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "Type",
-										"id": 171
+										"id": 171,
+										"name": "Type"
 									}
 								},
 								{
@@ -2799,18 +2928,20 @@
 									"name": "domain",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "Domain",
-										"id": 142
+										"id": 142,
+										"name": "Domain"
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"name": "Domain",
-								"id": 142
+								"id": 142,
+								"name": "Domain"
 							}
 						}
 					],
@@ -2856,15 +2987,15 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "DataVal",
-										"id": 144
+										"id": 144,
+										"name": "DataVal"
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"name": "Type",
-								"id": 171
+								"id": 171,
+								"name": "Type"
 							}
 						}
 					],
@@ -2910,8 +3041,8 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "DataVal",
-										"id": 144
+										"id": 144,
+										"name": "DataVal"
 									}
 								},
 								{
@@ -3056,8 +3187,8 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "RecursiveCondition",
-								"id": 12
+								"id": 12,
+								"name": "RecursiveCondition"
 							}
 						},
 						{
@@ -3078,8 +3209,8 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "RecursiveCondition",
-								"id": 12
+								"id": 12,
+								"name": "RecursiveCondition"
 							}
 						},
 						{
@@ -3100,8 +3231,8 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "RecursiveCondition",
-								"id": 12
+								"id": 12,
+								"name": "RecursiveCondition"
 							}
 						}
 					],
@@ -3138,14 +3269,18 @@
 							"name": "__index",
 							"kind": 8192,
 							"kindString": "Index signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"parameters": [
 								{
 									"id": 8,
 									"name": "colDesc",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "string"
@@ -3157,21 +3292,21 @@
 								"types": [
 									{
 										"type": "reference",
-										"name": "DataVal",
-										"id": 144
+										"id": 144,
+										"name": "DataVal"
 									},
 									{
 										"type": "array",
 										"elementType": {
 											"type": "reference",
-											"name": "DataVal",
-											"id": 144
+											"id": 144,
+											"name": "DataVal"
 										}
 									},
 									{
 										"type": "reference",
-										"name": "TermConditionFunction",
-										"id": 15
+										"id": 15,
+										"name": "TermConditionFunction"
 									}
 								]
 							}
@@ -3205,13 +3340,13 @@
 						"types": [
 							{
 								"type": "reference",
-								"name": "SetAndCondition",
-								"id": 2
+								"id": 2,
+								"name": "SetAndCondition"
 							},
 							{
 								"type": "reference",
-								"name": "TermAndCondition",
-								"id": 6
+								"id": 6,
+								"name": "TermAndCondition"
 							}
 						]
 					}
@@ -3236,13 +3371,13 @@
 						"types": [
 							{
 								"type": "reference",
-								"name": "IndexCondition",
-								"id": 11
+								"id": 11,
+								"name": "IndexCondition"
 							},
 							{
 								"type": "reference",
-								"name": "RecursiveCondition",
-								"id": 12
+								"id": 12,
+								"name": "RecursiveCondition"
 							}
 						]
 					}
@@ -3292,16 +3427,16 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"name": "AndCondition",
-									"id": 14
+									"id": 14,
+									"name": "AndCondition"
 								}
 							},
 							{
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"name": "IndexCondition",
-									"id": 11
+									"id": 11,
+									"name": "IndexCondition"
 								}
 							}
 						]
@@ -3327,13 +3462,13 @@
 						"types": [
 							{
 								"type": "reference",
-								"name": "AndCondition",
-								"id": 14
+								"id": 14,
+								"name": "AndCondition"
 							},
 							{
 								"type": "reference",
-								"name": "OrCondition",
-								"id": 13
+								"id": 13,
+								"name": "OrCondition"
 							}
 						]
 					}
@@ -3360,25 +3495,31 @@
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"signatures": [
 								{
 									"id": 17,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 18,
 											"name": "value",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "DataVal",
-												"id": 144
+												"id": 144,
+												"name": "DataVal"
 											}
 										},
 										{
@@ -3386,11 +3527,13 @@
 											"name": "row",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "DataRow",
-												"id": 145
+												"id": 145,
+												"name": "DataRow"
 											}
 										}
 									],
@@ -3429,7 +3572,7 @@
 						"type": "reference",
 						"name": "Log"
 					},
-					"defaultValue": " new Log('DataFilters')"
+					"defaultValue": "new Log('DataFilters')"
 				},
 				{
 					"id": 39,
@@ -3445,7 +3588,9 @@
 							"name": "filter",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"comment": {
 								"shortText": "filters a `Data` object for the given `Condition`s and returns a new `Data` object with those rows for which\n`cond` holds true.",
 								"returns": "a new `Data` object with the filtered rows\n"
@@ -3456,14 +3601,16 @@
 									"name": "data",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"text": "the `Data` object to filter"
 									},
 									"type": {
 										"type": "reference",
-										"name": "Data",
-										"id": 63
+										"id": 63,
+										"name": "Data"
 									}
 								},
 								{
@@ -3471,21 +3618,23 @@
 									"name": "cond",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"text": "the complex condition to test against"
 									},
 									"type": {
 										"type": "reference",
-										"name": "Condition",
-										"id": 10
+										"id": 10,
+										"name": "Condition"
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"name": "Data",
-								"id": 63
+								"id": 63,
+								"name": "Data"
 							}
 						}
 					],
@@ -3525,8 +3674,8 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "Condition",
-										"id": 10
+										"id": 10,
+										"name": "Condition"
 									}
 								},
 								{
@@ -3540,8 +3689,8 @@
 									},
 									"type": {
 										"type": "reference",
-										"name": "DataRow",
-										"id": 145
+										"id": 145,
+										"name": "DataRow"
 									}
 								},
 								{
@@ -3683,8 +3832,8 @@
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"name": "DataRow",
-										"id": 145
+										"id": 145,
+										"name": "DataRow"
 									}
 								},
 								{
@@ -3808,6 +3957,170 @@
 				"isExported": true
 			},
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/standalone/hsDatab/src/index.ts",
+			"children": [
+				{
+					"id": 195,
+					"name": "ColumnReference",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 143
+				},
+				{
+					"id": 203,
+					"name": "Condition",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 10
+				},
+				{
+					"id": 196,
+					"name": "Data",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 63
+				},
+				{
+					"id": 198,
+					"name": "DataRow",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 145
+				},
+				{
+					"id": 199,
+					"name": "DataSet",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 44
+				},
+				{
+					"id": 200,
+					"name": "DataTable",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 146
+				},
+				{
+					"id": 197,
+					"name": "DataVal",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 144
+				},
+				{
+					"id": 192,
+					"name": "DateDomain",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 140
+				},
+				{
+					"id": 194,
+					"name": "Domain",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 142
+				},
+				{
+					"id": 193,
+					"name": "NameDomain",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 141
+				},
+				{
+					"id": 191,
+					"name": "NumDomain",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 139
+				},
+				{
+					"id": 190,
+					"name": "NumRange",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 138
+				},
+				{
+					"id": 202,
+					"name": "Type",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 171
+				},
+				{
+					"id": 201,
+					"name": "Types",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 57
+				}
+			],
+			"groups": [
+				{
+					"title": "References",
+					"kind": 16777216,
+					"children": [
+						195,
+						203,
+						196,
+						198,
+						199,
+						200,
+						197,
+						192,
+						194,
+						193,
+						191,
+						190,
+						202,
+						201
+					]
+				}
+			],
 			"sources": [
 				{
 					"fileName": "index.ts",
@@ -3817,7 +4130,7 @@
 			]
 		},
 		{
-			"id": 190,
+			"id": 204,
 			"name": "\"overview\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3846,7 +4159,7 @@
 				43,
 				1,
 				189,
-				190
+				204
 			]
 		}
 	]
