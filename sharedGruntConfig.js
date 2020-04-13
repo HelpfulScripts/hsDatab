@@ -426,7 +426,7 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 console.log(`status: ${result.status}`);
                 if (result.stderr) { console.log(`error: ${result.stderr}`); }
             }
-        } catch(e) {}
+        } catch(e) { console.log(`...skipped`); }
     }
 
     function writeIndexJson() {
