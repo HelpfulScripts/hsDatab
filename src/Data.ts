@@ -567,7 +567,7 @@ export class Data {
                 this.castData();
             }
         } else {
-            log.warn(`invalid names setData:\n${log.inspect(names, 5)}`);
+            log.warn(`invalid names setData:\n${log.inspect(names, {depth:5})}`);
         }
     }
 
