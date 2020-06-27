@@ -3,7 +3,7 @@
 
  /** */
 import { Condition, filter } from './DataFilters';
-import { Log}                from 'hsutil'; const log = new Log('Data');
+import { Log }               from 'hsutil'; const log = new Log('Data');
 
 /** defines a [min-max] range */
 export type NumRange = [number, number];
