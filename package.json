@@ -1,8 +1,16 @@
 {
     "name": "hsdatab",
     "version": "2.4.27",
-    "main": "./index.js",
-    "types": "./index.d.ts",
+    "main":   "./cjs/index.js",
+    "module": "./esm/index.js",
+    "files":  ["bin/"],
+    "types": "./esm/index.d.ts",
+    "type": "module",
+    "scripts": {
+        "grunt": "grunt --gruntfile Gruntfile.cjs",
+        "prepublishOnly": "npm run grunt",
+        "postpublish": "npm version patch"
+        },
     "keywords": [
         "es6",
         "database"
@@ -12,10 +20,6 @@
     "author": {
         "name": "masterscripter",
         "email": "helpfulscripts@gmail.com"
-    },
-    "scripts": {
-        "build": "grunt build",
-        "test": "grunt test"
     },
     "license": "MIT",
     "repository": {
