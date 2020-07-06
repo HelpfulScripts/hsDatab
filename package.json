@@ -58,6 +58,6 @@
         "webpack": "^4.41.3"
     },
     "dependencies": {
-        "hsutil": "3.x.x",
+        "hsutil": "3.x.x"
     }
 }
