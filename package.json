@@ -37,27 +37,27 @@
     "devDependencies": {
         "@types/node": "14.0.x",
         "@types/mithril": "^2.0.2",
-        "@types/jest": "^24.0.24",
-        "grunt": "^1.0.4",
+        "@types/jest": "26.x.x",
+        "grunt": "1.1.x",
         "grunt-contrib-clean": "^2.0.0",
         "grunt-contrib-concat": "^1.0.1",
         "grunt-contrib-copy": "^1.0.0",
         "grunt-contrib-less": "^2.0.0",
         "grunt-contrib-uglify": "^4.0.0",
         "grunt-contrib-watch": "^1.1.0",
-        "coveralls": "^3.0.9",
+        "coveralls": "3.1.x",
         "grunt-coveralls": "^2.0.0",
         "grunt-ts": "^6.0.0-beta.22",
         "grunt-webpack": "^3.1.3",
         "jest": "^24.9.0",
         "eslint": "^6.8.0",
-        "ts-jest": "25.5.x",
+        "ts-jest": "26.x.x",
         "typedoc": "^0.15.5",
-        "typescript": "^3.7.3",
+        "typescript": "3.x.x",
         "terser-webpack-plugin": "^2.3.1",
         "webpack": "^4.41.3"
     },
     "dependencies": {
-        "hsutil": "3.5.x"
+        "hsutil": "3.x.x",
     }
 }
