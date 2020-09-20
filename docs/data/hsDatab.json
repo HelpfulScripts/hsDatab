@@ -2209,17 +2209,7 @@
 						}
 					],
 					"type": {
-						"type": "tuple",
-						"elements": [
-							{
-								"type": "reference",
-								"name": "Date"
-							},
-							{
-								"type": "reference",
-								"name": "Date"
-							}
-						]
+						"type": "tuple"
 					}
 				},
 				{
@@ -2306,17 +2296,7 @@
 						}
 					],
 					"type": {
-						"type": "tuple",
-						"elements": [
-							{
-								"type": "intrinsic",
-								"name": "number"
-							},
-							{
-								"type": "intrinsic",
-								"name": "number"
-							}
-						]
+						"type": "tuple"
 					}
 				},
 				{
@@ -2338,17 +2318,7 @@
 						}
 					],
 					"type": {
-						"type": "tuple",
-						"elements": [
-							{
-								"type": "intrinsic",
-								"name": "number"
-							},
-							{
-								"type": "intrinsic",
-								"name": "number"
-							}
-						]
+						"type": "tuple"
 					}
 				},
 				{
